@@ -1,0 +1,6 @@
+solidworks --> save --> stl
+
+Download CURA
+--> stl file invoegen
+--> settings (meestal de default settings en kop1 wit 0.8 mm
+--> save to USB
