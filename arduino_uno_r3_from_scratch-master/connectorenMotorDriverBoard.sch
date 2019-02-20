@@ -1,0 +1,84 @@
+EESchema Schematic File Version 4
+LIBS:Arduino_Uno_R3_From_Scratch-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 11 11
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L degson:DG3XX-03-3.5 STBY
+U 3 1 5C6FEB38
+P 1575 2200
+F 0 "STBY" H 1569 2080 45  0000 C CNN
+F 1 "DG3XX-03-3.5" H 1575 2200 45  0001 L BNN
+F 2 "degson_DG350-3.5-03P" H 1605 2350 20  0001 C CNN
+F 3 "" H 1575 2200 50  0001 C CNN
+	3    1575 2200
+	-1   0    0    1   
+$EndComp
+$Comp
+L degson:DG3XX-03-3.5 STBY
+U 2 1 5C6FEAAF
+P 1575 1950
+F 0 "STBY" H 1569 1830 45  0000 C CNN
+F 1 "DG3XX-03-3.5" H 1575 1950 45  0001 L BNN
+F 2 "degson_DG350-3.5-03P" H 1605 2100 20  0001 C CNN
+F 3 "" H 1575 1950 50  0001 C CNN
+	2    1575 1950
+	-1   0    0    1   
+$EndComp
+$Comp
+L degson:DG3XX-03-3.5 STBY
+U 1 1 5C6FE9A2
+P 1575 1725
+F 0 "STBY" H 1569 1605 45  0000 C CNN
+F 1 "DG3XX-03-3.5" H 1575 1725 45  0001 L BNN
+F 2 "degson_DG350-3.5-03P" H 1605 1875 20  0001 C CNN
+F 3 "" H 1575 1725 50  0001 C CNN
+	1    1575 1725
+	-1   0    0    1   
+$EndComp
+Text HLabel 1925 2200 2    50   Input ~ 0
+STBY
+$Comp
+L Arduino_Uno_R3_From_Scratch:5V_LDO #PWR?
+U 1 1 5C70421F
+P 2325 1900
+F 0 "#PWR?" H 2325 1990 20  0001 C CNN
+F 1 "5V_LDO" H 2321 2038 30  0000 C CNN
+F 2 "" H 2325 1900 60  0000 C CNN
+F 3 "" H 2325 1900 60  0000 C CNN
+	1    2325 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 1950 2325 1950
+Wire Wire Line
+	2325 1950 2325 1900
+$Comp
+L power:GND #PWR?
+U 1 1 5C704253
+P 2700 1750
+F 0 "#PWR?" H 2700 1500 50  0001 C CNN
+F 1 "GND" H 2705 1577 50  0000 C CNN
+F 2 "" H 2700 1750 50  0001 C CNN
+F 3 "" H 2700 1750 50  0001 C CNN
+	1    2700 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 1725 2700 1725
+Wire Wire Line
+	2700 1725 2700 1750
+Wire Wire Line
+	1675 2200 1925 2200
+$EndSCHEMATC
