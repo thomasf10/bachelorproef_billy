@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# 74HC1G04_74HC1G04
+# Arduino_Uno_R3_From_Scratch-rescue:74HC1G04-74HC1G04
 #
-DEF 74HC1G04_74HC1G04 U 0 40 Y Y 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:74HC1G04-74HC1G04 U 0 40 Y Y 1 F N
 F0 "U" -50 50 50 H V C CNN
-F1 "74HC1G04_74HC1G04" -50 150 50 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:74HC1G04-74HC1G04" -50 150 50 H V C CNN
 F2 "" -50 150 50 H I C CNN
 F3 "" -50 150 50 H I C CNN
 DRAW
@@ -18,11 +18,11 @@ X Vcc 5 -150 -100 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch-rescue_BARREL_JACK
+# Arduino_Uno_R3_From_Scratch-rescue:BARREL_JACK
 #
-DEF Arduino_Uno_R3_From_Scratch-rescue_BARREL_JACK CON 0 40 Y Y 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:BARREL_JACK CON 0 40 Y Y 1 F N
 F0 "CON" 0 250 60 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch-rescue_BARREL_JACK" 0 -200 60 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:BARREL_JACK" 0 -200 60 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -39,11 +39,11 @@ X ~ 3 300 0 200 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch-rescue_CONN_01X06
+# Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06
 #
-DEF Arduino_Uno_R3_From_Scratch-rescue_CONN_01X06 P 0 40 Y N 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P 0 40 Y N 1 F N
 F0 "P" 0 350 50 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch-rescue_CONN_01X06" 100 0 50 V V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06" 100 0 50 V V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -69,11 +69,11 @@ X P6 6 -200 -250 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch-rescue_CONN_01X08
+# Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08
 #
-DEF Arduino_Uno_R3_From_Scratch-rescue_CONN_01X08 P 0 40 Y N 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P 0 40 Y N 1 F N
 F0 "P" 0 450 50 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch-rescue_CONN_01X08" 100 0 50 V V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08" 100 0 50 V V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -103,11 +103,11 @@ X P8 8 -200 -350 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch-rescue_CONN_02X03
+# Arduino_Uno_R3_From_Scratch-rescue:CONN_02X03
 #
-DEF Arduino_Uno_R3_From_Scratch-rescue_CONN_02X03 P 0 1 Y N 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:CONN_02X03 P 0 1 Y N 1 F N
 F0 "P" 0 200 50 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch-rescue_CONN_02X03" 0 -200 50 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:CONN_02X03" 0 -200 50 H V C CNN
 F2 "" 0 -1200 60 H V C CNN
 F3 "" 0 -1200 60 H V C CNN
 $FPLIST
@@ -133,11 +133,11 @@ X P6 6 250 -100 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch-rescue_LD1117S50TR
+# Arduino_Uno_R3_From_Scratch-rescue:LD1117S50TR
 #
-DEF Arduino_Uno_R3_From_Scratch-rescue_LD1117S50TR U 0 30 Y Y 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:LD1117S50TR U 0 30 Y Y 1 F N
 F0 "U" 0 250 40 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch-rescue_LD1117S50TR" 0 200 40 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:LD1117S50TR" 0 200 40 H V C CNN
 F2 "SOT-223" 0 100 40 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -151,11 +151,11 @@ X VI 3 -400 50 150 R 40 40 1 1 W
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch-rescue_LP2985LV
+# Arduino_Uno_R3_From_Scratch-rescue:LP2985LV
 #
-DEF Arduino_Uno_R3_From_Scratch-rescue_LP2985LV U 0 30 Y Y 1 F N
+DEF Arduino_Uno_R3_From_Scratch-rescue:LP2985LV U 0 30 Y Y 1 F N
 F0 "U" 200 -450 60 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch-rescue_LP2985LV" 0 450 60 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch-rescue:LP2985LV" 0 450 60 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -168,11 +168,11 @@ X VOUT 5 800 300 300 L 60 60 1 1 w
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch_3V3_LDO
+# Arduino_Uno_R3_From_Scratch:3V3_LDO
 #
-DEF Arduino_Uno_R3_From_Scratch_3V3_LDO #PWR 0 0 Y Y 1 F P
+DEF Arduino_Uno_R3_From_Scratch:3V3_LDO #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -40 30 H I C CNN
-F1 "Arduino_Uno_R3_From_Scratch_3V3_LDO" 0 120 30 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch:3V3_LDO" 0 120 30 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 ALIAS +3,3V
@@ -183,11 +183,11 @@ X 3V3_LDO 1 0 0 0 U 30 30 0 0 W N
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch_5V_LDO
+# Arduino_Uno_R3_From_Scratch:5V_LDO
 #
-DEF Arduino_Uno_R3_From_Scratch_5V_LDO #PWR 0 40 Y Y 1 F P
+DEF Arduino_Uno_R3_From_Scratch:5V_LDO #PWR 0 40 Y Y 1 F P
 F0 "#PWR" 0 90 20 H I C CNN
-F1 "Arduino_Uno_R3_From_Scratch_5V_LDO" 0 120 30 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch:5V_LDO" 0 120 30 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -197,11 +197,11 @@ X 5V_LDO 1 0 0 0 U 20 20 0 0 W N
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch_CERAMIC_RESONATOR
+# Arduino_Uno_R3_From_Scratch:CERAMIC_RESONATOR
 #
-DEF Arduino_Uno_R3_From_Scratch_CERAMIC_RESONATOR XTAL 0 40 Y N 1 F N
+DEF Arduino_Uno_R3_From_Scratch:CERAMIC_RESONATOR XTAL 0 40 Y N 1 F N
 F0 "XTAL" 0 150 50 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch_CERAMIC_RESONATOR" 50 -100 40 H V L CNN
+F1 "Arduino_Uno_R3_From_Scratch:CERAMIC_RESONATOR" 50 -100 40 H V L CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -214,11 +214,11 @@ X P3 3 400 50 250 L 60 60 1 1 P I
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch_RESET_SWITCH
+# Arduino_Uno_R3_From_Scratch:RESET_SWITCH
 #
-DEF Arduino_Uno_R3_From_Scratch_RESET_SWITCH SW 0 40 Y Y 1 F N
+DEF Arduino_Uno_R3_From_Scratch:RESET_SWITCH SW 0 40 Y Y 1 F N
 F0 "SW" 0 -200 60 H V C CNN
-F1 "Arduino_Uno_R3_From_Scratch_RESET_SWITCH" 0 250 60 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch:RESET_SWITCH" 0 250 60 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -234,11 +234,11 @@ X ~ 4 200 -100 100 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# Arduino_Uno_R3_From_Scratch_Vin
+# Arduino_Uno_R3_From_Scratch:Vin
 #
-DEF Arduino_Uno_R3_From_Scratch_Vin #PWR 0 40 Y Y 1 F P
+DEF Arduino_Uno_R3_From_Scratch:Vin #PWR 0 40 Y Y 1 F P
 F0 "#PWR" 0 90 20 H I C CNN
-F1 "Arduino_Uno_R3_From_Scratch_Vin" 0 120 30 H V C CNN
+F1 "Arduino_Uno_R3_From_Scratch:Vin" 0 120 30 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -249,11 +249,11 @@ X Vin 1 0 0 0 U 20 20 0 0 W N
 ENDDRAW
 ENDDEF
 #
-# Connector_Screw_Terminal_01x04
+# Connector:Screw_Terminal_01x04
 #
-DEF Connector_Screw_Terminal_01x04 J 0 40 Y N 1 F N
+DEF Connector:Screw_Terminal_01x04 J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "Connector_Screw_Terminal_01x04" 0 -300 50 H V C CNN
+F1 "Connector:Screw_Terminal_01x04" 0 -300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -280,11 +280,11 @@ X Pin_4 4 -200 -200 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_C
+# Device:C
 #
-DEF Device_C C 0 10 N Y 1 F N
+DEF Device:C C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "Device_C" 25 -100 50 H V L CNN
+F1 "Device:C" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -298,11 +298,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_CP
+# Device:CP
 #
-DEF Device_CP C 0 10 N Y 1 F N
+DEF Device:CP C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "Device_CP" 25 -100 50 H V L CNN
+F1 "Device:CP" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -321,11 +321,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_CP1
+# Device:CP1
 #
-DEF Device_CP1 C 0 10 N N 1 F N
+DEF Device:CP1 C 0 10 N N 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "Device_CP1" 25 -100 50 H V L CNN
+F1 "Device:CP1" 25 -100 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -341,11 +341,11 @@ X ~ 2 0 -150 130 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_D
+# Device:D
 #
-DEF Device_D D 0 40 N N 1 F N
+DEF Device:D D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "Device_D" 0 -100 50 H V C CNN
+F1 "Device:D" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -363,11 +363,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_R
+# Device:R
 #
-DEF Device_R R 0 0 N Y 1 F N
+DEF Device:R R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "Device_R" 0 0 50 V V C CNN
+F1 "Device:R" 0 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -380,11 +380,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Driver_Motor_L298P
+# Driver_Motor:L298P
 #
-DEF Driver_Motor_L298P U 0 40 Y Y 1 F N
+DEF Driver_Motor:L298P U 0 40 Y Y 1 F N
 F0 "U" -400 650 50 H V C CNN
-F1 "Driver_Motor_L298P" 400 -650 50 H V C CNN
+F1 "Driver_Motor:L298P" 400 -650 50 H V C CNN
 F2 "" 150 250 50 H I C CNN
 F3 "" 150 250 50 H I C CNN
 DRAW
@@ -412,11 +412,11 @@ X IN2 9 -600 400 100 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# MFN_Atmel_ATMEGA328P-PU
+# MFN_Atmel:ATMEGA328P-PU
 #
-DEF MFN_Atmel_ATMEGA328P-PU U 0 40 Y Y 1 F N
+DEF MFN_Atmel:ATMEGA328P-PU U 0 40 Y Y 1 F N
 F0 "U" 950 -2600 60 H V C CNN
-F1 "MFN_Atmel_ATMEGA328P-PU" 0 2550 60 H V C CNN
+F1 "MFN_Atmel:ATMEGA328P-PU" 0 2550 60 H V C CNN
 F2 "" -100 1500 60 H V C CNN
 F3 "" -100 1500 60 H V C CNN
 DRAW
@@ -452,11 +452,11 @@ X XTAL1 9 -1200 700 300 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# power_GND
+# power:GND
 #
-DEF power_GND #PWR 0 0 Y Y 1 F P
+DEF power:GND #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "power_GND" 0 -150 50 H V C CNN
+F1 "power:GND" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -465,11 +465,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# pspice_DIODE
+# pspice:DIODE
 #
-DEF pspice_DIODE D 0 40 Y N 1 F N
+DEF pspice:DIODE D 0 40 Y N 1 F N
 F0 "D" 0 150 50 H V C CNN
-F1 "pspice_DIODE" 0 -175 50 H V C CNN
+F1 "pspice:DIODE" 0 -175 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
