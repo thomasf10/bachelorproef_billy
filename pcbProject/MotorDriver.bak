@@ -29,48 +29,14 @@ F 3 "https://toshiba.semicon-storage.com/us/product/linear/motordriver/detail.TB
 $EndComp
 Text HLabel 4350 3150 2    50   Input ~ 0
 A01
-Wire Wire Line
-	4100 3150 4200 3150
-Wire Wire Line
-	4200 3150 4200 3250
-Wire Wire Line
-	4200 3250 4100 3250
-Connection ~ 4200 3150
-Wire Wire Line
-	4200 3150 4350 3150
 Text HLabel 4350 3350 2    50   Input ~ 0
 A02
 Wire Wire Line
-	4100 3350 4200 3350
-Wire Wire Line
 	4100 3450 4200 3450
-Wire Wire Line
-	4200 3450 4200 3350
-Connection ~ 4200 3350
-Wire Wire Line
-	4200 3350 4350 3350
 Text HLabel 4350 3650 2    50   Input ~ 0
 B01
-Wire Wire Line
-	4100 3650 4200 3650
-Wire Wire Line
-	4100 3750 4200 3750
-Wire Wire Line
-	4200 3750 4200 3650
-Connection ~ 4200 3650
-Wire Wire Line
-	4200 3650 4350 3650
 Text HLabel 4350 3850 2    50   Input ~ 0
 B02
-Wire Wire Line
-	4100 3850 4200 3850
-Wire Wire Line
-	4100 3950 4200 3950
-Wire Wire Line
-	4200 3950 4200 3850
-Connection ~ 4200 3850
-Wire Wire Line
-	4200 3850 4350 3850
 $Comp
 L power:GND #PWR0110
 U 1 1 5C6EA75B
@@ -318,4 +284,38 @@ Wire Wire Line
 	5150 3850 5325 3850
 Wire Wire Line
 	5150 3950 5325 3950
+Wire Wire Line
+	4100 3150 4200 3150
+Wire Wire Line
+	4100 3250 4200 3250
+Wire Wire Line
+	4200 3250 4200 3150
+Connection ~ 4200 3150
+Wire Wire Line
+	4200 3150 4350 3150
+Wire Wire Line
+	4200 3350 4200 3450
+Wire Wire Line
+	4100 3350 4200 3350
+Wire Wire Line
+	4200 3350 4350 3350
+Connection ~ 4200 3350
+Wire Wire Line
+	4100 3650 4200 3650
+Wire Wire Line
+	4100 3750 4200 3750
+Wire Wire Line
+	4200 3750 4200 3650
+Connection ~ 4200 3650
+Wire Wire Line
+	4200 3650 4350 3650
+Wire Wire Line
+	4100 3850 4200 3850
+Wire Wire Line
+	4100 3950 4200 3950
+Wire Wire Line
+	4200 3950 4200 3850
+Connection ~ 4200 3850
+Wire Wire Line
+	4200 3850 4350 3850
 $EndSCHEMATC
