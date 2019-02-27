@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:sensormodule-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -13,50 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Sensor_Proximity:QRE1113GR U1
-U 1 1 5C6D34C5
-P 3475 2100
-F 0 "U1" H 3475 2417 50  0000 C CNN
-F 1 "QRE1113GR" H 3475 2326 50  0000 C CNN
-F 2 "OptoDevice:Everlight_ITR8307" H 3475 1900 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 3475 2200 50  0001 C CNN
-	1    3475 2100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Sensor_Proximity:QRE1113GR U2
-U 1 1 5C6D3505
-P 4250 2100
-F 0 "U2" H 4250 2417 50  0000 C CNN
-F 1 "QRE1113GR" H 4250 2326 50  0000 C CNN
-F 2 "OptoDevice:Everlight_ITR8307" H 4250 1900 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 4250 2200 50  0001 C CNN
-	1    4250 2100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Sensor_Proximity:QRE1113GR U4
-U 1 1 5C6D3527
-P 5725 2100
-F 0 "U4" H 5725 2417 50  0000 C CNN
-F 1 "QRE1113GR" H 5725 2326 50  0000 C CNN
-F 2 "OptoDevice:Everlight_ITR8307" H 5725 1900 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5725 2200 50  0001 C CNN
-	1    5725 2100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Sensor_Proximity:QRE1113GR U3
-U 1 1 5C6D354F
-P 5000 2100
-F 0 "U3" H 5000 2417 50  0000 C CNN
-F 1 "QRE1113GR" H 5000 2326 50  0000 C CNN
-F 2 "OptoDevice:Everlight_ITR8307" H 5000 1900 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5000 2200 50  0001 C CNN
-	1    5000 2100
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3775 2200 3775 2425
 $Comp
@@ -109,7 +66,7 @@ L Device:R R2
 U 1 1 5C6D394E
 P 3775 1675
 F 0 "R2" H 3845 1721 50  0000 L CNN
-F 1 "10k" H 3575 1700 50  0000 L CNN
+F 1 "47k" H 3575 1700 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3705 1675 50  0001 C CNN
 F 3 "~" H 3775 1675 50  0001 C CNN
 	1    3775 1675
@@ -120,7 +77,7 @@ L Device:R R4
 U 1 1 5C6D39B0
 P 4550 1675
 F 0 "R4" H 4620 1721 50  0000 L CNN
-F 1 "10k" H 4325 1700 50  0000 L CNN
+F 1 "47k" H 4325 1700 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4480 1675 50  0001 C CNN
 F 3 "~" H 4550 1675 50  0001 C CNN
 	1    4550 1675
@@ -172,7 +129,7 @@ L Device:R R6
 U 1 1 5C6D4094
 P 5300 1675
 F 0 "R6" H 5370 1721 50  0000 L CNN
-F 1 "10k" H 5100 1725 50  0000 L CNN
+F 1 "47k" H 5100 1725 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5230 1675 50  0001 C CNN
 F 3 "~" H 5300 1675 50  0001 C CNN
 	1    5300 1675
@@ -194,7 +151,7 @@ L Device:R R8
 U 1 1 5C6D410C
 P 6025 1675
 F 0 "R8" H 6095 1721 50  0000 L CNN
-F 1 "10k" H 6095 1630 50  0000 L CNN
+F 1 "47k" H 6095 1630 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5955 1675 50  0001 C CNN
 F 3 "~" H 6025 1675 50  0001 C CNN
 	1    6025 1675
@@ -341,4 +298,48 @@ Wire Wire Line
 Wire Wire Line
 	2475 2425 2475 2125
 Connection ~ 3175 2425
+$Comp
+L Sensor_Proximity:QRE1113 U1
+U 1 1 5C766DAC
+P 3475 2100
+F 0 "U1" H 3475 2417 50  0000 C CNN
+F 1 "QRE1113" H 3475 2326 50  0000 C CNN
+F 2 "OptoDevice:OnSemi_CASE100CY" H 3475 1900 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 3475 2200 50  0001 C CNN
+	1    3475 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Proximity:QRE1113 U2
+U 1 1 5C7671CA
+P 4250 2100
+F 0 "U2" H 4250 2417 50  0000 C CNN
+F 1 "QRE1113" H 4250 2326 50  0000 C CNN
+F 2 "OptoDevice:OnSemi_CASE100CY" H 4250 1900 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 4250 2200 50  0001 C CNN
+	1    4250 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Proximity:QRE1113 U3
+U 1 1 5C76720A
+P 5000 2100
+F 0 "U3" H 5000 2417 50  0000 C CNN
+F 1 "QRE1113" H 5000 2326 50  0000 C CNN
+F 2 "OptoDevice:OnSemi_CASE100CY" H 5000 1900 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5000 2200 50  0001 C CNN
+	1    5000 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Proximity:QRE1113 U4
+U 1 1 5C76725A
+P 5725 2100
+F 0 "U4" H 5725 2417 50  0000 C CNN
+F 1 "QRE1113" H 5725 2326 50  0000 C CNN
+F 2 "OptoDevice:OnSemi_CASE100CY" H 5725 1900 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5725 2200 50  0001 C CNN
+	1    5725 2100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
