@@ -1,0 +1,27 @@
+C:	47 uF		2 	elco's
+	0.1 uF		3x  	gewoon
+	10u		4x	gewoon
+	2.2 uF			gewoon	
+	100n 		6x	gewoon
+	0.47 uF			elco's
+
+pinnetjes
+
+LED:	groen:		1x
+	blauw:		4x
+
+TCA9554PWR	2x		(io expander)
+TB6612FNG	2x		(motor driver)
+
+Degson input blokje
+
+R:	470		5x
+	10k		6x
+	1		2x
+	1M		1x
+
+switch
+Atmega328P-AU
+CSTCE16MOV53-RO		oscillatorkristal
+LD1117S50TR
+LP2985 -33DBVR

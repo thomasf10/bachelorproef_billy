@@ -15,26 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P2
-U 1 1 55E94764
-P 6250 3325
-F 0 "P2" H 6400 3200 60  0000 L CNN
-F 1 "Analog Header (AD)" H 6400 3325 60  0000 L CNN
-F 2 "~" H 6250 3325 60  0000 C CNN
-F 3 "http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf" H 6250 3325 60  0001 C CNN
-F 4 "Connector Header 6 Position 0.100\" (2.54mm) Gold Surface Mount" H 6250 3325 60  0001 C CNN "Characteristics"
-F 5 "Shield Header 6POS - ANLG" H 6250 3325 60  0001 C CNN "Description"
-F 6 "Sullins Connector" H 6250 3325 60  0001 C CNN "MFN"
-F 7 "NPPC061KFXC-RC" H 6250 3325 60  0001 C CNN "MFP"
-F 8 "SMD" H 6250 3325 60  0001 C CNN "Package ID"
-F 9 "ANY" H 6250 3325 60  0001 C CNN "Source"
-F 10 "N" H 6250 3325 60  0001 C CNN "Critical"
-F 11 "Shield_Headers" H 6250 3325 60  0001 C CNN "Subsystem"
-F 12 "~" H 6250 3325 60  0001 C CNN "Notes"
-	1    6250 3325
-	1    0    0    1   
-$EndComp
-$Comp
 L Arduino_Uno_R3_From_Scratch:5V_LDO #PWR035
 U 1 1 55E95D7A
 P 5700 1875
@@ -69,22 +49,14 @@ F 3 "~" H 5950 1875 60  0000 C CNN
 $EndComp
 Text HLabel 4800 2725 0    40   Input ~ 0
 328P_RESET
-Text HLabel 4775 3275 0    40   Input ~ 0
+Text HLabel 4800 3475 0    40   Input ~ 0
 ARD_AN3
-Text HLabel 4775 3375 0    40   Input ~ 0
+Text HLabel 4800 3575 0    40   Input ~ 0
 ARD_AN2
-Text HLabel 4775 3475 0    40   Input ~ 0
+Text HLabel 4800 3675 0    40   Input ~ 0
 ARD_AN1
-Text HLabel 4775 3575 0    40   Input ~ 0
+Text HLabel 4800 3775 0    40   Input ~ 0
 ARD_AN0
-Wire Wire Line
-	4775 3575 6050 3575
-Wire Wire Line
-	6050 3475 4775 3475
-Wire Wire Line
-	4775 3375 6050 3375
-Wire Wire Line
-	6050 3275 4775 3275
 Text HLabel 4775 5175 0    40   Input ~ 0
 ARD_DIG7
 Text HLabel 4775 5275 0    40   Input ~ 0
@@ -137,14 +109,10 @@ F 12 "~" H 6250 5525 60  0001 C CNN "Notes"
 	1    6250 5525
 	1    0    0    -1  
 $EndComp
-Text HLabel 4800 3175 0    40   Input ~ 0
+Text HLabel 4825 3375 0    40   Input ~ 0
 ARD_AN4/SDA
-Text HLabel 4800 3075 0    40   Input ~ 0
+Text HLabel 4825 3275 0    40   Input ~ 0
 ARD_AN5/SCL
-Wire Wire Line
-	4800 3075 6050 3075
-Wire Wire Line
-	4800 3175 6050 3175
 Text HLabel 4750 4800 0    40   Input ~ 0
 ARD_DIG8
 Text HLabel 4750 4700 0    40   Input ~ 0
@@ -265,4 +233,35 @@ Wire Wire Line
 	6050 4800 4750 4800
 Wire Wire Line
 	6050 4700 4750 4700
+$Comp
+L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P2
+U 1 1 5C79CCDA
+P 6250 3425
+F 0 "P2" H 6168 2850 50  0000 C CNN
+F 1 "P2 Analog Header (AD)" H 6825 3400 50  0000 C CNN
+F 2 "" H 6250 3425 60  0000 C CNN
+F 3 "" H 6250 3425 60  0000 C CNN
+	1    6250 3425
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4800 3775 6050 3775
+Wire Wire Line
+	4800 3675 6050 3675
+Wire Wire Line
+	4800 3575 6050 3575
+Wire Wire Line
+	4800 3475 6050 3475
+Wire Wire Line
+	4825 3375 6050 3375
+Wire Wire Line
+	4825 3275 6050 3275
+Text HLabel 4825 3175 0    50   Input ~ 0
+ARD_AN6
+Text HLabel 4825 3075 0    50   Input ~ 0
+ARD_AN7
+Wire Wire Line
+	4825 3175 6050 3175
+Wire Wire Line
+	4825 3075 6050 3075
 $EndSCHEMATC

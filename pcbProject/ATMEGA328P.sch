@@ -513,4 +513,12 @@ Wire Wire Line
 	3750 1950 10900 1950
 Wire Wire Line
 	1975 3550 1975 3275
+Text HLabel 4000 2950 0    40   Input ~ 0
+ARD_AN6
+Text HLabel 4000 3050 0    40   Input ~ 0
+ARD_AN7
+Wire Wire Line
+	4000 2950 4225 2950
+Wire Wire Line
+	4000 3050 4225 3050
 $EndSCHEMATC

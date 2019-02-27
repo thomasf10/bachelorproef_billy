@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>C:\Users\Gebruiker\Desktop\project\arduino_uno_r3_from_scratch-master\Arduino_Uno_R3_From_Scratch.sch</source>
-    <date>08/02/2019 11:06:28</date>
+    <source>C:\Users\Gebruiker\Documents\3e bachler\project\projectGitHub\bachelorproef_billy\pcbProject\Arduino_Uno_R3_From_Scratch.sch</source>
+    <date>27/02/2019 14:09:07</date>
     <tool>Eeschema (5.0.1)-3</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -69,26 +69,78 @@
         <comment number="4" value=""/>
       </title_block>
     </sheet>
-    <sheet number="6" name="/Driver/" tstamps="/5BE447F1/">
+    <sheet number="6" name="/PullUpResisters/" tstamps="/5BE519F1/">
       <title_block>
         <title/>
         <company/>
         <rev/>
         <date/>
-        <source>Driver.sch</source>
+        <source>PullUpResisters.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
         <comment number="4" value=""/>
       </title_block>
     </sheet>
-    <sheet number="7" name="/MotorOutput/" tstamps="/5BE519F1/">
+    <sheet number="7" name="/LEDs/" tstamps="/5C6DA90A/">
       <title_block>
         <title/>
         <company/>
         <rev/>
         <date/>
-        <source>MotorOutput.sch</source>
+        <source>LEDs.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="8" name="/DecouplingCapacitors/" tstamps="/5C6DD8AC/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>DecouplingCapacitors.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="9" name="/MotorDriver/" tstamps="/5BE447F1/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>MotorDriver.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="10" name="/IOExpander/" tstamps="/5C6F44AE/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>IOExpander.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="11" name="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>connectorenMotorDriverBoard.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
@@ -97,25 +149,6 @@
     </sheet>
   </design>
   <components>
-    <comp ref="D1">
-      <value>DIODE</value>
-      <footprint>~</footprint>
-      <datasheet>http://www.onsemi.com/pub_link/Collateral/MRA4003T3-D.PDF</datasheet>
-      <fields>
-        <field name="Characteristics">1A, 1000V, SILICON, SIGNAL DIODE, ROHS COMPLIANT, COMPACT, PLASTIC, CASE 403D-02, SMA, 2 PIN</field>
-        <field name="Critical">N</field>
-        <field name="Description">Reverse Voltage Protection Diode</field>
-        <field name="MFN">ON Semi</field>
-        <field name="MFP">MRA4007T3G</field>
-        <field name="Notes">~</field>
-        <field name="Package ID">R-PDSO-J2</field>
-        <field name="Source">ANY</field>
-        <field name="Subsystem">Voltage_Reg</field>
-      </fields>
-      <libsource lib="Device" part="D" description="Diode"/>
-      <sheetpath names="/Voltage Regulator/" tstamps="/55CCFEA2/"/>
-      <tstamp>55CD0063</tstamp>
-    </comp>
     <comp ref="C1">
       <value>47uF</value>
       <footprint>~</footprint>
@@ -153,25 +186,6 @@
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <sheetpath names="/Voltage Regulator/" tstamps="/55CCFEA2/"/>
       <tstamp>55CD0087</tstamp>
-    </comp>
-    <comp ref="CON1">
-      <value>BARREL_JACK</value>
-      <footprint>~</footprint>
-      <datasheet>http://katalog.we-online.de/em/datasheet/6941xx106102.pdf</datasheet>
-      <fields>
-        <field name="Characteristics">CONN PWR JACK DC RA SMD	</field>
-        <field name="Critical">N</field>
-        <field name="Description">9V Barrel Jack</field>
-        <field name="MFN">Wurth Electronics</field>
-        <field name="MFP">694106106102</field>
-        <field name="Notes">Any sub must match footprint</field>
-        <field name="Package ID">Custom SMD</field>
-        <field name="Source">ANY</field>
-        <field name="Subsystem">Voltage_Reg</field>
-      </fields>
-      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="BARREL_JACK" description=""/>
-      <sheetpath names="/Voltage Regulator/" tstamps="/55CCFEA2/"/>
-      <tstamp>55CD027B</tstamp>
     </comp>
     <comp ref="C2">
       <value>47uF</value>
@@ -248,25 +262,6 @@
       <sheetpath names="/Voltage Management/" tstamps="/55D0D7E6/"/>
       <tstamp>55D12923</tstamp>
     </comp>
-    <comp ref="P2">
-      <value>Analog Header (AD)</value>
-      <footprint>~</footprint>
-      <datasheet>http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf</datasheet>
-      <fields>
-        <field name="Characteristics">Connector Header 6 Position 0.100" (2.54mm) Gold Surface Mount</field>
-        <field name="Critical">N</field>
-        <field name="Description">Shield Header 6POS - ANLG</field>
-        <field name="MFN">Sullins Connector</field>
-        <field name="MFP">NPPC061KFXC-RC</field>
-        <field name="Notes">~</field>
-        <field name="Package ID">SMD</field>
-        <field name="Source">ANY</field>
-        <field name="Subsystem">Shield_Headers</field>
-      </fields>
-      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="CONN_01X06" description=""/>
-      <sheetpath names="/Headers/" tstamps="/55E94587/"/>
-      <tstamp>55E94764</tstamp>
-    </comp>
     <comp ref="P4">
       <value>Digital Header 01 (IOL)</value>
       <footprint>~</footprint>
@@ -324,24 +319,11 @@
       <sheetpath names="/Headers/" tstamps="/55E94587/"/>
       <tstamp>5C578D54</tstamp>
     </comp>
-    <comp ref="U5">
-      <value>ATMEGA328P</value>
-      <footprint>~</footprint>
-      <datasheet>http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf</datasheet>
-      <fields>
-        <field name="Characteristics">IC MCU 8BIT 32KB FLASH 28DIP</field>
-        <field name="Critical">Y</field>
-        <field name="Description">ATMEGA328P</field>
-        <field name="MFN">Atmel</field>
-        <field name="MFP">ATMEGA328P-PU</field>
-        <field name="Notes">~</field>
-        <field name="Package ID">PTH</field>
-        <field name="Source">ANY</field>
-        <field name="Subsystem">328P_Sub</field>
-      </fields>
-      <libsource lib="MFN_Atmel" part="ATMEGA328P-PU" description=""/>
-      <sheetpath names="/ATMEGA328P/" tstamps="/55E89CE4/"/>
-      <tstamp>55E8A80E</tstamp>
+    <comp ref="P2">
+      <value>P2 Analog Header (AD)</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="CONN_01X08" description=""/>
+      <sheetpath names="/Headers/" tstamps="/55E94587/"/>
+      <tstamp>5C79CCDA</tstamp>
     </comp>
     <comp ref="ICSP2">
       <value>M20-9980346</value>
@@ -475,116 +457,376 @@
       <sheetpath names="/ATMEGA328P/" tstamps="/55E89CE4/"/>
       <tstamp>5615BCD3</tstamp>
     </comp>
-    <comp ref="U6">
-      <value>L298P</value>
-      <datasheet>http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000240.pdf</datasheet>
-      <libsource lib="Driver_Motor" part="L298P" description="Dual full bridge motor driver, up to 46V, 4A"/>
-      <sheetpath names="/Driver/" tstamps="/5BE447F1/"/>
-      <tstamp>5BE448DC</tstamp>
+    <comp ref="U2">
+      <value>ATmega328P-AU</value>
+      <footprint>Package_QFP:TQFP-32_7x7mm_P0.8mm</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf</datasheet>
+      <libsource lib="MCU_Microchip_ATmega" part="ATmega328P-AU" description="20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, TQFP-32"/>
+      <sheetpath names="/ATMEGA328P/" tstamps="/55E89CE4/"/>
+      <tstamp>5C76D532</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>10k</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/PullUpResisters/" tstamps="/5BE519F1/"/>
+      <tstamp>5C78928B</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>10k</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/PullUpResisters/" tstamps="/5BE519F1/"/>
+      <tstamp>5C6D9570</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>10k</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/PullUpResisters/" tstamps="/5BE519F1/"/>
+      <tstamp>5C6D9639</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>10k</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/PullUpResisters/" tstamps="/5BE519F1/"/>
+      <tstamp>5C6D9640</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/PullUpResisters/" tstamps="/5BE519F1/"/>
+      <tstamp>5C6D966B</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>470</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6D94A2</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>470</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C78928C</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>470</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C78928D</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>470</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C78928E</tstamp>
+    </comp>
+    <comp ref="LED3">
+      <value>BLUE</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="LED" description=""/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6DB0B8</tstamp>
+    </comp>
+    <comp ref="LED4">
+      <value>BLUE</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="LED" description=""/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6DB14A</tstamp>
+    </comp>
+    <comp ref="LED5">
+      <value>BLUE</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="LED" description=""/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6DB254</tstamp>
+    </comp>
+    <comp ref="LED6">
+      <value>BLUE</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="LED" description=""/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6DB25B</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>470</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6DCC06</tstamp>
+    </comp>
+    <comp ref="LED1">
+      <value>GREEN</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="LED" description=""/>
+      <sheetpath names="/LEDs/" tstamps="/5C6DA90A/"/>
+      <tstamp>5C6DCC0F</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>10u</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6DE2F5</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>10u</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6DE373</tstamp>
+    </comp>
+    <comp ref="C16">
+      <value>100n</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6DE543</tstamp>
+    </comp>
+    <comp ref="C17">
+      <value>100n</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6DE54A</tstamp>
+    </comp>
+    <comp ref="C18">
+      <value>100n</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6DE722</tstamp>
     </comp>
     <comp ref="C4">
-      <value>100uF,25V</value>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="CP1" description="Polarized capacitor, US symbol"/>
-      <sheetpath names="/Driver/" tstamps="/5BE447F1/"/>
-      <tstamp>5BE44A99</tstamp>
-    </comp>
-    <comp ref="C8">
-      <value>0.1uF</value>
+      <value>100n</value>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
-      <sheetpath names="/Driver/" tstamps="/5BE447F1/"/>
-      <tstamp>5BE44F23</tstamp>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6DE8B0</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>1</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E0A60</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>1</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E0AB8</tstamp>
     </comp>
     <comp ref="C5">
-      <value>1uF</value>
+      <value>10u</value>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
-      <sheetpath names="/Driver/" tstamps="/5BE447F1/"/>
-      <tstamp>5BE4524F</tstamp>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E1148</tstamp>
     </comp>
-    <comp ref="U4">
-      <value>74HC1G04</value>
-      <libsource lib="74HC1G04" part="74HC1G04" description=""/>
-      <sheetpath names="/Driver/" tstamps="/5BE447F1/"/>
-      <tstamp>5BE4A21D</tstamp>
-    </comp>
-    <comp ref="U2">
-      <value>74HC1G04</value>
-      <libsource lib="74HC1G04" part="74HC1G04" description=""/>
-      <sheetpath names="/Driver/" tstamps="/5BE447F1/"/>
-      <tstamp>5BE4A42F</tstamp>
-    </comp>
-    <comp ref="J1">
-      <value>Screw_Terminal_01x04</value>
+    <comp ref="C13">
+      <value>10u</value>
       <datasheet>~</datasheet>
-      <libsource lib="Connector" part="Screw_Terminal_01x04" description="Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE4141B</tstamp>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E11B4</tstamp>
     </comp>
-    <comp ref="D2">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE4158E</tstamp>
+    <comp ref="C7">
+      <value>100n</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E28A2</tstamp>
     </comp>
-    <comp ref="D4">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE415F9</tstamp>
+    <comp ref="C8">
+      <value>100n</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E2FCE</tstamp>
     </comp>
-    <comp ref="D6">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE41635</tstamp>
+    <comp ref="C9">
+      <value>0.47u</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="CP" description="Polarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E51B5</tstamp>
     </comp>
-    <comp ref="D9">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE4166D</tstamp>
+    <comp ref="C10">
+      <value>0.47u</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="CP" description="Polarized capacitor"/>
+      <sheetpath names="/DecouplingCapacitors/" tstamps="/5C6DD8AC/"/>
+      <tstamp>5C6E6266</tstamp>
     </comp>
-    <comp ref="D3">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE416AD</tstamp>
+    <comp ref="MOTOR_DRIVER_IC1">
+      <value>TB6612FNG</value>
+      <footprint>Package_SO:SSOP-24_5.3x8.2mm_P0.65mm</footprint>
+      <datasheet>https://toshiba.semicon-storage.com/us/product/linear/motordriver/detail.TB6612FNG.html</datasheet>
+      <libsource lib="Driver_Motor" part="TB6612FNG" description="Driver IC for Dual DC motor, SSOP-24"/>
+      <sheetpath names="/MotorDriver/" tstamps="/5BE447F1/"/>
+      <tstamp>5C6EA092</tstamp>
     </comp>
-    <comp ref="D5">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE41711</tstamp>
+    <comp ref="MOTOR_DRIVER_IC2">
+      <value>TB6612FNG</value>
+      <footprint>Package_SO:SSOP-24_5.3x8.2mm_P0.65mm</footprint>
+      <datasheet>https://toshiba.semicon-storage.com/us/product/linear/motordriver/detail.TB6612FNG.html</datasheet>
+      <libsource lib="Driver_Motor" part="TB6612FNG" description="Driver IC for Dual DC motor, SSOP-24"/>
+      <sheetpath names="/MotorDriver/" tstamps="/5BE447F1/"/>
+      <tstamp>5C6F07A4</tstamp>
     </comp>
-    <comp ref="D8">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE417E1</tstamp>
+    <comp ref="IO_EXPANDER_IC1">
+      <value>TCA9554PWR</value>
+      <footprint>TCA9554PWR:SOP65P640X120-16N</footprint>
+      <datasheet>TCA9554PWR</datasheet>
+      <fields>
+        <field name="Field4">296-30135-1-ND</field>
+        <field name="Field5">Texas Instruments</field>
+        <field name="Field6">TSSOP-16 Texas Instruments</field>
+        <field name="Field7">https://www.digikey.be/product-detail/en/texas-instruments/TCA9554PWR/296-30135-1-ND/2810478?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</field>
+        <field name="Field8">Interface - I/O Expanders Remote 8-B I2C &amp; SM Bus I/O Expander</field>
+      </fields>
+      <libsource lib="TCA9554PWR" part="TCA9554PWR" description=""/>
+      <sheetpath names="/IOExpander/" tstamps="/5C6F44AE/"/>
+      <tstamp>5C6F6419</tstamp>
     </comp>
-    <comp ref="D10">
-      <value>DIODE</value>
-      <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
-      <sheetpath names="/MotorOutput/" tstamps="/5BE519F1/"/>
-      <tstamp>5BE4181D</tstamp>
+    <comp ref="IO_EXPANDER_IC2">
+      <value>TCA9554PWR</value>
+      <footprint>TCA9554PWR:SOP65P640X120-16N</footprint>
+      <datasheet>TCA9554PWR</datasheet>
+      <fields>
+        <field name="Field4">296-30135-1-ND</field>
+        <field name="Field5">Texas Instruments</field>
+        <field name="Field6">TSSOP-16 Texas Instruments</field>
+        <field name="Field7">https://www.digikey.be/product-detail/en/texas-instruments/TCA9554PWR/296-30135-1-ND/2810478?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</field>
+        <field name="Field8">Interface - I/O Expanders Remote 8-B I2C &amp; SM Bus I/O Expander</field>
+      </fields>
+      <libsource lib="TCA9554PWR" part="TCA9554PWR" description=""/>
+      <sheetpath names="/IOExpander/" tstamps="/5C6F44AE/"/>
+      <tstamp>5C6F75D5</tstamp>
+    </comp>
+    <comp ref="IO_Expander1">
+      <value>CONN_01X08</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="CONN_01X08" description=""/>
+      <sheetpath names="/IOExpander/" tstamps="/5C6F44AE/"/>
+      <tstamp>5C6FECCB</tstamp>
+    </comp>
+    <comp ref="STBY1">
+      <value>DG3XX-03-3.5</value>
+      <footprint>degson_DG350-3.5-03P</footprint>
+      <libsource lib="degson" part="DG3XX-03-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C6FEB38</tstamp>
+    </comp>
+    <comp ref="P5">
+      <value>GND</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="CONN_01X08" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C7657C0</tstamp>
+    </comp>
+    <comp ref="P6">
+      <value>+5V</value>
+      <libsource lib="Arduino_Uno_R3_From_Scratch-rescue" part="CONN_01X08" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C765F04</tstamp>
+    </comp>
+    <comp ref="PWM1">
+      <value>DG3XX-04-3.5</value>
+      <footprint>degson_DG350-3.5-04P</footprint>
+      <libsource lib="degson" part="DG3XX-04-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C767F10</tstamp>
+    </comp>
+    <comp ref="I2C1">
+      <value>DG3XX-04-3.5</value>
+      <footprint>degson_DG350-3.5-04P</footprint>
+      <libsource lib="degson" part="DG3XX-04-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C769E25</tstamp>
+    </comp>
+    <comp ref="INTERRUPT1">
+      <value>DG3XX-03-3.5</value>
+      <footprint>degson_DG350-3.5-03P</footprint>
+      <libsource lib="degson" part="DG3XX-03-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C76CD7F</tstamp>
+    </comp>
+    <comp ref="MA-1">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C77160C</tstamp>
+    </comp>
+    <comp ref="MA-2">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C771703</tstamp>
+    </comp>
+    <comp ref="MB-1">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C771776</tstamp>
+    </comp>
+    <comp ref="MB-2">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C7717EF</tstamp>
+    </comp>
+    <comp ref="MC-1">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C771866</tstamp>
+    </comp>
+    <comp ref="MC-2">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C7718F8</tstamp>
+    </comp>
+    <comp ref="MD-1">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C771971</tstamp>
+    </comp>
+    <comp ref="MD-2">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C7719FE</tstamp>
+    </comp>
+    <comp ref="VIN-1">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C771A93</tstamp>
+    </comp>
+    <comp ref="VIN-2">
+      <value>DG3XX-02-3.5</value>
+      <footprint>degson_DG350-3.5-02P</footprint>
+      <libsource lib="degson" part="DG3XX-02-3.5" description=""/>
+      <sheetpath names="/connectorenMotorDriverBoard/" tstamps="/5C6FDA9D/"/>
+      <tstamp>5C771B50</tstamp>
     </comp>
   </components>
   <libparts>
-    <libpart lib="74HC1G04" part="74HC1G04">
-      <fields>
-        <field name="Reference">U</field>
-        <field name="Value">74HC1G04</field>
-      </fields>
-      <pins>
-        <pin num="1" name="nc" type="NotConnected"/>
-        <pin num="2" name="A" type="input"/>
-        <pin num="3" name="GND" type="passive"/>
-        <pin num="4" name="Y" type="output"/>
-        <pin num="5" name="Vcc" type="power_in"/>
-      </pins>
-    </libpart>
     <libpart lib="Arduino_Uno_R3_From_Scratch" part="CERAMIC_RESONATOR">
       <fields>
         <field name="Reference">XTAL</field>
@@ -606,17 +848,6 @@
         <pin num="2" name="~" type="input"/>
         <pin num="3" name="~" type="input"/>
         <pin num="4" name="~" type="input"/>
-      </pins>
-    </libpart>
-    <libpart lib="Arduino_Uno_R3_From_Scratch-rescue" part="BARREL_JACK">
-      <fields>
-        <field name="Reference">CON</field>
-        <field name="Value">BARREL_JACK</field>
-      </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-        <pin num="3" name="~" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Arduino_Uno_R3_From_Scratch-rescue" part="CONN_01X06">
@@ -696,6 +927,25 @@
         <pin num="3" name="VI" type="power_in"/>
       </pins>
     </libpart>
+    <libpart lib="Arduino_Uno_R3_From_Scratch-rescue" part="LED">
+      <footprints>
+        <fp>LED-3MM</fp>
+        <fp>LED-5MM</fp>
+        <fp>LED-10MM</fp>
+        <fp>LED-0603</fp>
+        <fp>LED-0805</fp>
+        <fp>LED-1206</fp>
+        <fp>LEDV</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Arduino_Uno_R3_From_Scratch-rescue" part="LP2985LV">
       <fields>
         <field name="Reference">U</field>
@@ -707,23 +957,6 @@
         <pin num="3" name="ON/OFF" type="input"/>
         <pin num="4" name="BYPASS" type="input"/>
         <pin num="5" name="VOUT" type="power_out"/>
-      </pins>
-    </libpart>
-    <libpart lib="Connector" part="Screw_Terminal_01x04">
-      <description>Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>TerminalBlock*:*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">J</field>
-        <field name="Value">Screw_Terminal_01x04</field>
-      </fields>
-      <pins>
-        <pin num="1" name="Pin_1" type="passive"/>
-        <pin num="2" name="Pin_2" type="passive"/>
-        <pin num="3" name="Pin_3" type="passive"/>
-        <pin num="4" name="Pin_4" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Device" part="C">
@@ -756,39 +989,6 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Device" part="CP1">
-      <description>Polarized capacitor, US symbol</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>CP_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">C</field>
-        <field name="Value">CP1</field>
-      </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="Device" part="D">
-      <description>Diode</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>TO-???*</fp>
-        <fp>*_Diode_*</fp>
-        <fp>*SingleDiode*</fp>
-        <fp>D_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">D</field>
-        <field name="Value">D</field>
-      </fields>
-      <pins>
-        <pin num="1" name="K" type="passive"/>
-        <pin num="2" name="A" type="passive"/>
-      </pins>
-    </libpart>
     <libpart lib="Device" part="R">
       <description>Resistor</description>
       <docs>~</docs>
@@ -804,97 +1004,184 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Driver_Motor" part="L298P">
-      <description>Dual full bridge motor driver, up to 46V, 4A</description>
-      <docs>http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000240.pdf</docs>
+    <libpart lib="Driver_Motor" part="TB6612FNG">
+      <description>Driver IC for Dual DC motor, SSOP-24</description>
+      <docs>https://toshiba.semicon-storage.com/us/product/linear/motordriver/detail.TB6612FNG.html</docs>
+      <footprints>
+        <fp>SSOP-24*5.3x8.2mm*P0.65mm*</fp>
+      </footprints>
       <fields>
         <field name="Reference">U</field>
-        <field name="Value">L298P</field>
+        <field name="Value">TB6612FNG</field>
+        <field name="Footprint">Package_SO:SSOP-24_5.3x8.2mm_P0.65mm</field>
       </fields>
       <pins>
-        <pin num="1" name="GND" type="power_in"/>
-        <pin num="2" name="SENSE_A" type="power_in"/>
-        <pin num="3" name="NC" type="NotConnected"/>
-        <pin num="4" name="OUT1" type="output"/>
-        <pin num="5" name="OUT2" type="output"/>
-        <pin num="6" name="Vs" type="power_in"/>
-        <pin num="7" name="IN1" type="input"/>
-        <pin num="8" name="EnA" type="input"/>
-        <pin num="9" name="IN2" type="input"/>
-        <pin num="10" name="GND" type="power_in"/>
-        <pin num="11" name="GND" type="power_in"/>
-        <pin num="12" name="Vss" type="power_in"/>
-        <pin num="13" name="IN3" type="input"/>
-        <pin num="14" name="EnB" type="input"/>
-        <pin num="15" name="IN4" type="input"/>
-        <pin num="16" name="OUT3" type="output"/>
-        <pin num="17" name="OUT4" type="output"/>
-        <pin num="18" name="NC" type="NotConnected"/>
-        <pin num="19" name="SENSE_B" type="power_in"/>
-        <pin num="20" name="GND" type="power_in"/>
+        <pin num="1" name="AO1" type="power_out"/>
+        <pin num="2" name="AO1" type="power_out"/>
+        <pin num="3" name="PGND1" type="power_in"/>
+        <pin num="4" name="PGND1" type="power_in"/>
+        <pin num="5" name="AO2" type="power_out"/>
+        <pin num="6" name="AO2" type="power_out"/>
+        <pin num="7" name="BO2" type="power_out"/>
+        <pin num="8" name="BO2" type="power_out"/>
+        <pin num="9" name="PGND2" type="power_in"/>
+        <pin num="10" name="PGND2" type="power_in"/>
+        <pin num="11" name="BO1" type="power_out"/>
+        <pin num="12" name="BO1" type="power_out"/>
+        <pin num="13" name="VM2" type="power_in"/>
+        <pin num="14" name="VM3" type="power_in"/>
+        <pin num="15" name="PWMB" type="input"/>
+        <pin num="16" name="BIN2" type="input"/>
+        <pin num="17" name="BIN1" type="input"/>
+        <pin num="18" name="GND" type="power_in"/>
+        <pin num="19" name="STBY" type="input"/>
+        <pin num="20" name="VCC" type="power_in"/>
+        <pin num="21" name="AIN1" type="input"/>
+        <pin num="22" name="AIN2" type="input"/>
+        <pin num="23" name="PWMA" type="input"/>
+        <pin num="24" name="VM1" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="MFN_Atmel" part="ATMEGA328P-PU">
+    <libpart lib="MCU_Microchip_ATmega" part="ATmega48A-AU">
+      <aliases>
+        <alias>ATmega48PA-AU</alias>
+        <alias>ATmega88A-AU</alias>
+        <alias>ATmega88PA-AU</alias>
+        <alias>ATmega168A-AU</alias>
+        <alias>ATmega168PA-AU</alias>
+        <alias>ATmega328-AU</alias>
+        <alias>ATmega328P-AU</alias>
+      </aliases>
+      <description>20MHz, 4kB Flash, 512B SRAM, 256B EEPROM, TQFP-32</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega48A_88A_168A-Data-Sheet-40002007A.pdf</docs>
+      <footprints>
+        <fp>TQFP*7x7mm*P0.8mm*</fp>
+      </footprints>
       <fields>
         <field name="Reference">U</field>
-        <field name="Value">ATMEGA328P-PU</field>
+        <field name="Value">ATmega48A-AU</field>
+        <field name="Footprint">Package_QFP:TQFP-32_7x7mm_P0.8mm</field>
       </fields>
       <pins>
-        <pin num="1" name="~RESET" type="input"/>
-        <pin num="2" name="(RXD)PD0" type="input"/>
-        <pin num="3" name="(TXD)PD1" type="input"/>
-        <pin num="4" name="(INT0)PD2" type="input"/>
-        <pin num="5" name="(INT1)PD3" type="input"/>
-        <pin num="6" name="(T0)PD4" type="input"/>
-        <pin num="7" name="VCC" type="input"/>
-        <pin num="8" name="GND" type="input"/>
-        <pin num="9" name="XTAL1" type="input"/>
-        <pin num="10" name="XTAL2" type="input"/>
-        <pin num="11" name="(T1)PD5" type="input"/>
-        <pin num="12" name="(AIN0)PD6" type="input"/>
-        <pin num="13" name="(AIN1)PD7" type="input"/>
-        <pin num="14" name="(ICP)PB0" type="input"/>
-        <pin num="15" name="(OC1)PB1" type="input"/>
-        <pin num="16" name="(SS)PB2" type="input"/>
-        <pin num="17" name="(MOSI)PB3" type="input"/>
-        <pin num="18" name="(MISO)PB4" type="input"/>
-        <pin num="19" name="(SCK)PB5" type="input"/>
-        <pin num="20" name="AVCC" type="input"/>
-        <pin num="21" name="AREF" type="input"/>
-        <pin num="22" name="AGND" type="input"/>
-        <pin num="23" name="(ADC0)PC0" type="input"/>
-        <pin num="24" name="(ADC1)PC1" type="input"/>
-        <pin num="25" name="(ADC2)PC2" type="input"/>
-        <pin num="26" name="(ADC3)PC3" type="input"/>
-        <pin num="27" name="(ADC4)PC4" type="input"/>
-        <pin num="28" name="(ADC5)PC5" type="input"/>
+        <pin num="1" name="PD3" type="3state"/>
+        <pin num="2" name="PD4" type="3state"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="VCC" type="passive"/>
+        <pin num="7" name="XTAL1/PB6" type="3state"/>
+        <pin num="8" name="XTAL2/PB7" type="3state"/>
+        <pin num="9" name="PD5" type="3state"/>
+        <pin num="10" name="PD6" type="3state"/>
+        <pin num="11" name="PD7" type="3state"/>
+        <pin num="12" name="PB0" type="3state"/>
+        <pin num="13" name="PB1" type="3state"/>
+        <pin num="14" name="PB2" type="3state"/>
+        <pin num="15" name="PB3" type="3state"/>
+        <pin num="16" name="PB4" type="3state"/>
+        <pin num="17" name="PB5" type="3state"/>
+        <pin num="18" name="AVCC" type="power_in"/>
+        <pin num="19" name="ADC6" type="input"/>
+        <pin num="20" name="AREF" type="passive"/>
+        <pin num="21" name="GND" type="passive"/>
+        <pin num="22" name="ADC7" type="input"/>
+        <pin num="23" name="PC0" type="3state"/>
+        <pin num="24" name="PC1" type="3state"/>
+        <pin num="25" name="PC2" type="3state"/>
+        <pin num="26" name="PC3" type="3state"/>
+        <pin num="27" name="PC4" type="3state"/>
+        <pin num="28" name="PC5" type="3state"/>
+        <pin num="29" name="~RESET~/PC6" type="3state"/>
+        <pin num="30" name="PD0" type="3state"/>
+        <pin num="31" name="PD1" type="3state"/>
+        <pin num="32" name="PD2" type="3state"/>
       </pins>
     </libpart>
-    <libpart lib="pspice" part="DIODE">
-      <description>Diode symbol for simulation only. Pin order incompatible with official kicad footprints</description>
-      <docs>~</docs>
+    <libpart lib="TCA9554PWR" part="TCA9554PWR">
       <fields>
-        <field name="Reference">D</field>
-        <field name="Value">DIODE</field>
+        <field name="Reference">U</field>
+        <field name="Value">TCA9554PWR</field>
+        <field name="Footprint">SOP65P640X120-16N</field>
+        <field name="Datasheet">TCA9554PWR</field>
+        <field name="Field4">296-30135-1-ND</field>
+        <field name="Field5">Texas Instruments</field>
+        <field name="Field6">TSSOP-16 Texas Instruments</field>
+        <field name="Field7">https://www.digikey.be/product-detail/en/texas-instruments/TCA9554PWR/296-30135-1-ND/2810478?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol</field>
+        <field name="Field8">Interface - I/O Expanders Remote 8-B I2C &amp; SM Bus I/O Expander</field>
       </fields>
       <pins>
-        <pin num="1" name="K" type="input"/>
-        <pin num="2" name="A" type="input"/>
+        <pin num="1" name="A0" type="input"/>
+        <pin num="2" name="A1" type="input"/>
+        <pin num="3" name="A2" type="input"/>
+        <pin num="4" name="P0" type="BiDi"/>
+        <pin num="5" name="P1" type="BiDi"/>
+        <pin num="6" name="P2" type="BiDi"/>
+        <pin num="7" name="P3" type="BiDi"/>
+        <pin num="8" name="GND" type="passive"/>
+        <pin num="9" name="P4" type="BiDi"/>
+        <pin num="10" name="P5" type="BiDi"/>
+        <pin num="11" name="P6" type="BiDi"/>
+        <pin num="12" name="P7" type="BiDi"/>
+        <pin num="13" name="~INT" type="output"/>
+        <pin num="14" name="SCL" type="input"/>
+        <pin num="15" name="SDA" type="BiDi"/>
+        <pin num="16" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="degson" part="DG3XX-02-3.5">
+      <footprints>
+        <fp>*DG350-3.5-02P*</fp>
+        <fp>*DG306-5.0-02P*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">X</field>
+        <field name="Value">DG3XX-02-3.5</field>
+        <field name="Footprint">degson_DG350-3.5-02P</field>
+      </fields>
+      <pins>
+        <pin num="1" name="KL" type="passive"/>
+        <pin num="2" name="KL" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="degson" part="DG3XX-03-3.5">
+      <footprints>
+        <fp>*DG350-3.5-03P*</fp>
+        <fp>*DG306-5.0-03P*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">X</field>
+        <field name="Value">DG3XX-03-3.5</field>
+        <field name="Footprint">degson_DG350-3.5-03P</field>
+      </fields>
+      <pins>
+        <pin num="1" name="KL" type="passive"/>
+        <pin num="2" name="KL" type="passive"/>
+        <pin num="3" name="KL" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="degson" part="DG3XX-04-3.5">
+      <footprints>
+        <fp>*DG350-3.5-04P*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">X</field>
+        <field name="Value">DG3XX-04-3.5</field>
+        <field name="Footprint">degson_DG350-3.5-04P</field>
+      </fields>
+      <pins>
+        <pin num="1" name="KL" type="passive"/>
+        <pin num="2" name="KL" type="passive"/>
+        <pin num="3" name="KL" type="passive"/>
+        <pin num="4" name="KL" type="passive"/>
       </pins>
     </libpart>
   </libparts>
   <libraries>
-    <library logical="74HC1G04">
-      <uri>C:/Users/Gebruiker/Documents/3e bachler/project/arduino_uno_r3_from_scratch-master/74HC1G04/74HC1G04.lib</uri>
-    </library>
     <library logical="Arduino_Uno_R3_From_Scratch">
-      <uri>C:\Users\Gebruiker\Desktop\project\arduino_uno_r3_from_scratch-master/Arduino_Uno_R3_From_Scratch.lib</uri>
+      <uri>C:\Users\Gebruiker\Documents\3e bachler\project\projectGitHub\bachelorproef_billy\pcbProject/Arduino_Uno_R3_From_Scratch.lib</uri>
     </library>
     <library logical="Arduino_Uno_R3_From_Scratch-rescue">
-      <uri>C:\Users\Gebruiker\Desktop\project\arduino_uno_r3_from_scratch-master/Arduino_Uno_R3_From_Scratch-rescue.lib</uri>
-    </library>
-    <library logical="Connector">
-      <uri>C:\Program Files\KiCad\share\kicad\library/Connector.lib</uri>
+      <uri>C:\Users\Gebruiker\Documents\3e bachler\project\projectGitHub\bachelorproef_billy\pcbProject/Arduino_Uno_R3_From_Scratch-rescue.lib</uri>
     </library>
     <library logical="Device">
       <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
@@ -902,249 +1189,445 @@
     <library logical="Driver_Motor">
       <uri>C:\Program Files\KiCad\share\kicad\library/Driver_Motor.lib</uri>
     </library>
-    <library logical="MFN_Atmel">
-      <uri>C:\Users\Gebruiker\Desktop\project\arduino_uno_r3_from_scratch-master/MFN_Atmel.lib</uri>
+    <library logical="MCU_Microchip_ATmega">
+      <uri>C:\Program Files\KiCad\share\kicad\library/MCU_Microchip_ATmega.lib</uri>
     </library>
-    <library logical="pspice">
-      <uri>C:\Program Files\KiCad\share\kicad\library/pspice.lib</uri>
+    <library logical="TCA9554PWR">
+      <uri>C:/Program Files/KiCad/lib/TCA9554PWR.lib</uri>
+    </library>
+    <library logical="degson">
+      <uri>C:/Program Files/KiCad/lib/degson/degson.lib</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="328P_ICSP_SCK">
-      <node ref="ICSP2" pin="3"/>
-      <node ref="U5" pin="19"/>
-      <node ref="P3" pin="6"/>
-      <node ref="U4" pin="2"/>
-      <node ref="U6" pin="13"/>
+    <net code="1" name="/IOExpander/INT2">
+      <node ref="R8" pin="2"/>
+      <node ref="IO_EXPANDER_IC2" pin="13"/>
+      <node ref="INTERRUPT1" pin="2"/>
     </net>
-    <net code="2" name="/Driver/PWRIN">
-      <node ref="D6" pin="2"/>
-      <node ref="C4" pin="1"/>
-      <node ref="D2" pin="2"/>
-      <node ref="D9" pin="2"/>
-      <node ref="D4" pin="2"/>
-      <node ref="U6" pin="6"/>
+    <net code="2" name="/IOExpander/SDA">
+      <node ref="IO_EXPANDER_IC1" pin="15"/>
+      <node ref="I2C1" pin="1"/>
+      <node ref="IO_EXPANDER_IC2" pin="15"/>
+      <node ref="R7" pin="2"/>
     </net>
-    <net code="3" name="/Driver/OUT1">
-      <node ref="D2" pin="1"/>
-      <node ref="D3" pin="2"/>
-      <node ref="J1" pin="1"/>
-      <node ref="U6" pin="4"/>
+    <net code="3" name="/IOExpander/SCL">
+      <node ref="R6" pin="2"/>
+      <node ref="IO_EXPANDER_IC2" pin="14"/>
+      <node ref="I2C1" pin="2"/>
+      <node ref="IO_EXPANDER_IC1" pin="14"/>
     </net>
-    <net code="4" name="/Driver/OUT2">
-      <node ref="D4" pin="1"/>
-      <node ref="J1" pin="2"/>
-      <node ref="U6" pin="5"/>
-      <node ref="D5" pin="2"/>
+    <net code="4" name="/MotorDriver/A01">
+      <node ref="MOTOR_DRIVER_IC1" pin="1"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="2"/>
+      <node ref="MA-1" pin="1"/>
     </net>
-    <net code="5" name="/Driver/OUT4">
-      <node ref="U6" pin="17"/>
-      <node ref="J1" pin="3"/>
-      <node ref="D6" pin="1"/>
-      <node ref="D8" pin="2"/>
+    <net code="5" name="/MotorDriver/A02">
+      <node ref="MOTOR_DRIVER_IC1" pin="5"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="6"/>
+      <node ref="MA-2" pin="2"/>
     </net>
-    <net code="6" name="/Driver/OUT3">
-      <node ref="J1" pin="4"/>
-      <node ref="D9" pin="1"/>
-      <node ref="U6" pin="16"/>
-      <node ref="D10" pin="2"/>
+    <net code="6" name="/MotorDriver/B01">
+      <node ref="MB-1" pin="1"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="12"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="11"/>
     </net>
-    <net code="7" name="/ATMEGA328P/ARD_DIG4">
-      <node ref="U6" pin="8"/>
-      <node ref="U5" pin="6"/>
-      <node ref="P4" pin="4"/>
+    <net code="7" name="/MotorDriver/B02">
+      <node ref="MB-2" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="7"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="8"/>
     </net>
-    <net code="8" name="/ATMEGA328P/328P_RESET">
+    <net code="8" name="/MotorDriver/C01">
+      <node ref="MOTOR_DRIVER_IC2" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="1"/>
+      <node ref="MC-1" pin="1"/>
+    </net>
+    <net code="9" name="/IOExpander/AIN2">
+      <node ref="MOTOR_DRIVER_IC1" pin="22"/>
+      <node ref="IO_EXPANDER_IC1" pin="5"/>
+    </net>
+    <net code="10" name="/MotorDriver/D02">
+      <node ref="MOTOR_DRIVER_IC2" pin="7"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="8"/>
+      <node ref="MD-2" pin="2"/>
+    </net>
+    <net code="11" name="/MotorDriver/C02">
+      <node ref="MOTOR_DRIVER_IC2" pin="6"/>
+      <node ref="MC-2" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="5"/>
+    </net>
+    <net code="12" name="/IOExpander/AIN1">
+      <node ref="IO_EXPANDER_IC1" pin="4"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="21"/>
+    </net>
+    <net code="13" name="/IOExpander/BIN1">
+      <node ref="MOTOR_DRIVER_IC1" pin="17"/>
+      <node ref="IO_EXPANDER_IC1" pin="6"/>
+    </net>
+    <net code="14" name="/IOExpander/BIN2">
+      <node ref="IO_EXPANDER_IC1" pin="7"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="16"/>
+    </net>
+    <net code="15" name="/IOExpander/CIN1">
+      <node ref="IO_EXPANDER_IC1" pin="9"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="21"/>
+    </net>
+    <net code="16" name="/IOExpander/CIN2">
+      <node ref="MOTOR_DRIVER_IC2" pin="22"/>
+      <node ref="IO_EXPANDER_IC1" pin="10"/>
+    </net>
+    <net code="17" name="/IOExpander/DIN1">
+      <node ref="IO_EXPANDER_IC1" pin="11"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="17"/>
+    </net>
+    <net code="18" name="/IOExpander/DIN2">
+      <node ref="IO_EXPANDER_IC1" pin="12"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="16"/>
+    </net>
+    <net code="19" name="/LEDs/PWMA">
+      <node ref="LED3" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="23"/>
+      <node ref="PWM1" pin="1"/>
+    </net>
+    <net code="20" name="/LEDs/PWMB">
+      <node ref="LED4" pin="2"/>
+      <node ref="PWM1" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="15"/>
+    </net>
+    <net code="21" name="/LEDs/PWMC">
+      <node ref="LED5" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="23"/>
+      <node ref="PWM1" pin="3"/>
+    </net>
+    <net code="22" name="/LEDs/PWMD">
+      <node ref="PWM1" pin="4"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="15"/>
+      <node ref="LED6" pin="2"/>
+    </net>
+    <net code="23" name="/IOExpander/INT1">
+      <node ref="IO_EXPANDER_IC1" pin="13"/>
+      <node ref="R9" pin="2"/>
+      <node ref="INTERRUPT1" pin="1"/>
+    </net>
+    <net code="24" name="/ATMEGA328P/328P_RESET">
+      <node ref="P1" pin="1"/>
       <node ref="SW1" pin="4"/>
+      <node ref="U2" pin="29"/>
       <node ref="SW1" pin="3"/>
       <node ref="R16" pin="1"/>
-      <node ref="U5" pin="1"/>
       <node ref="ICSP2" pin="5"/>
-      <node ref="P1" pin="1"/>
     </net>
-    <net code="9" name="/ATMEGA328P/ARD_AN0">
-      <node ref="U5" pin="23"/>
+    <net code="25" name="/ATMEGA328P/ARD_AN0">
+      <node ref="U2" pin="23"/>
       <node ref="P2" pin="1"/>
     </net>
-    <net code="10" name="/ATMEGA328P/ARD_AN1">
+    <net code="26" name="/ATMEGA328P/ARD_AN1">
       <node ref="P2" pin="2"/>
-      <node ref="U5" pin="24"/>
+      <node ref="U2" pin="24"/>
     </net>
-    <net code="11" name="/ATMEGA328P/ARD_AN2">
-      <node ref="U5" pin="25"/>
+    <net code="27" name="/ATMEGA328P/ARD_AN2">
+      <node ref="U2" pin="25"/>
       <node ref="P2" pin="3"/>
     </net>
-    <net code="12" name="/ATMEGA328P/ARD_AN3">
+    <net code="28" name="/ATMEGA328P/ARD_AN3">
+      <node ref="U2" pin="26"/>
       <node ref="P2" pin="4"/>
-      <node ref="U5" pin="26"/>
     </net>
-    <net code="13" name="/ATMEGA328P/ARD_AN4/SDA">
-      <node ref="U5" pin="27"/>
+    <net code="29" name="/ATMEGA328P/ARD_AN4/SDA">
       <node ref="P2" pin="5"/>
+      <node ref="U2" pin="27"/>
     </net>
-    <net code="14" name="/ATMEGA328P/ARD_AN5/SCL">
-      <node ref="U5" pin="28"/>
+    <net code="30" name="/ATMEGA328P/ARD_AN5/SCL">
+      <node ref="U2" pin="28"/>
       <node ref="P2" pin="6"/>
     </net>
-    <net code="15" name="/ATMEGA328P/ARD_DIG0">
-      <node ref="U5" pin="2"/>
-      <node ref="P4" pin="8"/>
+    <net code="31" name="/ATMEGA328P/ARD_AN6">
+      <node ref="P2" pin="8"/>
+      <node ref="U2" pin="19"/>
     </net>
-    <net code="16" name="328P_ICSP_MISO">
-      <node ref="U5" pin="18"/>
-      <node ref="P3" pin="5"/>
-      <node ref="U2" pin="2"/>
-      <node ref="U6" pin="7"/>
-      <node ref="ICSP2" pin="1"/>
+    <net code="32" name="/Headers/ARD_AN6">
+      <node ref="U2" pin="22"/>
+      <node ref="P2" pin="7"/>
     </net>
-    <net code="17" name="/ATMEGA328P/ARD_DIG6">
-      <node ref="U5" pin="12"/>
+    <net code="33" name="/MotorDriver/STBY">
+      <node ref="MOTOR_DRIVER_IC2" pin="19"/>
+      <node ref="STBY1" pin="3"/>
+      <node ref="R5" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="19"/>
+    </net>
+    <net code="34" name="/MotorDriver/D01">
+      <node ref="MD-1" pin="1"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="11"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="12"/>
+    </net>
+    <net code="35" name="/DecouplingCapacitors/VM">
+      <node ref="C9" pin="1"/>
+      <node ref="C10" pin="1"/>
+      <node ref="C7" pin="1"/>
+      <node ref="C8" pin="1"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="24"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="14"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="13"/>
+      <node ref="VIN-2" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="24"/>
+      <node ref="R11" pin="1"/>
+      <node ref="R12" pin="1"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="13"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="14"/>
+    </net>
+    <net code="36" name="/ATMEGA328P/ARD_DIG7">
+      <node ref="U2" pin="11"/>
+      <node ref="P4" pin="1"/>
+    </net>
+    <net code="37" name="/ATMEGA328P/ARD_DIG6">
       <node ref="P4" pin="2"/>
+      <node ref="U2" pin="10"/>
     </net>
-    <net code="20" name="/ATMEGA328P/ARD_DIG1">
-      <node ref="U5" pin="3"/>
-      <node ref="P4" pin="7"/>
+    <net code="38" name="/ATMEGA328P/ARD_DIG5">
+      <node ref="P4" pin="3"/>
+      <node ref="U2" pin="9"/>
     </net>
-    <net code="21" name="/ATMEGA328P/ARD_DIG2">
-      <node ref="U5" pin="4"/>
-      <node ref="P4" pin="6"/>
-    </net>
-    <net code="22" name="/ATMEGA328P/ARD_DIG3">
-      <node ref="U5" pin="5"/>
+    <net code="39" name="/ATMEGA328P/ARD_DIG3">
+      <node ref="U2" pin="1"/>
       <node ref="P4" pin="5"/>
     </net>
-    <net code="23" name="/ATMEGA328P/ARD_DIG5">
-      <node ref="U5" pin="11"/>
-      <node ref="P4" pin="3"/>
+    <net code="40" name="/ATMEGA328P/ARD_DIG2">
+      <node ref="P4" pin="6"/>
+      <node ref="U2" pin="32"/>
     </net>
-    <net code="24" name="/ATMEGA328P/ARD_DIG8">
-      <node ref="U5" pin="14"/>
+    <net code="41" name="/ATMEGA328P/ARD_DIG1">
+      <node ref="P4" pin="7"/>
+      <node ref="U2" pin="31"/>
+    </net>
+    <net code="42" name="/ATMEGA328P/ARD_DIG8">
       <node ref="P3" pin="1"/>
+      <node ref="U2" pin="12"/>
     </net>
-    <net code="25" name="/ATMEGA328P/ARD_DIG9">
-      <node ref="U5" pin="15"/>
+    <net code="43" name="/ATMEGA328P/ARD_DIG9">
+      <node ref="U2" pin="13"/>
       <node ref="P3" pin="2"/>
     </net>
-    <net code="26" name="/ATMEGA328P/ARD_DIG10/SPI_SS">
+    <net code="44" name="/ATMEGA328P/ARD_DIG10/SPI_SS">
+      <node ref="U2" pin="14"/>
       <node ref="P3" pin="3"/>
-      <node ref="U5" pin="16"/>
     </net>
-    <net code="27" name="328P_ICSP_MOSI">
-      <node ref="P3" pin="4"/>
-      <node ref="U5" pin="17"/>
-      <node ref="ICSP2" pin="4"/>
-      <node ref="U6" pin="14"/>
-    </net>
-    <net code="28" name="/ATMEGA328P/AREF">
-      <node ref="C14" pin="1"/>
+    <net code="45" name="/ATMEGA328P/AREF">
       <node ref="P3" pin="8"/>
-      <node ref="U5" pin="21"/>
+      <node ref="U2" pin="20"/>
+      <node ref="C14" pin="1"/>
     </net>
-    <net code="29" name="/ATMEGA328P/ARD_DIG7">
-      <node ref="P4" pin="1"/>
-      <node ref="U5" pin="13"/>
+    <net code="46" name="328P_ICSP_SCK">
+      <node ref="U2" pin="17"/>
+      <node ref="P3" pin="6"/>
+      <node ref="ICSP2" pin="3"/>
     </net>
-    <net code="31" name="GND">
-      <node ref="U6" pin="20"/>
-      <node ref="U6" pin="2"/>
-      <node ref="U6" pin="19"/>
-      <node ref="U6" pin="11"/>
-      <node ref="U6" pin="10"/>
-      <node ref="U6" pin="1"/>
-      <node ref="U1" pin="1"/>
-      <node ref="C5" pin="2"/>
-      <node ref="C4" pin="2"/>
-      <node ref="C1" pin="2"/>
-      <node ref="U4" pin="3"/>
-      <node ref="U2" pin="3"/>
-      <node ref="X2" pin="2"/>
-      <node ref="C8" pin="1"/>
-      <node ref="D8" pin="1"/>
-      <node ref="D3" pin="1"/>
-      <node ref="D10" pin="1"/>
-      <node ref="SW1" pin="1"/>
-      <node ref="C14" pin="2"/>
-      <node ref="C15" pin="2"/>
-      <node ref="SW1" pin="2"/>
-      <node ref="C6" pin="2"/>
-      <node ref="ICSP2" pin="6"/>
-      <node ref="D5" pin="1"/>
-      <node ref="U5" pin="8"/>
-      <node ref="P3" pin="7"/>
-      <node ref="C2" pin="2"/>
-      <node ref="U5" pin="22"/>
-      <node ref="CON1" pin="1"/>
-      <node ref="C3" pin="2"/>
-      <node ref="P1" pin="4"/>
+    <net code="47" name="328P_ICSP_MISO">
+      <node ref="P3" pin="5"/>
+      <node ref="ICSP2" pin="1"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="48" name="328P_ICSP_MOSI">
+      <node ref="P3" pin="4"/>
+      <node ref="ICSP2" pin="4"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="49" name="/ATMEGA328P/ARD_DIG4">
+      <node ref="P4" pin="4"/>
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="50" name="/ATMEGA328P/ARD_DIG0">
+      <node ref="P4" pin="8"/>
+      <node ref="U2" pin="30"/>
+    </net>
+    <net code="51" name="GND">
+      <node ref="INTERRUPT1" pin="3"/>
+      <node ref="I2C1" pin="4"/>
+      <node ref="R1" pin="1"/>
+      <node ref="R2" pin="1"/>
+      <node ref="R3" pin="1"/>
+      <node ref="R4" pin="1"/>
       <node ref="U3" pin="2"/>
-      <node ref="P1" pin="5"/>
-    </net>
-    <net code="32" name="5V_LDO">
-      <node ref="U5" pin="7"/>
-      <node ref="C5" pin="1"/>
-      <node ref="U1" pin="2"/>
-      <node ref="C2" pin="1"/>
-      <node ref="U6" pin="12"/>
-      <node ref="R16" pin="2"/>
-      <node ref="C15" pin="1"/>
-      <node ref="U3" pin="3"/>
+      <node ref="U1" pin="1"/>
+      <node ref="C16" pin="2"/>
+      <node ref="C17" pin="2"/>
+      <node ref="C4" pin="2"/>
+      <node ref="ICSP2" pin="6"/>
+      <node ref="R10" pin="1"/>
+      <node ref="C13" pin="2"/>
+      <node ref="C12" pin="2"/>
       <node ref="C8" pin="2"/>
-      <node ref="P1" pin="3"/>
-      <node ref="U4" pin="5"/>
-      <node ref="U3" pin="1"/>
-      <node ref="C3" pin="1"/>
+      <node ref="C18" pin="2"/>
+      <node ref="C10" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C7" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="18"/>
+      <node ref="IO_EXPANDER_IC1" pin="8"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="3"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="4"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="10"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="10"/>
+      <node ref="C1" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="18"/>
+      <node ref="IO_EXPANDER_IC1" pin="2"/>
+      <node ref="IO_EXPANDER_IC1" pin="3"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="3"/>
+      <node ref="P1" pin="4"/>
+      <node ref="P1" pin="5"/>
+      <node ref="C3" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="4"/>
       <node ref="U2" pin="5"/>
-      <node ref="ICSP2" pin="2"/>
-      <node ref="U5" pin="20"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U2" pin="21"/>
+      <node ref="P3" pin="7"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="9"/>
+      <node ref="VIN-1" pin="1"/>
+      <node ref="P5" pin="7"/>
+      <node ref="P5" pin="8"/>
+      <node ref="P5" pin="6"/>
+      <node ref="P5" pin="3"/>
+      <node ref="SW1" pin="1"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="P5" pin="1"/>
+      <node ref="P5" pin="2"/>
+      <node ref="X2" pin="2"/>
+      <node ref="P5" pin="4"/>
+      <node ref="P5" pin="5"/>
+      <node ref="IO_EXPANDER_IC2" pin="3"/>
+      <node ref="IO_EXPANDER_IC2" pin="2"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="9"/>
+      <node ref="IO_EXPANDER_IC1" pin="1"/>
+      <node ref="C14" pin="2"/>
+      <node ref="IO_EXPANDER_IC2" pin="8"/>
+      <node ref="STBY1" pin="1"/>
+      <node ref="C15" pin="2"/>
     </net>
-    <net code="33" name="Vin">
-      <node ref="D1" pin="1"/>
-      <node ref="P1" pin="6"/>
+    <net code="52" name="Vin">
       <node ref="U1" pin="3"/>
       <node ref="C1" pin="1"/>
+      <node ref="P1" pin="6"/>
     </net>
-    <net code="34" name="Net-(CON1-Pad2)">
-      <node ref="CON1" pin="3"/>
-      <node ref="D1" pin="2"/>
-      <node ref="CON1" pin="2"/>
+    <net code="53" name="5V_LDO">
+      <node ref="C2" pin="1"/>
+      <node ref="IO_EXPANDER_IC1" pin="16"/>
+      <node ref="C3" pin="1"/>
+      <node ref="P6" pin="1"/>
+      <node ref="IO_EXPANDER_IC2" pin="16"/>
+      <node ref="P6" pin="2"/>
+      <node ref="P6" pin="3"/>
+      <node ref="P6" pin="4"/>
+      <node ref="P6" pin="5"/>
+      <node ref="P6" pin="6"/>
+      <node ref="P6" pin="8"/>
+      <node ref="P6" pin="7"/>
+      <node ref="I2C1" pin="3"/>
+      <node ref="U1" pin="2"/>
+      <node ref="STBY1" pin="2"/>
+      <node ref="U3" pin="3"/>
+      <node ref="C15" pin="1"/>
+      <node ref="R16" pin="2"/>
+      <node ref="C17" pin="1"/>
+      <node ref="C16" pin="1"/>
+      <node ref="LED1" pin="2"/>
+      <node ref="R5" pin="1"/>
+      <node ref="R6" pin="1"/>
+      <node ref="R7" pin="1"/>
+      <node ref="ICSP2" pin="2"/>
+      <node ref="R8" pin="1"/>
+      <node ref="R9" pin="1"/>
+      <node ref="U3" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="C12" pin="1"/>
+      <node ref="MOTOR_DRIVER_IC2" pin="20"/>
+      <node ref="IO_EXPANDER_IC2" pin="1"/>
+      <node ref="U2" pin="6"/>
+      <node ref="U2" pin="4"/>
+      <node ref="U2" pin="18"/>
+      <node ref="P1" pin="3"/>
+      <node ref="MOTOR_DRIVER_IC1" pin="20"/>
+      <node ref="C18" pin="1"/>
+      <node ref="C4" pin="1"/>
     </net>
-    <net code="35" name="3V3_LDO">
-      <node ref="C6" pin="1"/>
-      <node ref="U3" pin="5"/>
+    <net code="54" name="3V3_LDO">
       <node ref="P1" pin="2"/>
+      <node ref="U3" pin="5"/>
+      <node ref="C6" pin="1"/>
     </net>
-    <net code="36" name="Net-(U3-Pad4)">
+    <net code="55" name="Net-(U3-Pad4)">
       <node ref="U3" pin="4"/>
     </net>
-    <net code="37" name="Net-(R17-Pad2)">
-      <node ref="R17" pin="2"/>
-      <node ref="U5" pin="9"/>
-      <node ref="X2" pin="3"/>
-    </net>
-    <net code="38" name="Net-(R17-Pad1)">
-      <node ref="U5" pin="10"/>
+    <net code="56" name="Net-(R17-Pad1)">
       <node ref="X2" pin="1"/>
       <node ref="R17" pin="1"/>
+      <node ref="U2" pin="8"/>
     </net>
-    <net code="39" name="Net-(U4-Pad1)">
-      <node ref="U4" pin="1"/>
+    <net code="57" name="Net-(R17-Pad2)">
+      <node ref="U2" pin="7"/>
+      <node ref="X2" pin="3"/>
+      <node ref="R17" pin="2"/>
     </net>
-    <net code="40" name="Net-(U2-Pad1)">
-      <node ref="U2" pin="1"/>
+    <net code="58" name="Net-(LED4-Pad1)">
+      <node ref="LED4" pin="1"/>
+      <node ref="R2" pin="2"/>
     </net>
-    <net code="41" name="Net-(U2-Pad4)">
-      <node ref="U2" pin="4"/>
-      <node ref="U6" pin="9"/>
+    <net code="59" name="Net-(LED5-Pad1)">
+      <node ref="LED5" pin="1"/>
+      <node ref="R3" pin="2"/>
     </net>
-    <net code="42" name="Net-(U4-Pad4)">
-      <node ref="U4" pin="4"/>
-      <node ref="U6" pin="15"/>
+    <net code="60" name="Net-(LED6-Pad1)">
+      <node ref="R4" pin="2"/>
+      <node ref="LED6" pin="1"/>
     </net>
-    <net code="43" name="Net-(U6-Pad3)">
-      <node ref="U6" pin="3"/>
+    <net code="61" name="Net-(LED3-Pad1)">
+      <node ref="R1" pin="2"/>
+      <node ref="LED3" pin="1"/>
     </net>
-    <net code="44" name="Net-(U6-Pad18)">
-      <node ref="U6" pin="18"/>
+    <net code="62" name="Net-(LED1-Pad1)">
+      <node ref="LED1" pin="1"/>
+      <node ref="R10" pin="2"/>
+    </net>
+    <net code="63" name="Net-(C13-Pad1)">
+      <node ref="R12" pin="2"/>
+      <node ref="C13" pin="1"/>
+    </net>
+    <net code="64" name="Net-(C5-Pad1)">
+      <node ref="R11" pin="2"/>
+      <node ref="C5" pin="1"/>
+    </net>
+    <net code="65" name="Net-(IO_EXPANDER_IC2-Pad12)">
+      <node ref="IO_EXPANDER_IC2" pin="12"/>
+      <node ref="IO_Expander1" pin="8"/>
+    </net>
+    <net code="66" name="Net-(IO_EXPANDER_IC2-Pad11)">
+      <node ref="IO_EXPANDER_IC2" pin="11"/>
+      <node ref="IO_Expander1" pin="7"/>
+    </net>
+    <net code="67" name="Net-(IO_EXPANDER_IC2-Pad10)">
+      <node ref="IO_EXPANDER_IC2" pin="10"/>
+      <node ref="IO_Expander1" pin="6"/>
+    </net>
+    <net code="68" name="Net-(IO_EXPANDER_IC2-Pad9)">
+      <node ref="IO_EXPANDER_IC2" pin="9"/>
+      <node ref="IO_Expander1" pin="5"/>
+    </net>
+    <net code="69" name="Net-(IO_EXPANDER_IC2-Pad7)">
+      <node ref="IO_EXPANDER_IC2" pin="7"/>
+      <node ref="IO_Expander1" pin="4"/>
+    </net>
+    <net code="70" name="Net-(IO_EXPANDER_IC2-Pad5)">
+      <node ref="IO_EXPANDER_IC2" pin="5"/>
+      <node ref="IO_Expander1" pin="2"/>
+    </net>
+    <net code="71" name="Net-(IO_EXPANDER_IC2-Pad4)">
+      <node ref="IO_EXPANDER_IC2" pin="4"/>
+      <node ref="IO_Expander1" pin="1"/>
+    </net>
+    <net code="72" name="Net-(IO_EXPANDER_IC2-Pad6)">
+      <node ref="IO_Expander1" pin="3"/>
+      <node ref="IO_EXPANDER_IC2" pin="6"/>
     </net>
   </nets>
 </export>
