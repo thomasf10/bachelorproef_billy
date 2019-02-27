@@ -26,15 +26,15 @@ Wire Wire Line
 $Comp
 L power:GND #PWR040
 U 1 1 55E8AA8C
-P 1975 3575
-F 0 "#PWR040" H 1975 3575 30  0001 C CNN
-F 1 "GND" H 1975 3505 30  0001 C CNN
-F 2 "~" H 1975 3575 60  0000 C CNN
-F 3 "~" H 1975 3575 60  0000 C CNN
-F 4 "ANY" H 1975 3575 60  0001 C CNN "Source"
-F 5 "N" H 1975 3575 60  0001 C CNN "Critical"
-F 6 "~" H 1975 3575 60  0001 C CNN "Notes"
-	1    1975 3575
+P 1975 3550
+F 0 "#PWR040" H 1975 3550 30  0001 C CNN
+F 1 "GND" H 1975 3480 30  0001 C CNN
+F 2 "~" H 1975 3550 60  0000 C CNN
+F 3 "~" H 1975 3550 60  0000 C CNN
+F 4 "ANY" H 1975 3550 60  0001 C CNN "Source"
+F 5 "N" H 1975 3550 60  0001 C CNN "Critical"
+F 6 "~" H 1975 3550 60  0001 C CNN "Notes"
+	1    1975 3550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -233,7 +233,7 @@ Wire Wire Line
 	9950 2975 9600 2975
 Wire Wire Line
 	10200 3475 10475 3475
-Text Notes 4525 1150 0    40   ~ 0
+Text Notes 7025 1050 0    40   ~ 0
 Atmel Appnote: AVR042 - AVR Hardware Design Considerations\nhttp://www.atmel.com/Images/Atmel-2521-AVR-Hardware-Design-Considerations_ApplicationNote_AVR042.pdf\n\nRefer to this for PCB layout information
 $Comp
 L Device:C C14
@@ -445,8 +445,6 @@ Connection ~ 1975 2350
 Wire Wire Line
 	1975 2350 1975 2975
 Wire Wire Line
-	1975 3575 1975 3275
-Wire Wire Line
 	9125 3350 9125 2975
 Wire Wire Line
 	9125 2975 9600 2975
@@ -513,4 +511,6 @@ Wire Wire Line
 	5425 5150 5775 5150
 Wire Wire Line
 	3750 1950 10900 1950
+Wire Wire Line
+	1975 3550 1975 3275
 $EndSCHEMATC
