@@ -40,17 +40,8 @@ Wire Wire Line
 	4550 2200 4550 2425
 Connection ~ 3950 2425
 Wire Wire Line
-	4700 2200 4700 2425
-Wire Wire Line
 	3950 2425 4550 2425
 Connection ~ 4550 2425
-Wire Wire Line
-	5300 2200 5300 2425
-Wire Wire Line
-	4550 2425 4700 2425
-Connection ~ 4700 2425
-Wire Wire Line
-	4700 2425 5300 2425
 $Comp
 L Device:R R2
 U 1 1 5C6D394E
@@ -103,30 +94,6 @@ Wire Wire Line
 	3950 1825 3950 2000
 Wire Wire Line
 	4550 1825 4550 1875
-$Comp
-L Device:R R5
-U 1 1 5C6D4060
-P 4700 1675
-F 0 "R5" H 4770 1721 50  0000 L CNN
-F 1 "220" H 4770 1630 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4630 1675 50  0001 C CNN
-F 3 "~" H 4700 1675 50  0001 C CNN
-	1    4700 1675
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R6
-U 1 1 5C6D4094
-P 5300 1675
-F 0 "R6" H 5370 1721 50  0000 L CNN
-F 1 "47k" H 5100 1725 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5230 1675 50  0001 C CNN
-F 3 "~" H 5300 1675 50  0001 C CNN
-	1    5300 1675
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4700 2000 4700 1825
 Wire Wire Line
 	3175 1525 3775 1525
 Connection ~ 3775 1525
@@ -136,9 +103,6 @@ Connection ~ 3950 1525
 Wire Wire Line
 	3950 1525 4375 1525
 Connection ~ 4550 1525
-Wire Wire Line
-	4550 1525 4700 1525
-Connection ~ 4700 1525
 Wire Wire Line
 	4375 1525 4375 1400
 Connection ~ 4375 1525
@@ -163,7 +127,7 @@ U 1 1 5C6D660D
 P 5550 1975
 F 0 "C1" H 5665 2021 50  0000 L CNN
 F 1 "10n" H 5665 1930 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5588 1825 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 5588 1825 50  0001 C CNN
 F 3 "~" H 5550 1975 50  0001 C CNN
 	1    5550 1975
 	1    0    0    -1  
@@ -182,7 +146,7 @@ U 1 1 5C6D73B7
 P 5950 2000
 F 0 "C2" H 6065 2046 50  0000 L CNN
 F 1 "1u" H 6065 1955 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 5950 2000 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-6032-15_Kemet-U" H 5950 2000 50  0001 C CNN
 F 3 "~" H 5950 2000 50  0001 C CNN
 	1    5950 2000
 	1    0    0    -1  
@@ -193,25 +157,6 @@ Wire Wire Line
 Connection ~ 4550 1875
 Wire Wire Line
 	4550 1875 4550 2000
-Wire Wire Line
-	4700 1525 5300 1525
-Wire Wire Line
-	5300 1825 5300 1850
-Connection ~ 5300 1850
-Wire Wire Line
-	5300 1850 5300 2000
-Wire Wire Line
-	2475 1850 2475 1825
-Wire Wire Line
-	2475 1850 5300 1850
-Wire Wire Line
-	2500 1875 2500 1925
-Wire Wire Line
-	2500 1875 4550 1875
-Wire Wire Line
-	2575 1925 2575 2025
-Wire Wire Line
-	2575 1925 3775 1925
 Wire Wire Line
 	4375 1400 2475 1400
 Connection ~ 4375 1400
@@ -242,48 +187,39 @@ F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 4250 2200 50  0001 C 
 	1    4250 2100
 	1    0    0    -1  
 $EndComp
-$Comp
-L Sensor_Proximity:QRE1113 U3
-U 1 1 5C76720A
-P 5000 2100
-F 0 "U3" H 5000 2417 50  0000 C CNN
-F 1 "QRE1113" H 5000 2326 50  0000 C CNN
-F 2 "OptoDevice:OnSemi_CASE100CY" H 5000 1900 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5000 2200 50  0001 C CNN
-	1    5000 2100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5300 1525 5550 1525
-Connection ~ 5300 1525
 Connection ~ 5550 1525
-Wire Wire Line
-	5300 2425 5550 2425
-Connection ~ 5300 2425
 Connection ~ 5550 2425
 Wire Wire Line
 	5550 2125 5550 2425
+Wire Wire Line
+	2475 1400 2475 1725
+Wire Wire Line
+	4550 1525 5550 1525
+Wire Wire Line
+	4550 2425 5550 2425
 $Comp
-L Connector:Screw_Terminal_01x05 J?
-U 1 1 5C770605
-P 2025 1925
-F 0 "J?" H 1945 1500 50  0000 C CNN
-F 1 "Screw_Terminal_01x05" H 1945 1591 50  0000 C CNN
-F 2 "" H 2025 1925 50  0001 C CNN
-F 3 "~" H 2025 1925 50  0001 C CNN
-	1    2025 1925
+L Connector:Screw_Terminal_01x04 J1
+U 1 1 5C76E0C6
+P 1950 1975
+F 0 "J1" H 1870 1550 50  0000 C CNN
+F 1 "Screw_Terminal_01x04" H 1870 1641 50  0000 C CNN
+F 2 "Connector_Wire:SolderWirePad_1x04_P3.81mm_Drill1mm" H 1950 1975 50  0001 C CNN
+F 3 "~" H 1950 1975 50  0001 C CNN
+	1    1950 1975
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	2475 2125 2225 2125
+	2150 1875 4550 1875
 Wire Wire Line
-	2225 2025 2575 2025
+	2150 1925 2150 1975
 Wire Wire Line
-	2225 1925 2500 1925
+	2150 1925 3775 1925
 Wire Wire Line
-	2475 1825 2225 1825
+	2150 2125 2150 2075
 Wire Wire Line
-	2475 1725 2225 1725
+	2150 2125 2475 2125
 Wire Wire Line
-	2475 1400 2475 1725
+	2150 1725 2150 1775
+Wire Wire Line
+	2150 1725 2475 1725
 $EndSCHEMATC

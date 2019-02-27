@@ -50,24 +50,14 @@ Wire Wire Line
 	4550 2425 4700 2425
 Connection ~ 4700 2425
 Wire Wire Line
-	5425 2200 5425 2425
-Wire Wire Line
 	4700 2425 5300 2425
-Connection ~ 5300 2425
-Wire Wire Line
-	5300 2425 5425 2425
-Wire Wire Line
-	6025 2200 6025 2425
-Wire Wire Line
-	6025 2425 5425 2425
-Connection ~ 5425 2425
 $Comp
 L Device:R R2
 U 1 1 5C6D394E
 P 3775 1675
 F 0 "R2" H 3845 1721 50  0000 L CNN
 F 1 "47k" H 3575 1700 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3705 1675 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3705 1675 50  0001 C CNN
 F 3 "~" H 3775 1675 50  0001 C CNN
 	1    3775 1675
 	1    0    0    -1  
@@ -78,7 +68,7 @@ U 1 1 5C6D39B0
 P 4550 1675
 F 0 "R4" H 4620 1721 50  0000 L CNN
 F 1 "47k" H 4325 1700 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4480 1675 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4480 1675 50  0001 C CNN
 F 3 "~" H 4550 1675 50  0001 C CNN
 	1    4550 1675
 	1    0    0    -1  
@@ -91,7 +81,7 @@ U 1 1 5C6D3C59
 P 3175 1675
 F 0 "R1" H 3245 1721 50  0000 L CNN
 F 1 "220" H 3245 1630 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3105 1675 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3105 1675 50  0001 C CNN
 F 3 "~" H 3175 1675 50  0001 C CNN
 	1    3175 1675
 	1    0    0    -1  
@@ -102,7 +92,7 @@ U 1 1 5C6D3C99
 P 3950 1675
 F 0 "R3" H 4020 1721 50  0000 L CNN
 F 1 "220" H 4020 1630 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3880 1675 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3880 1675 50  0001 C CNN
 F 3 "~" H 3950 1675 50  0001 C CNN
 	1    3950 1675
 	1    0    0    -1  
@@ -119,7 +109,7 @@ U 1 1 5C6D4060
 P 4700 1675
 F 0 "R5" H 4770 1721 50  0000 L CNN
 F 1 "220" H 4770 1630 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4630 1675 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4630 1675 50  0001 C CNN
 F 3 "~" H 4700 1675 50  0001 C CNN
 	1    4700 1675
 	1    0    0    -1  
@@ -130,37 +120,13 @@ U 1 1 5C6D4094
 P 5300 1675
 F 0 "R6" H 5370 1721 50  0000 L CNN
 F 1 "47k" H 5100 1725 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5230 1675 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5230 1675 50  0001 C CNN
 F 3 "~" H 5300 1675 50  0001 C CNN
 	1    5300 1675
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R R7
-U 1 1 5C6D40DA
-P 5425 1725
-F 0 "R7" H 5495 1771 50  0000 L CNN
-F 1 "220" H 5495 1680 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5355 1725 50  0001 C CNN
-F 3 "~" H 5425 1725 50  0001 C CNN
-	1    5425 1725
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R8
-U 1 1 5C6D410C
-P 6025 1675
-F 0 "R8" H 6095 1721 50  0000 L CNN
-F 1 "47k" H 6095 1630 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5955 1675 50  0001 C CNN
-F 3 "~" H 6025 1675 50  0001 C CNN
-	1    6025 1675
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4700 2000 4700 1825
-Wire Wire Line
-	5425 1875 5425 2000
 Wire Wire Line
 	3175 1525 3775 1525
 Connection ~ 3775 1525
@@ -173,9 +139,6 @@ Connection ~ 4550 1525
 Wire Wire Line
 	4550 1525 4700 1525
 Connection ~ 4700 1525
-Wire Wire Line
-	5425 1575 5425 1525
-Connection ~ 5425 1525
 Wire Wire Line
 	4375 1525 4375 1400
 Connection ~ 4375 1525
@@ -193,42 +156,35 @@ F 3 "" H 4375 1400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6450 1525 6450 1825
-Wire Wire Line
-	6025 2425 6450 2425
-Wire Wire Line
-	6450 2425 6450 2125
-Connection ~ 6025 2425
+	5550 1525 5550 1825
 $Comp
 L Device:C C1
 U 1 1 5C6D660D
-P 6450 1975
-F 0 "C1" H 6565 2021 50  0000 L CNN
-F 1 "10n" H 6565 1930 50  0000 L CNN
-F 2 "" H 6488 1825 50  0001 C CNN
-F 3 "~" H 6450 1975 50  0001 C CNN
-	1    6450 1975
+P 5550 1975
+F 0 "C1" H 5665 2021 50  0000 L CNN
+F 1 "10n" H 5665 1930 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5588 1825 50  0001 C CNN
+F 3 "~" H 5550 1975 50  0001 C CNN
+	1    5550 1975
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6450 1525 6850 1525
+	5550 1525 5950 1525
 Wire Wire Line
-	6850 1525 6850 1850
-Connection ~ 6450 1525
+	5950 1525 5950 1850
 Wire Wire Line
-	6450 2425 6850 2425
+	5550 2425 5950 2425
 Wire Wire Line
-	6850 2425 6850 2150
-Connection ~ 6450 2425
+	5950 2425 5950 2150
 $Comp
 L Device:CP1 C2
 U 1 1 5C6D73B7
-P 6850 2000
-F 0 "C2" H 6965 2046 50  0000 L CNN
-F 1 "1u" H 6965 1955 50  0000 L CNN
-F 2 "" H 6850 2000 50  0001 C CNN
-F 3 "~" H 6850 2000 50  0001 C CNN
-	1    6850 2000
+P 5950 2000
+F 0 "C2" H 6065 2046 50  0000 L CNN
+F 1 "1u" H 6065 1955 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 5950 2000 50  0001 C CNN
+F 3 "~" H 5950 2000 50  0001 C CNN
+	1    5950 2000
 	1    0    0    -1  
 $EndComp
 Connection ~ 3775 1925
@@ -239,28 +195,11 @@ Wire Wire Line
 	4550 1875 4550 2000
 Wire Wire Line
 	4700 1525 5300 1525
-Connection ~ 5300 1525
-Wire Wire Line
-	5300 1525 5425 1525
 Wire Wire Line
 	5300 1825 5300 1850
 Connection ~ 5300 1850
 Wire Wire Line
 	5300 1850 5300 2000
-Wire Wire Line
-	5425 1525 6025 1525
-Connection ~ 6025 1525
-Wire Wire Line
-	6025 1525 6450 1525
-Wire Wire Line
-	6025 1825 6025 2000
-Connection ~ 6025 1825
-Wire Wire Line
-	2575 1825 2575 1725
-Wire Wire Line
-	2575 1725 2475 1725
-Wire Wire Line
-	2575 1825 6025 1825
 Wire Wire Line
 	2475 1850 2475 1825
 Wire Wire Line
@@ -268,30 +207,13 @@ Wire Wire Line
 Wire Wire Line
 	2500 1875 2500 1925
 Wire Wire Line
-	2500 1925 2475 1925
-Wire Wire Line
 	2500 1875 4550 1875
 Wire Wire Line
 	2575 1925 2575 2025
 Wire Wire Line
-	2575 2025 2475 2025
-Wire Wire Line
 	2575 1925 3775 1925
-$Comp
-L Connector:Screw_Terminal_01x06 J1
-U 1 1 5C6DE6DE
-P 2275 1925
-F 0 "J1" H 2195 1400 50  0000 C CNN
-F 1 "Screw_Terminal_01x06" H 2195 1491 50  0000 C CNN
-F 2 "" H 2275 1925 50  0001 C CNN
-F 3 "~" H 2275 1925 50  0001 C CNN
-	1    2275 1925
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	4375 1400 2475 1400
-Wire Wire Line
-	2475 1400 2475 1625
 Connection ~ 4375 1400
 Wire Wire Line
 	3175 2425 2475 2425
@@ -331,15 +253,37 @@ F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5000 2200 50  0001 C 
 	1    5000 2100
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5300 1525 5550 1525
+Connection ~ 5300 1525
+Connection ~ 5550 1525
+Wire Wire Line
+	5300 2425 5550 2425
+Connection ~ 5300 2425
+Connection ~ 5550 2425
+Wire Wire Line
+	5550 2125 5550 2425
 $Comp
-L Sensor_Proximity:QRE1113 U4
-U 1 1 5C76725A
-P 5725 2100
-F 0 "U4" H 5725 2417 50  0000 C CNN
-F 1 "QRE1113" H 5725 2326 50  0000 C CNN
-F 2 "OptoDevice:OnSemi_CASE100CY" H 5725 1900 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/QRE1113-D.PDF" H 5725 2200 50  0001 C CNN
-	1    5725 2100
-	1    0    0    -1  
+L Connector:Screw_Terminal_01x05 J?
+U 1 1 5C770605
+P 2025 1925
+F 0 "J?" H 1945 1500 50  0000 C CNN
+F 1 "Screw_Terminal_01x05" H 1945 1591 50  0000 C CNN
+F 2 "" H 2025 1925 50  0001 C CNN
+F 3 "~" H 2025 1925 50  0001 C CNN
+	1    2025 1925
+	-1   0    0    1   
 $EndComp
+Wire Wire Line
+	2475 2125 2225 2125
+Wire Wire Line
+	2225 2025 2575 2025
+Wire Wire Line
+	2225 1925 2500 1925
+Wire Wire Line
+	2475 1825 2225 1825
+Wire Wire Line
+	2475 1725 2225 1725
+Wire Wire Line
+	2475 1400 2475 1725
 $EndSCHEMATC
