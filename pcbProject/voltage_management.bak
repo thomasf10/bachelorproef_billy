@@ -69,16 +69,8 @@ Wire Wire Line
 Wire Wire Line
 	8000 4750 8000 5325
 Connection ~ 8000 4200
-Wire Notes Line
-	2650 2500 2650 2150
-Wire Notes Line
-	2650 2150 8000 2150
-Wire Notes Line
-	8000 2150 8000 2450
 Wire Wire Line
 	5400 3700 5400 4200
-Text Notes 4450 2100 0    60   ~ 0
-USBVCC / VIN Comparator
 $Comp
 L Arduino_Uno_R3_From_Scratch:3V3_LDO #PWR013
 U 1 1 55E95795

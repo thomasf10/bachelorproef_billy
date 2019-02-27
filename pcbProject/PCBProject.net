@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "C:\\Users\\Gebruiker\\Documents\\3e bachler\\project\\projectGitHub\\bachelorproef_billy\\pcbProject\\Arduino_Uno_R3_From_Scratch.sch")
-    (date "27/02/2019 14:07:56")
+    (date "27/02/2019 16:02:05")
     (tool "Eeschema (5.0.1)-3")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -126,7 +126,7 @@
         (comment (number 4) (value "")))))
   (components
     (comp (ref C1)
-      (value 47uF)
+      (value 10uF)
       (footprint ~)
       (datasheet http://images.ihscontent.net/vipimages/VipMasterIC/IC/BEYS/BEYSS04513/BEYSS04513-1.pdf)
       (fields
@@ -160,7 +160,7 @@
       (sheetpath (names "/Voltage Regulator/") (tstamps /55CCFEA2/))
       (tstamp 55CD0087))
     (comp (ref C2)
-      (value 47uF)
+      (value 10uF)
       (footprint ~)
       (datasheet http://images.ihscontent.net/vipimages/VipMasterIC/IC/BEYS/BEYSS04513/BEYSS04513-1.pdf)
       (fields
@@ -177,7 +177,7 @@
       (sheetpath (names "/Voltage Regulator/") (tstamps /55CCFEA2/))
       (tstamp 55CE80D3))
     (comp (ref U1)
-      (value LD1117S50TR)
+      (value NCP1117)
       (datasheet http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf)
       (fields
         (field (name Characteristics) "5 V FIXED POSITIVE LDO REGULATOR, 1.2 V DROPOUT, PDSO3, ROHS COMPLIANT, SOT-223, 4 PIN")
@@ -592,7 +592,7 @@
       (tstamp 5C6F07A4))
     (comp (ref IO_EXPANDER_IC1)
       (value TCA9554PWR)
-      (footprint SOP65P640X120-16N)
+      (footprint TCA9554PWR:SOP65P640X120-16N)
       (datasheet TCA9554PWR)
       (fields
         (field (name Field4) 296-30135-1-ND)
@@ -605,7 +605,7 @@
       (tstamp 5C6F6419))
     (comp (ref IO_EXPANDER_IC2)
       (value TCA9554PWR)
-      (footprint SOP65P640X120-16N)
+      (footprint TCA9554PWR:SOP65P640X120-16N)
       (datasheet TCA9554PWR)
       (fields
         (field (name Field4) 296-30135-1-ND)
