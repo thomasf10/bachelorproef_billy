@@ -23,5 +23,5 @@ R:	470		5x
 switch
 Atmega328P-AU
 CSTCE16MOV53-RO		oscillatorkristal
-LD1117S50TR
-LP2985 -33DBVR
+LD1117S50TR		5V REGULLATOR --> andere uit labo
+LP2985 -33DBVR		3.3 V regulator --> bestellen

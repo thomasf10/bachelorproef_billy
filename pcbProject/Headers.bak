@@ -234,12 +234,12 @@ Wire Wire Line
 Wire Wire Line
 	6050 4700 4750 4700
 $Comp
-L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P?
+L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P2
 U 1 1 5C79CCDA
 P 6250 3425
-F 0 "P?" H 6168 2850 50  0000 C CNN
+F 0 "P2" H 6168 2850 50  0000 C CNN
 F 1 "P2 Analog Header (AD)" H 6825 3400 50  0000 C CNN
-F 2 "" H 6250 3425 60  0000 C CNN
+F 2 "" H 6250 3425 60  0001 C CNN
 F 3 "" H 6250 3425 60  0000 C CNN
 	1    6250 3425
 	1    0    0    1   
