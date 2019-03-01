@@ -163,7 +163,7 @@ U 1 1 5C6D660D
 P 5550 1975
 F 0 "C1" H 5665 2021 50  0000 L CNN
 F 1 "10n" H 5665 1930 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5588 1825 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 5588 1825 50  0001 C CNN
 F 3 "~" H 5550 1975 50  0001 C CNN
 	1    5550 1975
 	1    0    0    -1  
@@ -182,7 +182,7 @@ U 1 1 5C6D73B7
 P 5950 2000
 F 0 "C2" H 6065 2046 50  0000 L CNN
 F 1 "1u" H 6065 1955 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_6.3x5.4" H 5950 2000 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-6032-15_Kemet-U" H 5950 2000 50  0001 C CNN
 F 3 "~" H 5950 2000 50  0001 C CNN
 	1    5950 2000
 	1    0    0    -1  
@@ -264,12 +264,12 @@ Connection ~ 5550 2425
 Wire Wire Line
 	5550 2125 5550 2425
 $Comp
-L Connector:Screw_Terminal_01x05 J?
+L Connector:Screw_Terminal_01x05 J1
 U 1 1 5C770605
 P 2025 1925
-F 0 "J?" H 1945 1500 50  0000 C CNN
+F 0 "J1" H 1945 1500 50  0000 C CNN
 F 1 "Screw_Terminal_01x05" H 1945 1591 50  0000 C CNN
-F 2 "" H 2025 1925 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 2025 1925 50  0001 C CNN
 F 3 "~" H 2025 1925 50  0001 C CNN
 	1    2025 1925
 	-1   0    0    1   
