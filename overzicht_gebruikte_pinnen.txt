@@ -1,0 +1,35 @@
+chip:atmega328p-au 
+pinnen:
+
+1: D3:pwm| GEBRUIKT VOOR MOTORSHIELD				
+2: D4
+3: GND
+4: VCC
+5: VCC
+6: VCC
+7: XTAL1
+8: XTAL2
+9: D5:pwm| GEBRUIKT VOOR MOTORSHIELD
+10: D6: pwm| GEBRUIKT VOOR MOTORSHIELD
+11: D7
+12: B0 (digitale i/o 8)
+13: B1:pwm (digitale i/o 9)| GEBRUIKT VOOR MOTORSHIELD
+14: B2 (digitale i/o 10)
+15: B3: pwm: mosi  (digitale i/o 11)
+16: B4: miso  (digitale i/o 12)
+17: B5: sck   (digitale i/o 13)
+18: AVCC
+19: A6: enkel analog in| GEBRUIKT VOOR SENSOR
+20: AREF
+21: GND
+22: A7: enkel analog in| GEBRUIKT VOOR SENSOR
+23: C0: (analog i/o 0)| GEBRUIKT VOOR SENSOR
+24: C1: (analog i/o 1)| GEBRUIKT VOOR SENSOR
+25: C2: (analog i/o 2)| GEBRUIKT VOOR SENSOR
+26: C3: (analog i/o 3)| GEBRUIKT VOOR SENSOR
+27: C4: SDA (analog i/o 4)| GEBRUIKT VOOR IO_EXPANDER/MOTORSHIELD
+28: C5: SCL (analog i/o 5)| GEBRUIKT VOOR IO_EXPANDER/MOTORSHIELD
+29: reset
+30: D0: RX
+31: D1: TX
+32: D2
