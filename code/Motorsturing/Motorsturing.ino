@@ -15,7 +15,7 @@
  *       Author: Jarne Van Mulders
  *      Version: 1.1
  *
- *  Description: Motor Control Example 
+ *  Description: Motor Control Example
  *                TCA9554 as IO EXPANDER
  */
 
@@ -28,11 +28,12 @@
 #define PWM_PIN_2 (5)
 #define PWM_PIN_3 (6)
 #define PWM_PIN_4 (9)
-#define ReadPin A0
-#define ReadPin A1
+#define ARDUINOPIN_1 A0
+#define ARDUINOPIN_2 A1
 
 int SensorPin = 0;
 int SensorValue = 0;
+boolean interrupt = LOW;
 
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
@@ -43,9 +44,35 @@ int SensorValue = 0;
 #define CMD_REG_OUTPUT  0x01
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
-#define uint8_t Dir = B10101010
 
+uint8_t Dir = B10101010;
+void reverse() {
+  if(SensorValue<350){
+  Dir = B01010101;
+  Serial.println("YEET");
+}
+}
 
+void turnRight(){
+  if(SensorValue>350){
+  Dir= B10100101;
+  interrupt =
+}
+}
+
+void set_motor_speed(uint8_t speed_m1, uint8_t speed_m2, uint8_t speed_m3, uint8_t speed_m4){
+  analogWrite(PWM_PIN_1, speed_m1);
+  analogWrite(PWM_PIN_2, speed_m2);
+  analogWrite(PWM_PIN_3, speed_m3);
+  analogWrite(PWM_PIN_4, speed_m4);
+}
+
+void i2C_write_reg(uint8_t address, uint8_t reg, uint8_t instruction){
+  Wire.beginTransmission(address);
+  Wire.write(reg);
+  Wire.write(instruction);
+  Wire.endTransmission();
+}
 
 
 
@@ -59,7 +86,7 @@ void setup()
 
   // Setup Configuration IO expander (Additional Pins)
   i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_CONFIG, 0x00);
-  
+
   // PinMode PWM pinnen speed Motors
   pinMode(PWM_PIN_1, OUTPUT);
   pinMode(PWM_PIN_2, OUTPUT);
@@ -68,8 +95,8 @@ void setup()
 
   pinMode(ARDUINOPIN_1,INPUT_PULLUP);
   pinMode(ARDUINOPIN_2,INPUT_PULLUP);
-  attachPinChangeInterrupt(ARDUINOPIN_1, turnRight, RISING);
-  attachPinChangeInterrupt(ARDUINOPIN_1, reverse, FALLING);
+  attachPinChangeInterrupt(8, turnRight, RISING);
+  attachPinChangeInterrupt(8, reverse, FALLING);
 }
 
 
@@ -80,47 +107,26 @@ void loop() {
 
   //  Set motor speed
   set_motor_speed(200, 200, 200, 200);
+  SensorValue=analogRead(SensorPin);
+  Serial.println(SensorValue);
 
   /*
   *  Determining DC motor rotation direction
-  *  Instruction Byte 
+  *  Instruction Byte
   *    2 bits for each motor
   *    00  or  11  Stop
   *    01          CCW or CW
   *    10          CCW or CW
-  *    
+  *
   *    Byte: MD MC MB MA
-  */    
+  */
 
   // Motor example
-  i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, Dir); //  Turn right
-}
-
-void reverse(){
-  if(SensorValue<350) {
-    Dir = B01010101;
-  }
-}
-
-void turnRight(){
-  if(SensorValue>350){
-    Dir = B10100101;
-  }
-}
-
-
-
-
-void set_motor_speed(uint8_t speed_m1, uint8_t speed_m2, uint8_t speed_m3, uint8_t speed_m4){
-  analogWrite(PWM_PIN_1, speed_m1);
-  analogWrite(PWM_PIN_2, speed_m2);
-  analogWrite(PWM_PIN_3, speed_m3);
-  analogWrite(PWM_PIN_4, speed_m4);
-}
-
-void i2C_write_reg(uint8_t address, uint8_t reg, uint8_t instruction){
-  Wire.beginTransmission(address); 
-  Wire.write(reg);
-  Wire.write(instruction); 
-  Wire.endTransmission(); 
+  //MC en MD zijn de voorkant van de auto(met de sticker)
+  //wielen aan linkerkant eerst gegeven
+  //aan linkerkant achterwiel eerst, aan rechterkant voorwiel eerst
+  //Met 2 voorwielen draaien scherper dan met 1 voor- en 1 achterwiel
+  //10 voorwaarts en 01 achterwaarts
+  //hoe langer delay, hoe langer draaien
+  if(interrupt = false ) {i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, Dir);}
 }
