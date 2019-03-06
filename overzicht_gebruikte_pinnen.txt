@@ -1,5 +1,6 @@
 chip:atmega328p-au 
 pinnen:
+
 1: D3:pwm| GEBRUIKT VOOR MOTORSHIELD				
 2: D4
 3: GND
