@@ -12,12 +12,12 @@ pinnen:
 9: D5:pwm| GEBRUIKT VOOR MOTORSHIELD
 10: D6: pwm| GEBRUIKT VOOR MOTORSHIELD
 11: D7
-12: B0 (digitale i/o 8)
+12: B0 (digitale i/o 8) | GEBRUIKT VOOR RFID RESET
 13: B1:pwm (digitale i/o 9)| GEBRUIKT VOOR MOTORSHIELD
-14: B2 (digitale i/o 10)
-15: B3: pwm: mosi  (digitale i/o 11)
-16: B4: miso  (digitale i/o 12)
-17: B5: sck   (digitale i/o 13)
+14: B2 (digitale i/o 10) | GEBRUIKT VOOR RFID SDA
+15: B3: pwm: mosi  (digitale i/o 11) | GEBRUIKT VOOR RFID MOSI
+16: B4: miso  (digitale i/o 12) | GEBRUIKT VOOR RFID MISO
+17: B5: sck   (digitale i/o 13) | GEBRUIKT VOOR RFID SCK
 18: AVCC
 19: A6: enkel analog in| GEBRUIKT VOOR SENSOR
 20: AREF
