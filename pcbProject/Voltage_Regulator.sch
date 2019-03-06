@@ -75,19 +75,6 @@ F 12 "ESR must fall between 0.33Ω and 22Ω" H 6625 4175 60  0001 C CNN "Notes"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Arduino_Uno_R3_From_Scratch:Vin #PWR07
-U 1 1 55E958C6
-P 5075 3325
-AR Path="/55E958C6" Ref="#PWR07"  Part="1" 
-AR Path="/55CCFEA2/55E958C6" Ref="#PWR01"  Part="1" 
-F 0 "#PWR01" H 5075 3415 20  0001 C CNN
-F 1 "Vin" H 5075 3445 30  0000 C CNN
-F 2 "~" H 5075 3325 60  0000 C CNN
-F 3 "~" H 5075 3325 60  0000 C CNN
-	1    5075 3325
-	1    0    0    -1  
-$EndComp
-$Comp
 L Arduino_Uno_R3_From_Scratch:5V_LDO #PWR02
 U 1 1 55E958D5
 P 6475 3325
@@ -130,8 +117,6 @@ Wire Wire Line
 Connection ~ 6625 3775
 Wire Wire Line
 	6475 3325 6475 3775
-Wire Wire Line
-	5075 3325 5075 3775
 $Comp
 L Arduino_Uno_R3_From_Scratch-rescue:LD1117S50TR U1
 U 1 1 55CD2289
@@ -205,4 +190,8 @@ Wire Wire Line
 	6475 3775 6625 3775
 Wire Wire Line
 	6325 3775 6475 3775
+Text HLabel 5075 3200 1    50   Input ~ 0
+VM
+Wire Wire Line
+	5075 3200 5075 3775
 $EndSCHEMATC
