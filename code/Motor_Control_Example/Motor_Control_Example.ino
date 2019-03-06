@@ -20,12 +20,19 @@
  */
 
 #include <Wire.h>
+#include <Arduino.h>
+#include <PinChangeInterrupt.h>
 
 //  Define PWN PINS
 #define PWM_PIN_1 (3)
 #define PWM_PIN_2 (5)
 #define PWM_PIN_3 (6)
 #define PWM_PIN_4 (9)
+#define ReadPin A0
+#define ReadPin A1
+
+int SensorPin = 0;
+int SensorValue = 0;
 
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
@@ -36,6 +43,7 @@
 #define CMD_REG_OUTPUT  0x01
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
+#define uint8_t Dir = B10101010
 
 
 
@@ -44,6 +52,7 @@
 void setup()
 {
   Wire.begin();
+  Serial.begin(9600);
 
   // Setup Configuration IO expander (Motor Directions)
   i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_CONFIG, 0x00);
@@ -56,6 +65,11 @@ void setup()
   pinMode(PWM_PIN_2, OUTPUT);
   pinMode(PWM_PIN_3, OUTPUT);
   pinMode(PWM_PIN_4, OUTPUT);
+
+  pinMode(ARDUINOPIN_1,INPUT_PULLUP);
+  pinMode(ARDUINOPIN_2,INPUT_PULLUP);
+  attachPinChangeInterrupt(ARDUINOPIN_1, turnRight, RISING);
+  attachPinChangeInterrupt(ARDUINOPIN_1, reverse, FALLING);
 }
 
 
@@ -79,15 +93,19 @@ void loop() {
   */    
 
   // Motor example
-  i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010); //  Turn right
-  delay(800);
-  i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B00000000); //  Wait
-  delay(500);
-  i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010); //  Move forward
-  delay(300);
-  i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B00000000); //  Wait
-  delay(500);
+  i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, Dir); //  Turn right
+}
 
+void reverse(){
+  if(SensorValue<350) {
+    Dir = B01010101;
+  }
+}
+
+void turnRight(){
+  if(SensorValue>350){
+    Dir = B10100101;
+  }
 }
 
 
