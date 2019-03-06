@@ -117,9 +117,9 @@ Wire Wire Line
 Wire Wire Line
 	2725 3450 2900 3450
 Text HLabel 2725 3750 0    50   Input ~ 0
-AIN2
-Text HLabel 2725 3650 0    50   Input ~ 0
 AIN1
+Text HLabel 2725 3650 0    50   Input ~ 0
+AIN2
 Wire Wire Line
 	2725 3650 2900 3650
 Wire Wire Line
@@ -269,9 +269,9 @@ Wire Wire Line
 Wire Wire Line
 	5150 3450 5325 3450
 Text HLabel 5150 3750 0    50   Input ~ 0
-CIN2
-Text HLabel 5150 3650 0    50   Input ~ 0
 CIN1
+Text HLabel 5150 3650 0    50   Input ~ 0
+CIN2
 Wire Wire Line
 	5150 3650 5325 3650
 Wire Wire Line
