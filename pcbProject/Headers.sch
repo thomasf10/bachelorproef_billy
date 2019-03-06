@@ -57,75 +57,31 @@ Text HLabel 4800 3675 0    40   Input ~ 0
 ARD_AN1
 Text HLabel 4800 3775 0    40   Input ~ 0
 ARD_AN0
-Text HLabel 4775 5175 0    40   Input ~ 0
+Text HLabel 4750 5575 0    40   Input ~ 0
 ARD_DIG7
-Text HLabel 4775 5275 0    40   Input ~ 0
-ARD_DIG6
-Text HLabel 4775 5375 0    40   Input ~ 0
-ARD_DIG5
-Text HLabel 4775 5475 0    40   Input ~ 0
+Text HLabel 4750 5475 0    40   Input ~ 0
 ARD_DIG4
-Text HLabel 4775 5575 0    40   Input ~ 0
-ARD_DIG3
-Text HLabel 4775 5675 0    40   Input ~ 0
+Text HLabel 4750 5375 0    40   Input ~ 0
 ARD_DIG2
-Text HLabel 4775 5775 0    40   Input ~ 0
+Text HLabel 4750 5275 0    40   Input ~ 0
 ARD_DIG1
-Text HLabel 4775 5875 0    40   Input ~ 0
+Text HLabel 4750 5175 0    40   Input ~ 0
 ARD_DIG0
-Wire Wire Line
-	6050 5175 4775 5175
-Wire Wire Line
-	4775 5275 6050 5275
-Wire Wire Line
-	6050 5375 4775 5375
-Wire Wire Line
-	4775 5475 6050 5475
-Wire Wire Line
-	6050 5575 4775 5575
-Wire Wire Line
-	4775 5675 6050 5675
-Wire Wire Line
-	6050 5775 4775 5775
-Wire Wire Line
-	4775 5875 6050 5875
-$Comp
-L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P4
-U 1 1 5615BF57
-P 6250 5525
-F 0 "P4" H 6400 5650 60  0000 L CNN
-F 1 "Digital Header 01 (IOL)" H 6400 5525 60  0000 L CNN
-F 2 "~" H 6250 5525 60  0000 C CNN
-F 3 "http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf" H 6250 5525 60  0001 C CNN
-F 4 "Connector Header 8 Position 0.100\" (2.54mm) Gold Surface Mount" H 6250 5525 60  0001 C CNN "Characteristics"
-F 5 "Shield Header 8POS - DIG01" H 6250 5525 60  0001 C CNN "Description"
-F 6 "Sullins Connector" H 6250 5525 60  0001 C CNN "MFN"
-F 7 "NPPC081KFXC-RC" H 6250 5525 60  0001 C CNN "MFP"
-F 8 "SMD" H 6250 5525 60  0001 C CNN "Package ID"
-F 9 "ANY" H 6250 5525 60  0001 C CNN "Source"
-F 10 "N" H 6250 5525 60  0001 C CNN "Critical"
-F 11 "Shield_Headers" H 6250 5525 60  0001 C CNN "Subsystem"
-F 12 "~" H 6250 5525 60  0001 C CNN "Notes"
-	1    6250 5525
-	1    0    0    -1  
-$EndComp
 Text HLabel 4825 3375 0    40   Input ~ 0
 ARD_AN4/SDA
 Text HLabel 4825 3275 0    40   Input ~ 0
 ARD_AN5/SCL
-Text HLabel 4750 4800 0    40   Input ~ 0
+Text HLabel 4750 5675 0    40   Input ~ 0
 ARD_DIG8
-Text HLabel 4750 4700 0    40   Input ~ 0
-ARD_DIG9
-Text HLabel 4750 4600 0    40   Input ~ 0
+Text HLabel 4750 4800 0    40   Input ~ 0
 ARD_DIG10/SPI_SS
-Text HLabel 4750 4500 0    40   Input ~ 0
+Text HLabel 4750 4700 0    40   Input ~ 0
 ARD_DIG11/SPI_MOSI
-Text HLabel 4750 4400 0    40   Input ~ 0
+Text HLabel 4750 4600 0    40   Input ~ 0
 ARD_DIG12/SPI_MISO
-Text HLabel 4750 4300 0    40   Input ~ 0
+Text HLabel 4750 4500 0    40   Input ~ 0
 ARD_DIG13/SPI_SCK
-Text HLabel 4750 4100 0    40   Input ~ 0
+Text HLabel 4750 4300 0    40   Input ~ 0
 AREF
 $Comp
 L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P1
@@ -185,28 +141,6 @@ Wire Wire Line
 Wire Wire Line
 	5950 2225 6050 2225
 $Comp
-L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P3
-U 1 1 5C578D54
-P 6250 4450
-F 0 "P3" H 6400 4575 60  0000 L CNN
-F 1 "Digital Header 02 (IOH)" H 6400 4450 60  0000 L CNN
-F 2 "~" H 6250 4450 60  0000 C CNN
-F 3 "http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf" H 6250 4450 60  0001 C CNN
-F 4 "Connector Header 8 Position 0.100\" (2.54mm) Gold Surface Mount" H 6250 4450 60  0001 C CNN "Characteristics"
-F 5 "Shield Header 8POS - DIG01" H 6250 4450 60  0001 C CNN "Description"
-F 6 "Sullins Connector" H 6250 4450 60  0001 C CNN "MFN"
-F 7 "NPPC081KFXC-RC" H 6250 4450 60  0001 C CNN "MFP"
-F 8 "SMD" H 6250 4450 60  0001 C CNN "Package ID"
-F 9 "ANY" H 6250 4450 60  0001 C CNN "Source"
-F 10 "N" H 6250 4450 60  0001 C CNN "Critical"
-F 11 "Shield_Headers" H 6250 4450 60  0001 C CNN "Subsystem"
-F 12 "~" H 6250 4450 60  0001 C CNN "Notes"
-	1    6250 4450
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	6050 4100 4750 4100
-$Comp
 L power:GND #PWR0101
 U 1 1 5C579B64
 P 5625 4925
@@ -218,21 +152,11 @@ F 3 "" H 5625 4925 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6050 4200 5625 4200
-Wire Wire Line
-	5625 4200 5625 4925
-Wire Wire Line
 	6050 4300 4750 4300
-Wire Wire Line
-	6050 4400 4750 4400
 Wire Wire Line
 	6050 4500 4750 4500
 Wire Wire Line
 	6050 4600 4750 4600
-Wire Wire Line
-	6050 4800 4750 4800
-Wire Wire Line
-	6050 4700 4750 4700
 $Comp
 L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X08 P2
 U 1 1 5C79CCDA
@@ -264,4 +188,46 @@ Wire Wire Line
 	4825 3175 6050 3175
 Wire Wire Line
 	4825 3075 6050 3075
+Wire Wire Line
+	4750 5175 6050 5175
+Wire Wire Line
+	4750 5275 6050 5275
+Wire Wire Line
+	4750 5375 6050 5375
+Wire Wire Line
+	4750 5475 6050 5475
+Wire Wire Line
+	4750 5575 6050 5575
+Wire Wire Line
+	4750 5675 6050 5675
+Wire Wire Line
+	4750 4800 6050 4800
+Wire Wire Line
+	4750 4700 6050 4700
+Wire Wire Line
+	6050 4400 5625 4400
+Wire Wire Line
+	5625 4400 5625 4925
+$Comp
+L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P3
+U 1 1 5C9A72A7
+P 6250 4550
+F 0 "P3" H 6168 4075 50  0000 C CNN
+F 1 "Digital Header 02 (IOH) P3" H 6168 4166 50  0000 C CNN
+F 2 "" H 6250 4550 60  0000 C CNN
+F 3 "" H 6250 4550 60  0000 C CNN
+	1    6250 4550
+	1    0    0    1   
+$EndComp
+$Comp
+L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P4
+U 1 1 5C9A74BA
+P 6250 5425
+F 0 "P4" H 6328 5466 50  0000 L CNN
+F 1 "Digital Header 01 (IOL)" H 6328 5375 50  0000 L CNN
+F 2 "" H 6250 5425 60  0000 C CNN
+F 3 "" H 6250 5425 60  0000 C CNN
+	1    6250 5425
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
