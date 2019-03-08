@@ -17,12 +17,12 @@ $EndDescr
 $Comp
 L Arduino_Uno_R3_From_Scratch:5V_LDO #PWR035
 U 1 1 55E95D7A
-P 5700 1875
-F 0 "#PWR035" H 5700 1965 20  0001 C CNN
-F 1 "5V_LDO" H 5700 1995 30  0000 C CNN
-F 2 "~" H 5700 1875 60  0000 C CNN
-F 3 "~" H 5700 1875 60  0000 C CNN
-	1    5700 1875
+P 5625 1875
+F 0 "#PWR035" H 5625 1965 20  0001 C CNN
+F 1 "5V_LDO" H 5625 1995 30  0000 C CNN
+F 2 "~" H 5625 1875 60  0000 C CNN
+F 3 "~" H 5625 1875 60  0000 C CNN
+	1    5625 1875
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -36,7 +36,7 @@ F 3 "~" H 5400 1875 60  0000 C CNN
 	1    5400 1875
 	1    0    0    -1  
 $EndComp
-Text HLabel 4800 2725 0    40   Input ~ 0
+Text HLabel 5925 2225 0    40   Input ~ 0
 328P_RESET
 Text HLabel 4800 3475 0    40   Input ~ 0
 ARD_AN3
@@ -92,8 +92,6 @@ F 12 "~" H 6250 2475 60  0001 C CNN "Notes"
 	1    6250 2475
 	1    0    0    1   
 $EndComp
-Wire Wire Line
-	4800 2725 6050 2725
 $Comp
 L power:GND #PWR038
 U 1 1 55E9684A
@@ -108,23 +106,6 @@ F 6 "~" H 5925 2850 60  0001 C CNN "Notes"
 	1    5925 2850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5400 2625 6050 2625
-Wire Wire Line
-	5400 1875 5400 2225
-Wire Wire Line
-	5700 2525 6050 2525
-Wire Wire Line
-	5700 1875 5700 2525
-Wire Wire Line
-	6050 2325 5925 2325
-Wire Wire Line
-	6050 2425 5925 2425
-Wire Wire Line
-	5925 2325 5925 2425
-Connection ~ 5925 2425
-Wire Wire Line
-	5925 2425 5925 2850
 $Comp
 L power:GND #PWR0101
 U 1 1 5C579B64
@@ -216,8 +197,27 @@ F 3 "" H 6250 5425 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5400 2225 6050 2225
-Connection ~ 5400 2225
+	5925 2225 6050 2225
 Wire Wire Line
-	5400 2225 5400 2625
+	5925 2850 5925 2725
+Wire Wire Line
+	5925 2725 6050 2725
+Wire Wire Line
+	5925 2725 5925 2625
+Wire Wire Line
+	5925 2625 6050 2625
+Connection ~ 5925 2725
+Wire Wire Line
+	6050 2525 5400 2525
+Wire Wire Line
+	5400 2425 6050 2425
+Wire Wire Line
+	5400 1875 5400 2425
+Connection ~ 5400 2425
+Wire Wire Line
+	5400 2425 5400 2525
+Wire Wire Line
+	5625 1875 5625 2325
+Wire Wire Line
+	5625 2325 6050 2325
 $EndSCHEMATC
