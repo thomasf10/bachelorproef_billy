@@ -1,0 +1,17 @@
+.MC33269ST-3.3T3G :1 ;LDO Voltage Regulators 3.3V ADJ 800mA
+SOT230P700X175-4N
+*STM IC
+*NGS
+*PLB 1="GND" 2="VOUT" 3="VIN" 4="VOUT_(TAB)"
+*MXP 4
+*DFN MC33269ST-3.3T3G
+~!Manufacturer_Name (ON Semiconductor)
+~!Manufacturer_Part_Number (MC33269ST-3.3T3G)
+~!RS Part Number (8062059P)
+~!Link RS Price/Stock (http://uk.rs-online.com/web/p/products/8062059P)
+~!Allied_Number (70466323)
+~!Link Allied Price/Stock (http://www.alliedelec.com/on-semiconductor-mc33269st-3-3t3g/70466323/)
+~!Link Datasheet (http://www.onsemi.com/pub/Collateral/MC33269-D.PDF)
+~!Height (1.75mm)
+MC33269ST-3.3T3G
+1.1!G 2.1!Y 3.1!I 4.1!Y 

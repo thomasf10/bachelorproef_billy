@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "MCRSD16000F183000RR"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2017-09-04-10:03:02)
+    (mountForm default
+        (footprintRef "HC/49US-[AT49]_1")
+        (spec "System")
+    )
+)

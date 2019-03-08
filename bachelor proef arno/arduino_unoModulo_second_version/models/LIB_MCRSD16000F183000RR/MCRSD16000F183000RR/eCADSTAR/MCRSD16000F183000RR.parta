@@ -1,0 +1,65 @@
+(Japanese_coding: sjis)
+(function "ECS_242345"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2017-09-04-10:03:37)
+    (utime 2017-09-04-10:03:37)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "MCRSD16000F183000RR")
+)
+
+
+(pinAssign "ECS_242345"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2017-09-04-10:03:37)
+    (utime 2017-09-04-10:03:37)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_242345")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "MCRSD16000F183000RR")
+)
+
+
+(part "MCRSD16000F183000RR"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2017-09-04-10:03:37)
+    (utime 2017-09-04-10:03:37)
+    (packageRef "MCRSD16000F183000RR")
+    (pinAssignRef "ECS_242345")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "Y")
+    (property "description" "MULTICOMP - MCRSD16000F183000RR - CRYSTAL, 16MHZ, 18PF, HC49-US, SMD")
+    (property "uaManufacturer" "MULTICOMP")
+    (property "uaManufacturerPartNumber" "MCRSD16000F183000RR")
+    (property "uaVendor" "RS")
+    (property "uaVendorReference" "")
+    (property "uaAttribute1" "http://www.farnell.com/datasheets/1801275.pdf")
+)
+
+

@@ -1,0 +1,15 @@
+.MCRSD16000F183000RR :1 ;MULTICOMP - MCRSD16000F183000RR - CRYSTAL, 16MHZ, 18PF, HC49-US, SMD
+HC/49US-_AT49__1
+*STM Y
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN MCRSD16000F183000RR
+~!Manufacturer_Name (MULTICOMP)
+~!Manufacturer_Part_Number (MCRSD16000F183000RR)
+~!RS Part Number (-)
+~!RS Price/Stock (-)
+~!Link Datasheet (http://www.farnell.com/datasheets/1801275.pdf)
+~!Height (-)
+MCRSD16000F183000RR
+1.1!U 2.1!U 

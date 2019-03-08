@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MCRSD16000F183000RR
+D MULTICOMP - MCRSD16000F183000RR - CRYSTAL, 16MHZ, 18PF, HC49-US, SMD
+K
+F http://www.farnell.com/datasheets/1801275.pdf
+$ENDCMP
+#
+#End Doc Library

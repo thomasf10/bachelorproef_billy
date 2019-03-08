@@ -1,0 +1,25 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model LD1117S50TR
+#/3909/36500/2.21/4/3/Integrated Circuit
+DEF LD1117S50TR IC 0 30 Y Y 1 F N
+F0 "IC" 1150 300 50 H V L CNN
+F1 "LD1117S50TR" 1150 200 50 H V L CNN
+F2 "SOT230P700X190-4N" 1150 100 50 H I L CNN
+F3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf" 1150 0 50 H I L CNN
+F4 "LD1117S50TR, Low Dropout Voltage Regulator, 1.3A, 5 V 1%, 4-Pin SOT-223" 1150 -100 50 H I L CNN "Description"
+F5 "STMicroelectronics" 1150 -200 50 H I L CNN "Manufacturer_Name"
+F6 "LD1117S50TR" 1150 -300 50 H I L CNN "Manufacturer_Part_Number"
+F7 "RS" 1150 -400 50 H I L CNN "Supplier_Name"
+F8 "6869379P" 1150 -500 50 H I L CNN "RS Part Number"
+F9 "1.9" 1150 -600 50 H I L CNN "Height"
+DRAW
+X GROUND 1 0 0 200 R 50 50 0 0 B
+X VOUT 2 0 -100 200 R 50 50 0 0 B
+X VIN 3 1300 0 200 L 50 50 0 0 B
+X VOUT_1 4 1300 -100 200 L 50 50 0 0 B
+P 5 0 1 6 200 100 1100 100 1100 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

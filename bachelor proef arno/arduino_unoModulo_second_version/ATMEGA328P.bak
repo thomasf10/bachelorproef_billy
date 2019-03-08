@@ -1,0 +1,505 @@
+EESchema Schematic File Version 2
+LIBS:Arduino_Uno_R3_From_Scratch-rescue
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:Arduino_Uno_R3_From_Scratch
+LIBS:MFN_Atmel
+LIBS:MFN_STMicro
+LIBS:degson
+LIBS:Arduino_Uno_R3_From_Scratch-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 6
+Title "Arduino UNO R3 Clone"
+Date "8 oct 2015"
+Rev "0"
+Comp "Rheingold Heavy"
+Comment1 "Based on the Arduino UNO R3 From arduino.cc"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 4150 3750 0    40   Input ~ 0
+AREF
+Wire Wire Line
+	4150 3750 5850 3750
+$Comp
+L GND #PWR026
+U 1 1 55E8AA8C
+P 4875 5025
+F 0 "#PWR026" H 4875 5025 30  0001 C CNN
+F 1 "GND" H 4875 4955 30  0001 C CNN
+F 2 "~" H 4875 5025 60  0000 C CNN
+F 3 "~" H 4875 5025 60  0000 C CNN
+F 4 "ANY" H 4875 5025 60  0001 C CNN "Source"
+F 5 "N" H 4875 5025 60  0001 C CNN "Critical"
+F 6 "~" H 4875 5025 60  0001 C CNN "Notes"
+	1    4875 5025
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 3750 4450 4000
+Connection ~ 4450 3750
+Wire Wire Line
+	4450 4300 4450 4550
+Wire Wire Line
+	8250 6100 9350 6100
+Wire Wire Line
+	8250 5900 9350 5900
+Text HLabel 9350 3250 2    40   Input ~ 0
+AD5
+Text HLabel 9350 3450 2    40   Input ~ 0
+AD4
+Text HLabel 9350 3650 2    40   Input ~ 0
+AD3
+Text HLabel 9350 3850 2    40   Input ~ 0
+AD2
+Text HLabel 9350 4050 2    40   Input ~ 0
+AD1
+Text HLabel 9350 4250 2    40   Input ~ 0
+AD0
+Wire Wire Line
+	9350 3250 8250 3250
+Wire Wire Line
+	8250 3450 9350 3450
+Wire Wire Line
+	9350 3650 8250 3650
+Wire Wire Line
+	8250 3850 9350 3850
+Wire Wire Line
+	9350 4050 8250 4050
+Wire Wire Line
+	8250 4250 9350 4250
+Text HLabel 9350 5100 2    40   Input ~ 0
+PWMB
+Text HLabel 9350 4700 2    40   Input ~ 0
+DIRB
+Text HLabel 9350 4900 2    40   Input ~ 0
+PWMA
+Text HLabel 9350 5300 2    40   Input ~ 0
+DIRA
+Text HLabel 9350 5500 2    40   Input ~ 0
+IO3
+Text HLabel 9350 5700 2    40   Input ~ 0
+IO2
+Text HLabel 9350 5900 2    40   Input ~ 0
+IO1
+Text HLabel 9350 6100 2    40   Input ~ 0
+IO0
+Wire Wire Line
+	8250 5700 9350 5700
+Wire Wire Line
+	9350 5500 8250 5500
+Wire Wire Line
+	8250 5300 9350 5300
+Wire Wire Line
+	9350 5100 8250 5100
+Wire Wire Line
+	8250 4900 9350 4900
+Wire Wire Line
+	9350 4700 8250 4700
+Text HLabel 9350 2500 2    40   Input ~ 0
+IO8
+Text HLabel 9350 2300 2    40   Input ~ 0
+IO9
+Text HLabel 9350 2100 2    40   Input ~ 0
+SS
+Text HLabel 9350 1900 2    40   Input ~ 0
+IO11
+Text HLabel 9350 1700 2    40   Input ~ 0
+IO12
+Text HLabel 9350 1500 2    40   Input ~ 0
+IO13
+Wire Wire Line
+	9350 2500 8250 2500
+Wire Wire Line
+	8250 2300 9350 2300
+Wire Wire Line
+	9350 2100 8250 2100
+Wire Wire Line
+	8250 1900 9350 1900
+Wire Wire Line
+	8250 1700 9350 1700
+Wire Wire Line
+	8250 1500 9350 1500
+Wire Wire Line
+	3200 1500 5850 1500
+$Comp
+L CONN_02X03 ICSP601
+U 1 1 55E8CAAE
+P 3800 850
+F 0 "ICSP601" H 3800 1100 50  0000 C CNN
+F 1 "M20-9980346" H 3800 650 40  0000 C CNN
+F 2 "M20-9980346:HDRV6W64P254_2X3_762X508X868P" H 3800 850 60  0001 C CNN
+F 3 "http://cdn.harwin.com/pdfs/M20-998.pdf" H 3800 850 60  0001 C CNN
+F 4 "6 CONTACT(S), MALE, STRAIGHT TWO PART BOARD CONNECTOR" H 3800 850 60  0001 C CNN "Characteristics"
+F 5 "ATMEGA328P ICSP Header" H 3800 850 60  0001 C CNN "Description"
+F 6 "Harwin" H 3800 850 60  0001 C CNN "MFN"
+F 7 "M20-9980346" H 3800 850 60  0001 C CNN "MFP"
+F 8 "PTH" H 3800 850 60  0001 C CNN "Package ID"
+F 9 "ANY" H 3800 850 60  0001 C CNN "Source"
+F 10 "N" H 3800 850 60  0001 C CNN "Critical"
+F 11 "328P_Sub" H 3800 850 60  0001 C CNN "Subsystem"
+F 12 "~" H 3800 850 60  0001 C CNN "Notes"
+	1    3800 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 650  4900 1050
+Wire Wire Line
+	4900 1350 4900 1500
+Connection ~ 4900 750 
+Wire Wire Line
+	4350 950  4350 1100
+Wire Wire Line
+	4050 950  4350 950 
+Wire Wire Line
+	3200 950  3550 950 
+Connection ~ 4900 1500
+Wire Wire Line
+	3200 850  3550 850 
+Wire Wire Line
+	3200 750  3550 750 
+Text GLabel 8500 1400 2    40   Input ~ 0
+328P_ICSP_SCK
+Text GLabel 8500 1600 2    40   Input ~ 0
+328P_ICSP_MISO
+Text GLabel 8500 1800 2    40   Input ~ 0
+328P_ICSP_MOSI
+Wire Wire Line
+	8500 1400 8400 1400
+Wire Wire Line
+	8400 1400 8400 1500
+Connection ~ 8400 1500
+Wire Wire Line
+	8500 1600 8400 1600
+Wire Wire Line
+	8400 1600 8400 1700
+Connection ~ 8400 1700
+Wire Wire Line
+	8500 1800 8400 1800
+Wire Wire Line
+	8400 1800 8400 1900
+Connection ~ 8400 1900
+Text GLabel 3200 850  0    40   Input ~ 0
+328P_ICSP_SCK
+Text GLabel 3200 750  0    40   Input ~ 0
+328P_ICSP_MISO
+Text GLabel 4300 850  2    40   Input ~ 0
+328P_ICSP_MOSI
+Wire Wire Line
+	4050 850  4300 850 
+$Comp
+L RESET_SWITCH SW601
+U 1 1 55E8D514
+P 3400 1975
+F 0 "SW601" V 3250 2275 60  0000 C CNN
+F 1 "RESET_SWITCH" V 3550 2525 60  0000 C CNN
+F 2 "4-1437565-1:FSM-SWITCH" H 3400 1975 60  0001 C CNN
+F 3 "http://industrial.panasonic.com/www-data/pdf/ATK0000/ATK0000CE28.pdf" H 3400 1975 60  0001 C CNN
+F 4 "SWITCH TACTILE SPST-NO 0.02A 15V" H 3400 1975 60  0001 C CNN "Characteristics"
+F 5 "Reset Pushbutton" H 3400 1975 60  0001 C CNN "Description"
+F 6 "Panasonic" H 3400 1975 60  0001 C CNN "MFN"
+F 7 "EVQ-Q2U02W" H 3400 1975 60  0001 C CNN "MFP"
+F 8 "SMD" H 3400 1975 60  0001 C CNN "Package ID"
+F 9 "ANY" H 3400 1975 60  0001 C CNN "Source"
+F 10 "N" H 3400 1975 60  0001 C CNN "Critical"
+F 11 "328P_Sub" H 3400 1975 60  0001 C CNN "Subsystem"
+F 12 "Prefer below 3mm in accuator height off PCB" H 3400 1975 60  0001 C CNN "Notes"
+	1    3400 1975
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3400 1500 3400 1650
+Connection ~ 3400 1500
+Connection ~ 3400 1650
+Wire Wire Line
+	3200 950  3200 1500
+Wire Wire Line
+	4625 2050 5850 2050
+Wire Wire Line
+	5300 2050 5300 2425
+Wire Wire Line
+	5300 2725 5300 3050
+Wire Wire Line
+	4600 3050 5850 3050
+Text Notes 6150 1050 0    40   ~ 0
+Atmel Appnote: AVR042 - AVR Hardware Design Considerations\nhttp://www.atmel.com/Images/Atmel-2521-AVR-Hardware-Design-Considerations_ApplicationNote_AVR042.pdf\n\nRefer to this for PCB layout information
+$Comp
+L C C601
+U 1 1 56159BB8
+P 4450 4150
+F 0 "C601" H 4500 4250 40  0000 L CNN
+F 1 "100 nF" H 4500 4050 40  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 4488 4000 30  0001 C CNN
+F 3 "http://images.ihscontent.net/vipimages/VipMasterIC/IC/KEME/KEMES10043/KEMES10043-1.pdf" H 4450 4150 60  0001 C CNN
+F 4 "CAPACITOR, CERAMIC, MULTILAYER, 100 V, X7R, 0.1 uF, SURFACE MOUNT, 0805, CHIP, ROHS COMPLIANT" H 4450 4150 60  0001 C CNN "Characteristics"
+F 5 "ATMEGA328P AREF Bypass Cap" H 4450 4150 60  0001 C CNN "Description"
+F 6 "Kemet" H 4450 4150 60  0001 C CNN "MFN"
+F 7 "C0805C104K1RACAUTO" H 4450 4150 60  0001 C CNN "MFP"
+F 8 "SMD_0805" H 4450 4150 60  0001 C CNN "Package ID"
+F 9 "ANY" H 4450 4150 60  0001 C CNN "Source"
+F 10 "N" H 4450 4150 60  0001 C CNN "Critical"
+F 11 "328P_Sub" H 4450 4150 60  0001 C CNN "Subsystem"
+F 12 "~" H 4450 4150 60  0001 C CNN "Notes"
+	1    4450 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C602
+U 1 1 56159BD3
+P 5100 4725
+F 0 "C602" H 5150 4825 40  0000 L CNN
+F 1 "0.1 uF" H 5150 4625 40  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 5138 4575 30  0001 C CNN
+F 3 "http://images.ihscontent.net/vipimages/VipMasterIC/IC/KEME/KEMES10043/KEMES10043-1.pdf" H 5100 4725 60  0001 C CNN
+F 4 "CAPACITOR, CERAMIC, MULTILAYER, 100 V, X7R, 0.1 uF, SURFACE MOUNT, 0805, CHIP, ROHS COMPLIANT" H 5100 4725 60  0001 C CNN "Characteristics"
+F 5 "ATMEGA328P VCC and AVCC Bypass Cap" H 5100 4725 60  0001 C CNN "Description"
+F 6 "Kemet" H 5100 4725 60  0001 C CNN "MFN"
+F 7 "C0805C104K1RACAUTO" H 5100 4725 60  0001 C CNN "MFP"
+F 8 "SMD_0805" H 5100 4725 60  0001 C CNN "Package ID"
+F 9 "ANY" H 5100 4725 60  0001 C CNN "Source"
+F 10 "N" H 5100 4725 60  0001 C CNN "Critical"
+F 11 "328P_Sub" H 5100 4725 60  0001 C CNN "Subsystem"
+F 12 "~" H 5100 4725 60  0001 C CNN "Notes"
+	1    5100 4725
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R601
+U 1 1 56159EEE
+P 4900 1200
+F 0 "R601" V 4980 1200 40  0000 C CNN
+F 1 "10K" V 4907 1201 40  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 4830 1200 30  0001 C CNN
+F 3 "http://images.ihscontent.net/vipimages/VipMasterIC/IC/VISH/VISHS75859/VISHS75859-1.pdf" H 4900 1200 30  0001 C CNN
+F 4 "RESISTOR, METAL GLAZE/THICK FILM, 0.125W, 5%, 200ppm, 10000ohm, SURFACE MOUNT, 0805" H 4900 1200 60  0001 C CNN "Characteristics"
+F 5 "ATMEGA328P 10K ICSP Pull Up" H 4900 1200 60  0001 C CNN "Description"
+F 6 "Vishay" H 4900 1200 60  0001 C CNN "MFN"
+F 7 "CRCW080510K0JNEA" H 4900 1200 60  0001 C CNN "MFP"
+F 8 "SMD_0805" H 4900 1200 60  0001 C CNN "Package ID"
+F 9 "ANY" H 4900 1200 60  0001 C CNN "Source"
+F 10 "N" H 4900 1200 60  0001 C CNN "Critical"
+F 11 "328P_Sub" H 4900 1200 60  0001 C CNN "Subsystem"
+F 12 "~" H 4900 1200 60  0001 C CNN "Notes"
+	1    4900 1200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3500 1650 3500 1775
+Wire Wire Line
+	3300 1650 3500 1650
+Wire Wire Line
+	3300 1775 3300 1650
+Wire Wire Line
+	3300 2275 3300 2175
+$Comp
+L GND #PWR027
+U 1 1 562077A6
+P 4450 4550
+F 0 "#PWR027" H 4450 4550 30  0001 C CNN
+F 1 "GND" H 4450 4480 30  0001 C CNN
+F 2 "~" H 4450 4550 60  0000 C CNN
+F 3 "~" H 4450 4550 60  0000 C CNN
+F 4 "ANY" H 4450 4550 60  0001 C CNN "Source"
+F 5 "N" H 4450 4550 60  0001 C CNN "Critical"
+F 6 "~" H 4450 4550 60  0001 C CNN "Notes"
+	1    4450 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR028
+U 1 1 562079B8
+P 3300 2275
+F 0 "#PWR028" H 3300 2275 30  0001 C CNN
+F 1 "GND" H 3300 2205 30  0001 C CNN
+F 2 "~" H 3300 2275 60  0000 C CNN
+F 3 "~" H 3300 2275 60  0000 C CNN
+F 4 "ANY" H 3300 2275 60  0001 C CNN "Source"
+F 5 "N" H 3300 2275 60  0001 C CNN "Critical"
+F 6 "~" H 3300 2275 60  0001 C CNN "Notes"
+	1    3300 2275
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR029
+U 1 1 56208C49
+P 4350 1100
+F 0 "#PWR029" H 4350 1100 30  0001 C CNN
+F 1 "GND" H 4350 1030 30  0001 C CNN
+F 2 "~" H 4350 1100 60  0000 C CNN
+F 3 "~" H 4350 1100 60  0000 C CNN
+F 4 "ANY" H 4350 1100 60  0001 C CNN "Source"
+F 5 "N" H 4350 1100 60  0001 C CNN "Critical"
+F 6 "~" H 4350 1100 60  0001 C CNN "Notes"
+	1    4350 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 3900 5100 3900
+Wire Wire Line
+	5100 3900 5100 4575
+Wire Wire Line
+	5850 4850 5525 4850
+Wire Wire Line
+	5525 4850 5525 4475
+Wire Wire Line
+	5525 4475 4925 4475
+Connection ~ 5100 4475
+Wire Wire Line
+	5850 4700 5525 4700
+Connection ~ 5525 4700
+Wire Wire Line
+	5850 4400 5375 4400
+Wire Wire Line
+	5375 4050 5375 4875
+Wire Wire Line
+	5375 4875 4875 4875
+Wire Wire Line
+	5850 4550 5750 4550
+Wire Wire Line
+	5750 4550 5750 4400
+Connection ~ 5750 4400
+Wire Wire Line
+	4875 4875 4875 5025
+Connection ~ 5100 4875
+Wire Wire Line
+	5850 4050 5375 4050
+Connection ~ 5375 4400
+$Comp
+L +5V #PWR030
+U 1 1 5A9E5CDE
+P 4925 4450
+F 0 "#PWR030" H 4925 4300 50  0001 C CNN
+F 1 "+5V" H 4925 4590 50  0000 C CNN
+F 2 "" H 4925 4450 50  0001 C CNN
+F 3 "" H 4925 4450 50  0001 C CNN
+	1    4925 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4925 4475 4925 4450
+$Comp
+L +5V #PWR031
+U 1 1 5A9E5E9A
+P 4900 650
+F 0 "#PWR031" H 4900 500 50  0001 C CNN
+F 1 "+5V" H 4900 790 50  0000 C CNN
+F 2 "" H 4900 650 50  0001 C CNN
+F 3 "" H 4900 650 50  0001 C CNN
+	1    4900 650 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 750  4050 750 
+$Comp
+L ATMEGA328P-MU20 U601
+U 1 1 5A9E5226
+P 7050 3750
+F 0 "U601" H 8000 1150 60  0000 C CNN
+F 1 "ATMEGA328P-MU20" H 7050 6300 60  0000 C CNN
+F 2 "ATMEGA328P-AU:QFP80P900X900X120-32N" H 6950 5250 60  0001 C CNN
+F 3 "" H 6950 5250 60  0000 C CNN
+	1    7050 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 5700 5150 5700
+Wire Wire Line
+	5850 5850 5150 5850
+Text HLabel 5150 5850 0    60   Input ~ 0
+AD6
+Text HLabel 5150 5700 0    60   Input ~ 0
+AD7
+$Comp
+L Crystal Y601
+U 1 1 5AA8FA43
+P 5300 2575
+F 0 "Y601" H 5300 2725 50  0000 C CNN
+F 1 "Crystal" H 5300 2425 50  0000 C CNN
+F 2 "MCRSD16000F183000RR:HC%2f49US-(AT49)_1" H 5300 2575 50  0001 C CNN
+F 3 "" H 5300 2575 50  0001 C CNN
+	1    5300 2575
+	0    1    1    0   
+$EndComp
+Connection ~ 5300 2050
+$Comp
+L C C603
+U 1 1 5AA8FDA4
+P 4475 2050
+F 0 "C603" H 4500 2150 50  0000 L CNN
+F 1 "22p" H 4500 1950 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 4513 1900 50  0001 C CNN
+F 3 "" H 4475 2050 50  0001 C CNN
+	1    4475 2050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4325 2050 4325 2250
+$Comp
+L GND #PWR032
+U 1 1 5AA8FEAC
+P 4325 2250
+F 0 "#PWR032" H 4325 2000 50  0001 C CNN
+F 1 "GND" H 4325 2100 50  0000 C CNN
+F 2 "" H 4325 2250 50  0001 C CNN
+F 3 "" H 4325 2250 50  0001 C CNN
+	1    4325 2250
+	1    0    0    -1  
+$EndComp
+Connection ~ 5300 3050
+$Comp
+L C C604
+U 1 1 5AA8FFE3
+P 4450 3050
+F 0 "C604" H 4475 3150 50  0000 L CNN
+F 1 "22p" H 4475 2950 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 4488 2900 50  0001 C CNN
+F 3 "" H 4450 3050 50  0001 C CNN
+	1    4450 3050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR033
+U 1 1 5AA90121
+P 4300 3150
+F 0 "#PWR033" H 4300 2900 50  0001 C CNN
+F 1 "GND" H 4300 3000 50  0000 C CNN
+F 2 "" H 4300 3150 50  0001 C CNN
+F 3 "" H 4300 3150 50  0001 C CNN
+	1    4300 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 3050 4300 3150
+NoConn ~ 3500 2175
+$EndSCHEMATC

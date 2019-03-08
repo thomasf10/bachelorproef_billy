@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "PHT6NQ10T,135"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2017-10-16-19:15:50)
+    (mountForm default
+        (footprintRef "SOT230P700X180-4N")
+        (spec "System")
+    )
+)

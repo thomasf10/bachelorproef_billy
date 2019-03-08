@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PHT6NQ10T,135
+D NXP PHT6NQ10T,135 N-channel MOSFET Transistor, 3 A, 100 V, 4-Pin SC-73
+K
+F http://docs-europe.electrocomponents.com/webdocs/1538/0900766b815384f4.pdf
+$ENDCMP
+#
+#End Doc Library

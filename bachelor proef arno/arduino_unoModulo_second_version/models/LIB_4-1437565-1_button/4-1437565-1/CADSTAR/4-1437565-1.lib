@@ -1,0 +1,17 @@
+.4-1437565-1 :1 ;6x6mm SMD tactile switch,5mm H 1.6N Black Button Tactile Switch, SPST-NO 0.05 A@ 12 V dc 1.4mm
+FSM-SWITCH
+*STM S
+*NGS
+*PLB 1="1" 2="2" 3="3" 4="4"
+*MXP 4
+*DFN 4-1437565-1
+~!Manufacturer_Name (TE Connectivity)
+~!Manufacturer_Part_Number (4-1437565-1)
+~!RS Part Number (1616046)
+~!Link RS Price/Stock (http://uk.rs-online.com/web/p/products/1616046)
+~!Allied_Number (R1117787)
+~!Link Allied Price/Stock (http://www.alliedelec.com/te-connectivity-4-1437565-1/R1117787/)
+~!Link Datasheet (http://docs-europe.electrocomponents.com/webdocs/14a3/0900766b814a3369.pdf)
+~!Height (-)
+"4-1437565-1"
+1.1!U 2.1!U 3.1!U 4.1!U 

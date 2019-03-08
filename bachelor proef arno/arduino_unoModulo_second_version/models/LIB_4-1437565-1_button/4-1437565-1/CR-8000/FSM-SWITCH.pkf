@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "FSM-SWITCH"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "FSM-SWITCH")
+        (spec "default")
+    )
+)

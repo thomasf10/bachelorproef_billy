@@ -1,0 +1,25 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model PHT6NQ10T,135
+#/527107/36500/2.23/4/4/Transistor
+DEF PHT6NQ10T,135 Q 0 30 Y Y 1 F N
+F0 "Q" 1350 300 50 H V L CNN
+F1 "PHT6NQ10T,135" 1350 200 50 H V L CNN
+F2 "SOT230P700X180-4N" 1350 100 50 H I L CNN
+F3 "http://docs-europe.electrocomponents.com/webdocs/1538/0900766b815384f4.pdf" 1350 0 50 H I L CNN
+F4 "NXP PHT6NQ10T,135 N-channel MOSFET Transistor, 3 A, 100 V, 4-Pin SC-73" 1350 -100 50 H I L CNN "Description"
+F5 "1.8" 1350 -200 50 H I L CNN "Height"
+F6 "Nexperia" 1350 -300 50 H I L CNN "Manufacturer_Name"
+F7 "PHT6NQ10T,135" 1350 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "1242386" 1350 -500 50 H I L CNN "RS Part Number"
+F9 "http://uk.rs-online.com/web/p/products/1242386" 1350 -600 50 H I L CNN "RS Price/Stock"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 B
+X ~ 2 0 -100 200 R 50 50 0 0 B
+X ~ 3 1500 0 200 L 50 50 0 0 B
+X ~ 4 1500 -100 200 L 50 50 0 0 B
+P 5 0 1 6 200 100 1300 100 1300 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

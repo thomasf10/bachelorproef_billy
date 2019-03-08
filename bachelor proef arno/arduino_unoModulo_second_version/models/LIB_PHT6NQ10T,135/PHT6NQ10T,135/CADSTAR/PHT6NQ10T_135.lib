@@ -1,0 +1,15 @@
+.PHT6NQ10T_135 :1 ;NXP PHT6NQ10T,135 N-channel MOSFET Transistor, 3 A, 100 V, 4-Pin SC-73
+SOT230P700X180-4N
+*STM Q
+*NGS
+*PLB 1="GATE" 2="DRAIN" 3="SOURCE" 4="DRAIN (TAB)"
+*MXP 4
+*DFN PHT6NQ10T_135
+~!Manufacturer_Name (Nexperia)
+~!Manufacturer_Part_Number (PHT6NQ10T,135)
+~!RS Part Number (1242386)
+~!Link RS Price/Stock (http://uk.rs-online.com/web/p/products/1242386)
+~!Link Datasheet (http://docs-europe.electrocomponents.com/webdocs/1538/0900766b815384f4.pdf)
+~!Height (1.8mm)
+PHT6NQ10T_135
+1.1!U 2.1!U 3.1!U 4.1!U 

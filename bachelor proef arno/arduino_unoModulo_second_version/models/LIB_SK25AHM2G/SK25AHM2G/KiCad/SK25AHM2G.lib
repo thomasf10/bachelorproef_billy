@@ -1,0 +1,24 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model SK25AHM2G
+#/971804/36500/2.24/2/4/Diode
+DEF SK25AHM2G D 0 30 Y Y 1 F N
+F0 "D" 450 200 50 H V L CNN
+F1 "SK25AHM2G" 450 100 50 H V L CNN
+F2 "DIOM5437X240N" 450 0 50 H I L CNN
+F3 "https://www.tme.eu/it/Document/d871a179795794e96dbabe1c032e5183/SK22-DIO.pdf" 450 -100 50 H I L CNN
+F4 "DIODE SCHOTTKY 50V 2A DO214AC" 450 -200 50 H I L CNN "Description"
+F5 "2.3999" 450 -300 50 H I L CNN "Height"
+F6 "Taiwan Semiconductor" 450 -400 50 H I L CNN "Manufacturer_Name"
+F7 "SK25AHM2G" 450 -500 50 H I L CNN "Manufacturer_Part_Number"
+F8 "" 450 -600 50 H I L CNN "RS Part Number"
+F9 "" 450 -700 50 H I L CNN "RS Price/Stock"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 B
+X ~ 2 600 0 200 L 50 50 0 0 B
+P 4 0 1 6 200 0 400 100 400 -100 200 0 N
+P 2 0 1 6 200 100 200 -100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

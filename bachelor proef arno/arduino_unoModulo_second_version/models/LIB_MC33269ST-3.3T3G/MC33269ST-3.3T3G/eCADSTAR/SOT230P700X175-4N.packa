@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "MC33269ST-3.3T3G"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2017-02-01-10:06:45)
+    (mountForm default
+        (footprintRef "SOT230P700X175-4N")
+        (spec "System")
+    )
+)

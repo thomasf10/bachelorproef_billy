@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ATMEGA328P-MMH
+D Atmel ATMEGA328P-MMH, 8bit AVR Microcontroller, 20MHz, 32 kB Flash, 28-Pin QFN
+K
+F http://uk.rs-online.com/web/p/products/8149138P
+$ENDCMP
+#
+#End Doc Library

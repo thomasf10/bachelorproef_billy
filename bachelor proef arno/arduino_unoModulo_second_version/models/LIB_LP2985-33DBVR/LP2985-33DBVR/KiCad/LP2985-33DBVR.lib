@@ -1,0 +1,26 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model LP2985-33DBVR
+#/292989/36500/2.21/5/4/Integrated Circuit
+DEF LP2985-33DBVR IC 0 30 Y Y 1 F N
+F0 "IC" 1250 300 50 H V L CNN
+F1 "LP2985-33DBVR" 1250 200 50 H V L CNN
+F2 "SOT95P280X145-5N" 1250 100 50 H I L CNN
+F3 "http://www.ti.com/lit/gpn/lp2985" 1250 0 50 H I L CNN
+F4 "150-mA Low-noise Low-dropout Regulator With Shutdown" 1250 -100 50 H I L CNN "Description"
+F5 "Texas Instruments" 1250 -200 50 H I L CNN "Manufacturer_Name"
+F6 "LP2985-33DBVR" 1250 -300 50 H I L CNN "Manufacturer_Part_Number"
+F7 "RS" 1250 -400 50 H I L CNN "Supplier_Name"
+F8 "" 1250 -500 50 H I L CNN "RS Part Number"
+F9 "1.45" 1250 -600 50 H I L CNN "Height"
+DRAW
+X VIN 1 0 0 200 R 50 50 0 0 B
+X GND 2 0 -100 200 R 50 50 0 0 B
+X ON/~OFF 3 0 -200 200 R 50 50 0 0 B
+X BYPASS 4 1400 0 200 L 50 50 0 0 B
+X VOUT 5 1400 -100 200 L 50 50 0 0 B
+P 5 0 1 6 200 100 1200 100 1200 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

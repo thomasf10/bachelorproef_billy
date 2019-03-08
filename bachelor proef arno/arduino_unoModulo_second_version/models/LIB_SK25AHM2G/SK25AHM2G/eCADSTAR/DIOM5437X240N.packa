@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "SK25AHM2G"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2017-11-18-20:27:39)
+    (mountForm default
+        (footprintRef "DIOM5437X240N")
+        (spec "System")
+    )
+)

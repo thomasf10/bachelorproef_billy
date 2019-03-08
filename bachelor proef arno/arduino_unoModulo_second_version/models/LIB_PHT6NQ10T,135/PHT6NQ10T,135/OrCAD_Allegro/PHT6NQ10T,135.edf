@@ -1,0 +1,116 @@
+
+(EDIF
+  (rename &PHT6NQ10T_135 "PHT6NQ10T_135")
+  (EDIFVersion 2 0 0)
+  (EDIFLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timestamp 2018 03 14 10 45 05)
+      (dataOrigin "527107/36500/2.23/4/4/Transistor")
+      (program "SamacSys ECAD Model PHT6NQ10T_135"
+        (version "1.1"))))
+  (library
+  (rename &PHT6NQ10T_135 "PHT6NQ10T_135")
+    (EDIFLevel 0)
+    (technology
+      (numberDefinition (scale 1 (e 254 -6) (unit DISTANCE)))
+      (userData GRIDRESOLUTION (integer 50 50))
+      (figureGroup DEFAULT (pathWidth 10) (textHeight 100))
+      (figureGroup PROPERTY (pathWidth 10) (textHeight 90))
+      (figureGroup PINNUMBER (pathWidth 10) (textHeight 90))
+      (figureGroup PINNAME (pathWidth 10) (textHeight 90))
+      (figureGroup COMMENT (pathWidth 10) (textHeight 90))
+      (figureGroup PIN (pathWidth 10) (textHeight 90))
+      (figureGroup GRAPHIC (pathWidth 10) (textHeight 100))
+    )
+    (cell
+      (rename &PHT6NQ10T_135 "PHT6NQ10T_135")
+      (cellType GENERIC)
+      (view
+        (rename NORMAL "Normal")
+        (viewType SCHEMATIC)
+        (interface
+          (designator "Q")
+          (property (rename PACKAGENAME "PackageName") (string "PHT6NQ10T_135"))
+          (property (rename ISHETEROGENEOUS "IsHeterogeneous") (string "False"))
+          (property (rename DEVICESINVIEW "DevicesInView") (string "1"))
+          (property (rename DEVICESINPACKAGE "DevicesInPackage") (string "1"))
+          (property (rename DEVICEDESIGNATOR "DeviceDesignator") (string "A"))
+          (property (rename DEVICENUMBERING "DeviceNumbering") (string "Alpha"))
+          (property (rename PCB_32_FOOTPRINT "PCB Footprint") (string "SOT230P700X180-4N"))
+          (property (rename &Manufacturer_Name "Manufacturer_Name") (string "Nexperia"))
+          (property (rename &Manufacturer_Part_Number "Manufacturer_Part_Number") (string "PHT6NQ10T,135"))
+          (property (rename &RS_Part_Number "RS Part Number") (string "1242386"))
+          (property (rename &RS_Price/Stock "RS Price/Stock") (string "http://uk.rs-online.com/web/p/products/1242386"))
+          (property (rename &Description "Description") (string "NXP PHT6NQ10T,135 N-channel MOSFET Transistor, 3 A, 100 V, 4-Pin SC-73"))
+          (property (rename &Datasheet_Link "Datasheet Link") (string "http://docs-europe.electrocomponents.com/webdocs/1538/0900766b815384f4.pdf"))
+          (property (rename &Height "Height") (string "1.8 mm"))
+          (property (rename &_60__32_VALUE_32__62_ "< Value >") (string "PHT6NQ10T_135"))
+          (property (rename VALUE "Value") (string "Value"))
+          (port
+            (rename &GATE "GATE")
+            (designator "1")
+            (property (rename ORDER "Order") (string "0") (owner "OrCAD"))
+          )
+          (port
+            (rename &DRAIN "DRAIN")
+            (designator "2")
+            (property (rename ORDER "Order") (string "1") (owner "OrCAD"))
+          )
+          (port
+            (rename &SOURCE "SOURCE")
+            (designator "3")
+            (property (rename ORDER "Order") (string "2") (owner "OrCAD"))
+          )
+          (port
+            (rename &DRAIN__TAB_ "DRAIN__TAB_")
+            (designator "4")
+            (property (rename ORDER "Order") (string "3") (owner "OrCAD"))
+          )
+          (symbol
+            (portImplementation
+              (name &GATE (display PINNAME))
+              (keywordDisplay DESIGNATOR (display PINNUMBER))
+              (figure PIN (path (pointList (pt -200 -100) (pt 0 -100))))
+              (connectLocation (figure GRAPHIC (dot (pt -200 -100))))
+            )
+            (portImplementation
+              (name &DRAIN (display PINNAME))
+              (keywordDisplay DESIGNATOR (display PINNUMBER))
+              (figure PIN (path (pointList (pt -200 -200) (pt 0 -200))))
+              (connectLocation (figure GRAPHIC (dot (pt -200 -200))))
+            )
+            (portImplementation
+              (name &SOURCE (display PINNAME))
+              (keywordDisplay DESIGNATOR (display PINNUMBER))
+              (figure PIN (path (pointList (pt 1100 -100) (pt 1300 -100))))
+              (connectLocation (figure GRAPHIC (dot (pt 1300 -100))))
+            )
+            (portImplementation
+              (name &DRAIN__TAB_ (display PINNAME))
+              (keywordDisplay DESIGNATOR (display PINNUMBER))
+              (figure PIN (path (pointList (pt 1100 -200) (pt 1300 -200))))
+              (connectLocation (figure GRAPHIC (dot (pt 1300 -200))))
+            )
+            (figure GRAPHIC
+              (figureGroupOverride GRAPHIC
+                (pathWidth 10))
+              (path
+                (pointList
+                  (pt 0 0)
+                  (pt 1100 0)
+                  (pt 1100 -300)
+                  (pt 0 -300)
+                  (pt 0 0)
+                )
+              )
+            )
+            (keywordDisplay DESIGNATOR (display PROPERTY (justify LOWERLEFT) (orientation R0) (origin (pt 1150 130))))
+            (propertyDisplay &_60__32_VALUE_32__62_ (display PROPERTY (justify LOWERLEFT) (orientation R0) (origin (pt 1150 30))))
+          )
+        )
+      )
+    )
+  )
+)

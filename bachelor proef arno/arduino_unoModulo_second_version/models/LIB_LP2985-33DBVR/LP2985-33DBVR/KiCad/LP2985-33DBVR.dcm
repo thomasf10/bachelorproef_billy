@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LP2985-33DBVR
+D 150-mA Low-noise Low-dropout Regulator With Shutdown
+K
+F http://www.ti.com/lit/gpn/lp2985
+$ENDCMP
+#
+#End Doc Library

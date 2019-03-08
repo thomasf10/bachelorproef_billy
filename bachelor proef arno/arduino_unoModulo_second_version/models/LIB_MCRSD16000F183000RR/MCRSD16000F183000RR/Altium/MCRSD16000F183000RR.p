@@ -1,0 +1,18 @@
+*PADS-LIBRARY-PART-TYPES-V9*
+
+MCRSD16000F183000RR HC/49US-(AT49)_1 I OSC 6 1 0 0 0
+TIMESTAMP 2018.03.14.09.28.58
+"Manufacturer_Name" MULTICOMP
+"Manufacturer_Part_Number" MCRSD16000F183000RR
+"RS Part Number" 
+"RS Price/Stock" 
+"Description" MULTICOMP - MCRSD16000F183000RR - CRYSTAL, 16MHZ, 18PF, HC49-US, SMD
+"Datasheet Link" http://www.farnell.com/datasheets/1801275.pdf
+GATE 1 2 0
+MCRSD16000F183000RR
+1 0 U 1
+2 0 U 2
+
+*END*
+*REMARK* SamacSys ECAD Model
+242345/36500/2.23/2/4/Crystal or Oscillator

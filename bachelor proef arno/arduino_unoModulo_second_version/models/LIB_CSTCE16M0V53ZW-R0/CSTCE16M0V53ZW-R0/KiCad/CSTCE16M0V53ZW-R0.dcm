@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CSTCE16M0V53ZW-R0
+D Resonators 16.00MHZ .5% CHIP RESONATOR
+K
+F https://componentsearchengine.com/Datasheets/1/CSTCE16M0V53ZW-R0.pdf
+$ENDCMP
+#
+#End Doc Library

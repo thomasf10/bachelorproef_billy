@@ -1,0 +1,15 @@
+.M20-9980346 :1 ;03+03 DIL Vertical Pin Header HARWIN M20 Series, 2.54mm Pitch 6 Way 2 Row Straight PCB Header, Solder Termination, 3A
+HDRV6W64P254_2X3_762X508X868P
+*STM J
+*NGS
+*PLB 1="1" 2="2" 3="3" 4="4" 5="5" 6="6"
+*MXP 6
+*DFN M20-9980346
+~!Manufacturer_Name (HARWIN)
+~!Manufacturer_Part_Number (M20-9980346)
+~!RS Part Number (7457046P)
+~!Link RS Price/Stock (http://uk.rs-online.com/web/p/products/7457046P)
+~!Link Datasheet (https://cdn.harwin.com/pdfs/M20-998.pdf?utm_source=3D_PDF&utm_medium=3D_PDF&utm_campaign=3D_PDF)
+~!Height (8.68mm)
+M20-9980346
+1.1!U 3.1!U 5.1!U 2.1!U 4.1!U 6.1!U 
