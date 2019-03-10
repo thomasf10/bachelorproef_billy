@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 8)
+    (drawings 17)
     (tracks 101)
     (zones 0)
     (modules 12)
@@ -34,7 +34,7 @@
   )
 
   (setup
-    (last_trace_width 0.5)
+    (last_trace_width 0.25)
     (user_trace_width 0.5)
     (user_trace_width 1)
     (trace_clearance 0.2)
@@ -62,7 +62,7 @@
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 0 0)
     (grid_origin 115.697 33.655)
-    (visible_elements FFFFFF7F)
+    (visible_elements 7FFFFFFF)
     (pcbplotparams
       (layerselection 0x010fc_ffffffff)
       (usegerberextensions false)
@@ -578,6 +578,15 @@
     )
   )
 
+  (target x (at 132.498688 59.99379) (size 6.5) (width 0.15) (layer Edge.Cuts))
+  (gr_line (start 132.5 55) (end 132.5 60) (layer F.SilkS) (width 0.2))
+  (gr_line (start 152.5 55) (end 152.5 60) (layer F.SilkS) (width 0.2))
+  (target x (at 152.497223 59.996789) (size 6.5) (width 0.15) (layer Edge.Cuts))
+  (gr_line (start 119.888 65.913) (end 165.1 65.913) (layer F.SilkS) (width 0.2) (tstamp 5C7A45BA))
+  (gr_line (start 165 90) (end 165 55) (layer F.SilkS) (width 0.2))
+  (gr_line (start 120 90) (end 165 90) (layer F.SilkS) (width 0.2))
+  (gr_line (start 120 55) (end 120 90) (layer F.SilkS) (width 0.2))
+  (gr_line (start 120 55) (end 165 55) (layer F.SilkS) (width 0.2))
   (gr_text "3\n" (at 159.004 84.963) (layer F.Cu) (tstamp 5C8138B7)
     (effects (font (size 1 1) (thickness 0.25)))
   )
