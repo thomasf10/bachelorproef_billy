@@ -11,6 +11,11 @@ class Sensormodule{
     void print_waarden();
     void digitaliseerwaarden();
     void kieslijn(Sensormodule module);
+    bool getactief();
+    int getlinkerwaarde();
+    int getmiddenwaarde();
+    int getrechterwaarde();
+    void setactief(bool a);
   private:
     int pinlinks,pinmidden,pinrechts;
     int waarde_links, waarde_midden,waarde_rechts;

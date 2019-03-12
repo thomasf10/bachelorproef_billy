@@ -12,8 +12,11 @@ Motorcontrol motors;
 #define CMD_REG_OUTPUT  0x01
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
+Sensormodule links,rechts;
 void setup(){
   motors=Motorcontrol();
+  links= Sensormodule(0,1,2);
+  rechts= Sensormodule(3,4,5);
   //Serial.begin(9600);
 }
 void loop(){
@@ -22,8 +25,54 @@ void loop(){
   de sensormodules
   1) update
   2) digitaliseerwaarden
-  3)stuur adhv de waarden 
+  3) kieslijn
+  4)stuur adhv de waarden
   */
+  links.update();
+  links.digitaliseerwaarden();
+  rechts.update();
+  rechts.digitaliseerwaarden();
+  rechts.kieslijn(links);
+  if(links.getactief()==true){
+    //sturing op basis van linkser sensor
+    if(links.getlinkerwaarde()==0 && links.getmiddenwaarde()==1 && links.getrechterwaarde()==0){
+      //rij rechtdoor
+      motors.set_motor_speed(200,200,200,200);
+      motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+    }
+    else{
+      if(links.getlinkerwaarde()==1 && links.getmiddenwaarde()==0 && links.getrechterwaarde()==0){
+        // draai links
+
+      }
+      if(links.getlinkerwaarde()==0 && links.getmiddenwaarde()==0 && links.getrechterwaarde()==1){
+        // draar rechts
+
+      }
+    }
+
+  }
+  else{
+    //sturing op basis rechter sensor
+    if(rechts.getlinkerwaarde()==0 && rechts.getmiddenwaarde()==1 && rechts.getrechterwaarde()==0){
+      //rij rechtdoor
+      motors.set_motor_speed(200,200,200,200);
+      motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+    }
+    else{
+      if(rechts.getlinkerwaarde()==1 && rechts.getmiddenwaarde()==0 && rechts.getrechterwaarde()==0){
+        // draai links
+
+      }
+      if(rechts.getlinkerwaarde()==0 && rechts.getmiddenwaarde()==0 && rechts.getrechterwaarde()==1){
+        // draar links
+
+      }
+    }
+
+
+  }
+
 }
 
 /*

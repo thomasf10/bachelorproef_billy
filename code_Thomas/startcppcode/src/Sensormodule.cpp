@@ -66,5 +66,31 @@ void Sensormodule::kieslijn(Sensormodule module){
 /*to do: kiest linker of rechter lijn aan de hand van?
   zet boolean actief op true van ene module en false
   van andere module
+
+  momenteel: simpel, mischien uitbereiden nodig!
   */
+
+  if(this->waarde_midden==1){
+    this->actief=true;
+    module.setactief(false);
+  }
+
+}
+bool Sensormodule::getactief(){
+  return actief;
+}
+
+int Sensormodule::getlinkerwaarde(){
+  return waarde_links;
+}
+
+int Sensormodule::getrechterwaarde(){
+  return waarde_rechts;
+}
+
+int Sensormodule::getmiddenwaarde(){
+  return waarde_midden;
+}
+void Sensormodule::setactief(bool a){
+  this->actief=a;
 }
