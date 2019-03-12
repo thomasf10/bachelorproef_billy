@@ -12,8 +12,9 @@
             sensor midden: analogepin 4
             sensor rechts: analogepin 5
 */
-int pinlinks,pinmidden,pinrecht;
-int waarde_links, waarde_midden,waarde_rechts;
+//int pinlinks,pinmidden,pinrecht;
+//int waarde_links, waarde_midden,waarde_rechts;
+
 Sensormodule::Sensormodule(){
   }
 
@@ -21,6 +22,7 @@ Sensormodule::Sensormodule(int pinlinks,int pinmidden,int pinrechts){
   this->pinlinks=pinlinks;
   this->pinmidden=pinmidden;
   this->pinrechts=pinrechts;
+  this->actief=true;
   }
 
 void Sensormodule::update(){
@@ -59,5 +61,10 @@ void Sensormodule:: digitaliseerwaarden(){
   else{
     waarde_midden=0;
   }
-
+}
+void Sensormodule::kieslijn(Sensormodule module){
+/*to do: kiest linker of rechter lijn aan de hand van?
+  zet boolean actief op true van ene module en false
+  van andere module
+  */
 }

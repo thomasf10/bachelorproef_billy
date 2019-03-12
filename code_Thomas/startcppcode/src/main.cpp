@@ -17,6 +17,19 @@ void setup(){
   //Serial.begin(9600);
 }
 void loop(){
+  /*
+  to do: main schrijven die motoren stuurt adhv
+  de sensormodules
+  1) update
+  2) digitaliseerwaarden
+  3)stuur adhv de waarden 
+  */
+}
+
+/*
+code voor motoren:
+
+void loop(){
   //set motor speed
   motors.set_motor_speed(200, 200, 200, 200);
   /*
@@ -29,6 +42,7 @@ void loop(){
  *
  *    Byte: MD MC MB MA
  */
+ /*
   motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010); //  Turn right
    delay(800);
   motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B00000000); //  Wait
@@ -39,11 +53,11 @@ void loop(){
    delay(500);
 }
 
-
+*/
 
 
 /*
-code voor sensoren
+code voor sensoren:
 
 Sensormodule links;
 const int pin = 7;
