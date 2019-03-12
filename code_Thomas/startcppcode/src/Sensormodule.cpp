@@ -3,17 +3,21 @@
 
 /* sensor module:
   layout:
-    module1:
+    module1(links):
             sensor links: analogepin 0
             sensor midden: analogepin 1
             sensor rechts: analogepin 2
-    module2:
+    module2(rechts):
             sensor links: analogepin 3
             sensor midden: analogepin 4
             sensor rechts: analogepin 5
 */
-//int pinlinks,pinmidden,pinrecht;
-//int waarde_links, waarde_midden,waarde_rechts;
+
+/*mogelijke verbeteringen:
+        -update en digitaliseren in 1 functie
+        -sensorwaarden in array ipv aparte int's
+        -functie kieslijn robuster maken
+*/
 
 Sensormodule::Sensormodule(){
   }
@@ -74,6 +78,10 @@ void Sensormodule::kieslijn(Sensormodule module){
     this->actief=true;
     module.setactief(false);
   }
+  else{
+    this->actief=false;
+    module.setactief(true);
+    }
 
 }
 bool Sensormodule::getactief(){

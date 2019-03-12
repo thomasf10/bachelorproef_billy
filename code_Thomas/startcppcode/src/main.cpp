@@ -2,7 +2,7 @@
 #include "Led.h"
 #include "Sensormodule.h"
 #include "Motorcontrol.h"
-Motorcontrol motors;
+
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
 #define I2C_ADDRESS_ADD_PINS      0x39
@@ -12,13 +12,17 @@ Motorcontrol motors;
 #define CMD_REG_OUTPUT  0x01
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
+
+Motorcontrol motors;
 Sensormodule links,rechts;
+
 void setup(){
   motors=Motorcontrol();
   links= Sensormodule(0,1,2);
   rechts= Sensormodule(3,4,5);
   //Serial.begin(9600);
 }
+
 void loop(){
   /*
   to do: main schrijven die motoren stuurt adhv
@@ -69,8 +73,6 @@ void loop(){
 
       }
     }
-
-
   }
 
 }
