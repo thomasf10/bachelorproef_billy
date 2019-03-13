@@ -17,10 +17,11 @@ Motorcontrol motors;
 Sensormodule links,rechts;
 
 void setup(){
+  Serial.begin(9600);
+  Serial.println(" in setup");
   motors=Motorcontrol();
   links= Sensormodule(0,1,2);
-  rechts= Sensormodule(3,4,5);
-  Serial.begin(9600);
+  rechts= Sensormodule(3,6,7);
 }
 
 void loop(){
@@ -32,14 +33,17 @@ void loop(){
   3) kieslijn
   4)stuur adhv de waarden
   */
-
+Serial.println("in loop");
   links.update();
   links.digitaliseerwaarden();
   rechts.update();
   rechts.digitaliseerwaarden();
+  Serial.println("na update sensoren");
   rechts.kieslijn(links);
-
-
+ Serial.println("links actief: ");
+ Serial.println(links.getactief());
+Serial.println("rechts actief: ");
+Serial.println(rechts.getactief());
   if(links.getactief()==true){
     //sturing op basis van linkser sensor
     pidvalue=links.calculatepid();
@@ -72,7 +76,7 @@ void loop(){
         }
     }
     }
-  
+
 
 /*
 code voor motoren:

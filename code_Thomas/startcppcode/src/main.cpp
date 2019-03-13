@@ -12,17 +12,27 @@
 #define CMD_REG_OUTPUT  0x01
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
-Motorcontrol motors;
+//Motorcontrol motors;
 Sensormodule links,rechts;
 
 void setup(){
-  motors=Motorcontrol();
+//  motors=Motorcontrol();
   links= Sensormodule(0,1,2);
-  rechts= Sensormodule(3,4,5);
+  rechts= Sensormodule(3,6,7);
   Serial.begin(9600);
 }
 
 void loop(){
+  links.update();
+  rechts.update();
+  links.digitaliseerwaarden();
+  rechts.digitaliseerwaarden();
+  Serial.print("module links: ");
+  links.print_waarden();
+  delay(1000);
+  Serial.print("module rechts: ");
+  rechts.print_waarden();
+  delay(1000);
   /*
   to do: main schrijven die motoren stuurt adhv
   de sensormodules
@@ -31,7 +41,7 @@ void loop(){
   3) kieslijn
   4)stuur adhv de waarden
   */
-
+/*
   links.update();
   links.digitaliseerwaarden();
   rechts.update();
@@ -74,7 +84,7 @@ void loop(){
       }
     }
   }
-
+*/
 }
 
 /*
