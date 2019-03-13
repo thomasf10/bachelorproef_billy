@@ -12,7 +12,6 @@
 #define CMD_REG_OUTPUT  0x01
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
-
 Motorcontrol motors;
 Sensormodule links,rechts;
 
@@ -20,7 +19,7 @@ void setup(){
   motors=Motorcontrol();
   links= Sensormodule(0,1,2);
   rechts= Sensormodule(3,4,5);
-  //Serial.begin(9600);
+  Serial.begin(9600);
 }
 
 void loop(){
@@ -32,6 +31,7 @@ void loop(){
   3) kieslijn
   4)stuur adhv de waarden
   */
+
   links.update();
   links.digitaliseerwaarden();
   rechts.update();
@@ -57,7 +57,7 @@ void loop(){
 
   }
   else{
-    //sturing op basis rechter sensor
+    //sturing op basis van rechter sensor
     if(rechts.getlinkerwaarde()==0 && rechts.getmiddenwaarde()==1 && rechts.getrechterwaarde()==0){
       //rij rechtdoor
       motors.set_motor_speed(200,200,200,200);
@@ -107,8 +107,8 @@ void loop(){
 */
 
 
-/*
-code voor sensoren:
+
+/*code voor sensoren:
 
 Sensormodule links;
 const int pin = 7;
@@ -126,8 +126,7 @@ void loop() {
   Serial.println("digitaal: ");
   links.digitaliseerwaarden();
   links.print_waarden();
-  Serial
-  .println();
+  Serial.println();
   delay(1000);
 }
 */
