@@ -10,17 +10,14 @@ class Sensormodule{
     void update();
     void print_waarden();
     void digitaliseerwaarden();
-    void kieslijn(Sensormodule module);
-    bool getactief();
     int getlinkerwaarde();
     int getmiddenwaarde();
     int getrechterwaarde();
-    void setactief(bool a);
+    int calculatepid(Sensormodule rechts);
   private:
     int pinlinks,pinmidden,pinrechts;
     int waarde_links, waarde_midden,waarde_rechts;
-    bool actief; // in main kieslijn oproepen om true of false te zetten
-
+    int lasterror;
 
 };
 #endif

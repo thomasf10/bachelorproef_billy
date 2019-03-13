@@ -1,6 +1,7 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-
+#define Kp 40
+#define Kd 0
 /* sensor module:
   layout:
     module1(links):
@@ -9,8 +10,8 @@
             sensor rechts: analogepin 2
     module2(rechts):
             sensor links: analogepin 3
-            sensor midden: analogepin 4
-            sensor rechts: analogepin 5
+            sensor midden: analogepin 6
+            sensor rechts: analogepin 7
 */
 
 /*mogelijke verbeteringen:
@@ -26,7 +27,6 @@ Sensormodule::Sensormodule(int pinlinks,int pinmidden,int pinrechts){
   this->pinlinks=pinlinks;
   this->pinmidden=pinmidden;
   this->pinrechts=pinrechts;
-  this->actief=true;
   }
 
 void Sensormodule::update(){
@@ -44,48 +44,29 @@ void Sensormodule::print_waarden(){
 
 }
 void Sensormodule:: digitaliseerwaarden(){
+  // op lijn(wit) = 1
+  // niet op lijn (zwart)=0
   // likse waarde digitaliseren
   if(waarde_links>=500){
-    waarde_links=1;
+    waarde_links=0;
   }
   else{
-    waarde_links=0;
+    waarde_links=1;
   }
   // rechtse waarde digitaliseren
   if(waarde_rechts>=500){
-    waarde_rechts=1;
+    waarde_rechts=0;
   }
   else{
-    waarde_rechts=0;
+    waarde_rechts=1;
   }
   // midden waarde digitaliseren
   if(waarde_midden>=500){
-    waarde_midden=1;
-  }
-  else{
     waarde_midden=0;
   }
-}
-void Sensormodule::kieslijn(Sensormodule module){
-/*to do: kiest linker of rechter lijn aan de hand van?
-  zet boolean actief op true van ene module en false
-  van andere module
-
-  momenteel: simpel, mischien uitbereiden nodig!
-  */
-
-  if(this->waarde_midden==1){
-    this->actief=true;
-    module.setactief(false);
-  }
   else{
-    this->actief=false;
-    module.setactief(true);
-    }
-
-}
-bool Sensormodule::getactief(){
-  return actief;
+    waarde_midden=1;
+  }
 }
 
 int Sensormodule::getlinkerwaarde(){
@@ -99,6 +80,41 @@ int Sensormodule::getrechterwaarde(){
 int Sensormodule::getmiddenwaarde(){
   return waarde_midden;
 }
-void Sensormodule::setactief(bool a){
-  this->actief=a;
+
+int Sensormodule::calculatepid(Sensormodule rechts){
+  int error=0;
+  if(this->waarde_links==1 && rechts.getrechterwaarde()==1){
+    /* linker sensor linker module op lijn
+      en rechter sensor van rechter module op lijn
+      => perfect in het midden => error=0
+    */
+    error=0;
+  }
+  if(this->waarde_midden==1 && rechts.getmiddenwaarde()==1){
+    /* midden sensor linker module op lijn
+      en midden sensor van rechter module op lijn
+      => perfect in het midden => error=0
+    */
+    error=0;
+  }
+  if(this->waarde_rechts==1 && rechts.getlinkerwaarde()==1){
+    /* rechter sensor linker module op lijn
+      en linker sensor van rechter module op lijn
+      => perfect in het midden => error=0
+    */
+    error=0;
+  }
+
+
+/*
+TO DO:
+
+errors definieren voor andere situaties!!
+
+*/
+
+
+  int pidvalue=Kp*error+Kd*(error-lasterror);
+  this->lasterror=error;
+  return pidvalue;
 }

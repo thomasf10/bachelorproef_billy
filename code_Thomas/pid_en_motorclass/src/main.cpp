@@ -2,6 +2,7 @@
 #include "Led.h"
 #include "Sensormodule.h"
 #include "Motorcontrol.h"
+#include <Wire.h>
 
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
@@ -17,9 +18,13 @@ Motorcontrol motors;
 Sensormodule links,rechts;
 
 void setup(){
-  Serial.begin(9600);
-  Serial.println(" in setup");
+  Wire.begin();
   motors=Motorcontrol();
+// Setup Configuration IO expander (Motor Directions)
+  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_CONFIG, 0x00);
+ // Setup Configuration IO expander (Additional Pins)
+  motors.i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_CONFIG, 0x00);
+  Serial.begin(9600);
   links= Sensormodule(0,1,2);
   rechts= Sensormodule(3,6,7);
 }
