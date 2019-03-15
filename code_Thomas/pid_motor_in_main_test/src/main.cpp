@@ -91,6 +91,9 @@ void loop(){
         motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
         motors.set_motor_speed(100, 100, 100, 100);
       }
+
+      //RFID loop
+      
     }
 
 
