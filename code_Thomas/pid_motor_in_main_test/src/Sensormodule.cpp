@@ -112,6 +112,24 @@ TO DO:
 errors definieren voor andere situaties!!
 
 */
+if(this->waarde_links==1 && rechts.getmiddenwaarde()==1){
+  error=1;
+}
+if(this->waarde_links==1 && rechts.getlinkerwaarde()==1){
+  error=2;
+}
+if(this->waarde_midden==1 && rechts.getrechterwaarde()==1){
+  error=-1;
+}
+if(this->waarde_midden==1 && rechts.getlinkerwaarde()==1){
+  error=1;
+}
+if(this->waarde_rechts==1 && rechts.getrechterwaarde()==1){
+  error=-2;
+}
+if(this->waarde_rechts==1 && rechts.getmiddenwaarde()==1){
+  error=-1;
+}
 
 
   int pidvalue=Kp*error+Kd*(error-lasterror);

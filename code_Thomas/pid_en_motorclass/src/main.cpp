@@ -38,7 +38,7 @@ void loop(){
   3) kieslijn
   4)stuur adhv de waarden
   */
-Serial.println("in loop");
+
   links.update();
   links.digitaliseerwaarden();
   rechts.update();
@@ -49,6 +49,8 @@ Serial.println("in loop");
  Serial.println(links.getactief());
 Serial.println("rechts actief: ");
 Serial.println(rechts.getactief());
+delay(1000);
+
   if(links.getactief()==true){
     //sturing op basis van linkser sensor
     pidvalue=links.calculatepid();

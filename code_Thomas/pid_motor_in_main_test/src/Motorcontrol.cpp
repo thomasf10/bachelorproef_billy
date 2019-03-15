@@ -19,14 +19,6 @@
 #define PWM_PIN_4 (9)
 
 Motorcontrol::Motorcontrol(){
-  Wire.begin();
-
-   // Setup Configuration IO expander (Motor Directions)
-   i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_CONFIG, 0x00);
-
-   // Setup Configuration IO expander (Additional Pins)
-   i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_CONFIG, 0x00);
-
    // PinMode PWM pinnen speed Motors
    pinMode(PWM_PIN_1, OUTPUT);
    pinMode(PWM_PIN_2, OUTPUT);
