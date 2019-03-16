@@ -15,17 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Arduino_Uno_R3_From_Scratch:5V_LDO #PWR035
-U 1 1 55E95D7A
-P 5625 1875
-F 0 "#PWR035" H 5625 1965 20  0001 C CNN
-F 1 "5V_LDO" H 5625 1995 30  0000 C CNN
-F 2 "~" H 5625 1875 60  0000 C CNN
-F 3 "~" H 5625 1875 60  0000 C CNN
-	1    5625 1875
-	1    0    0    -1  
-$EndComp
-$Comp
 L Arduino_Uno_R3_From_Scratch:3V3_LDO #PWR036
 U 1 1 55E95D89
 P 5400 1875
@@ -36,8 +25,6 @@ F 3 "~" H 5400 1875 60  0000 C CNN
 	1    5400 1875
 	1    0    0    -1  
 $EndComp
-Text HLabel 5925 2225 0    40   Input ~ 0
-328P_RESET
 Text HLabel 4800 3475 0    40   Input ~ 0
 ARD_AN3
 Text HLabel 4800 3575 0    40   Input ~ 0
@@ -72,51 +59,6 @@ Text HLabel 4750 4500 0    40   Input ~ 0
 ARD_DIG13/SPI_SCK
 Text HLabel 4750 4300 0    40   Input ~ 0
 AREF
-$Comp
-L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P1
-U 1 1 5C574D09
-P 6250 2475
-F 0 "P1" H 6400 2350 60  0000 L CNN
-F 1 "Power Header" H 6400 2475 60  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical" H 6250 2475 60  0000 C CNN
-F 3 "http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf" H 6250 2475 60  0001 C CNN
-F 4 "Connector Header 6 Position 0.100\" (2.54mm) Gold Surface Mount" H 6250 2475 60  0001 C CNN "Characteristics"
-F 5 "Shield Header 6POS - ANLG" H 6250 2475 60  0001 C CNN "Description"
-F 6 "Sullins Connector" H 6250 2475 60  0001 C CNN "MFN"
-F 7 "NPPC061KFXC-RC" H 6250 2475 60  0001 C CNN "MFP"
-F 8 "SMD" H 6250 2475 60  0001 C CNN "Package ID"
-F 9 "ANY" H 6250 2475 60  0001 C CNN "Source"
-F 10 "N" H 6250 2475 60  0001 C CNN "Critical"
-F 11 "Shield_Headers" H 6250 2475 60  0001 C CNN "Subsystem"
-F 12 "~" H 6250 2475 60  0001 C CNN "Notes"
-	1    6250 2475
-	1    0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR038
-U 1 1 55E9684A
-P 5925 2850
-F 0 "#PWR038" H 5925 2850 30  0001 C CNN
-F 1 "GND" H 5925 2780 30  0001 C CNN
-F 2 "~" H 5925 2850 60  0000 C CNN
-F 3 "~" H 5925 2850 60  0000 C CNN
-F 4 "ANY" H 5925 2850 60  0001 C CNN "Source"
-F 5 "N" H 5925 2850 60  0001 C CNN "Critical"
-F 6 "~" H 5925 2850 60  0001 C CNN "Notes"
-	1    5925 2850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0101
-U 1 1 5C579B64
-P 5625 4925
-F 0 "#PWR0101" H 5625 4675 50  0001 C CNN
-F 1 "GND" H 5630 4752 50  0000 C CNN
-F 2 "" H 5625 4925 50  0001 C CNN
-F 3 "" H 5625 4925 50  0001 C CNN
-	1    5625 4925
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6050 4300 4750 4300
 Wire Wire Line
@@ -170,21 +112,6 @@ Wire Wire Line
 	4750 4800 6050 4800
 Wire Wire Line
 	4750 4700 6050 4700
-Wire Wire Line
-	6050 4400 5625 4400
-Wire Wire Line
-	5625 4400 5625 4925
-$Comp
-L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P3
-U 1 1 5C9A72A7
-P 6250 4550
-F 0 "P3" H 6168 4075 50  0000 C CNN
-F 1 "Digital Header 02 (IOH) P3" H 6168 4166 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical" H 6250 4550 60  0001 C CNN
-F 3 "" H 6250 4550 60  0000 C CNN
-	1    6250 4550
-	1    0    0    1   
-$EndComp
 $Comp
 L Arduino_Uno_R3_From_Scratch-rescue:CONN_01X06 P4
 U 1 1 5C9A74BA
@@ -197,27 +124,46 @@ F 3 "" H 6250 5425 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5925 2225 6050 2225
-Wire Wire Line
-	5925 2850 5925 2725
-Wire Wire Line
-	5925 2725 6050 2725
-Wire Wire Line
-	5925 2725 5925 2625
-Wire Wire Line
-	5925 2625 6050 2625
-Connection ~ 5925 2725
-Wire Wire Line
 	6050 2525 5400 2525
 Wire Wire Line
 	5400 2425 6050 2425
 Wire Wire Line
-	5400 1875 5400 2425
+	5400 1875 5400 2325
 Connection ~ 5400 2425
 Wire Wire Line
 	5400 2425 5400 2525
 Wire Wire Line
-	5625 1875 5625 2325
+	6050 2625 5400 2625
 Wire Wire Line
-	5625 2325 6050 2325
+	5400 2625 5400 2525
+Connection ~ 5400 2525
+$Comp
+L Connector:Conn_01x04_Female J3
+U 1 1 5C8FAAAF
+P 6250 2425
+F 0 "J3" H 6278 2401 50  0000 L CNN
+F 1 "3v3" H 6278 2310 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 6250 2425 50  0001 C CNN
+F 3 "~" H 6250 2425 50  0001 C CNN
+	1    6250 2425
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 2325 5400 2325
+Connection ~ 5400 2325
+Wire Wire Line
+	5400 2325 5400 2425
+$Comp
+L Connector:Conn_01x05_Female J4
+U 1 1 5C8FCBE2
+P 6250 4600
+F 0 "J4" H 6278 4626 50  0000 L CNN
+F 1 "Digital Header 02 (IOH)" H 6278 4535 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 6250 4600 50  0001 C CNN
+F 3 "~" H 6250 4600 50  0001 C CNN
+	1    6250 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 4300 6050 4400
 $EndSCHEMATC
