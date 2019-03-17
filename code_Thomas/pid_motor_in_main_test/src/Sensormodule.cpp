@@ -2,6 +2,7 @@
 #include "Sensormodule.h"
 #define Kp 40
 #define Kd 0
+#define Ki 0
 /* sensor module:
   layout:
     module1(links):
@@ -27,6 +28,8 @@ Sensormodule::Sensormodule(int pinlinks,int pinmidden,int pinrechts){
   this->pinlinks=pinlinks;
   this->pinmidden=pinmidden;
   this->pinrechts=pinrechts;
+  this->lasterror=0;
+  this->overtimeerror=0;
   }
 
 void Sensormodule::update(){
@@ -131,8 +134,9 @@ if(this->waarde_rechts==1 && rechts.getmiddenwaarde()==1){
   error=-1;
 }
 
-
-  int pidvalue=Kp*error+Kd*(error-lasterror);
+  this->overtimeerror+=error;
+  int pidvalue=Kp*error+Ki*overtimeerror+Kd*(error-lasterror);
   this->lasterror=error;
+
   return pidvalue;
 }

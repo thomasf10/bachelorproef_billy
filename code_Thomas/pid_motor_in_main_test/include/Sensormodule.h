@@ -18,6 +18,7 @@ class Sensormodule{
     int pinlinks,pinmidden,pinrechts;
     int waarde_links, waarde_midden,waarde_rechts;
     int lasterror;
+    int overtimeerror;
 
 };
 #endif
