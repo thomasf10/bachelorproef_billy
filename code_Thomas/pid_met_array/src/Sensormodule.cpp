@@ -1,6 +1,6 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 20
+#define Kp 40
 #define Kd 0
 #define Ki 0
 /* sensor module:
@@ -86,25 +86,33 @@ int Sensormodule::getmiddenwaarde(){
 
 int Sensormodule::calculatepid(Sensormodule rechts){
   int error=0;
+  int waarden [6] = {this->waarde_links,this->waarde_midden,this->waarde_rechts,rechts.getlinkerwaarde(),rechts.getmiddenwaarde(),rechts.getrechterwaarde()};
+
+
+
+  /*
   if(this->waarde_links==1 && rechts.getrechterwaarde()==1){
     /* linker sensor linker module op lijn
       en rechter sensor van rechter module op lijn
       => perfect in het midden => error=0
     */
+    /*
     error=0;
   }
-else if(this->waarde_midden==1 && rechts.getmiddenwaarde()==1){
+  if(this->waarde_midden==1 && rechts.getmiddenwaarde()==1){
     /* midden sensor linker module op lijn
       en midden sensor van rechter module op lijn
       => perfect in het midden => error=0
     */
+    /*
     error=0;
   }
-else if(this->waarde_rechts==1 && rechts.getlinkerwaarde()==1){
+  if(this->waarde_rechts==1 && rechts.getlinkerwaarde()==1){
     /* rechter sensor linker module op lijn
       en linker sensor van rechter module op lijn
       => perfect in het midden => error=0
     */
+    /*
     error=0;
   }
 
@@ -115,45 +123,29 @@ TO DO:
 errors definieren voor andere situaties!!
 
 */
-else if(this->waarde_links==1 && rechts.getmiddenwaarde()==1){
+/*
+if(this->waarde_links==1 && rechts.getmiddenwaarde()==1){
   error=1;
 }
-else if(this->waarde_links==1 && rechts.getlinkerwaarde()==1){
+if(this->waarde_links==1 && rechts.getlinkerwaarde()==1){
   error=2;
 }
-else if(this->waarde_midden==1 && rechts.getrechterwaarde()==1){
+if(this->waarde_midden==1 && rechts.getrechterwaarde()==1){
   error=-1;
 }
-else if(this->waarde_midden==1 && rechts.getlinkerwaarde()==1){
+if(this->waarde_midden==1 && rechts.getlinkerwaarde()==1){
   error=1;
 }
-else if(this->waarde_rechts==1 && rechts.getrechterwaarde()==1){
+if(this->waarde_rechts==1 && rechts.getrechterwaarde()==1){
   error=-2;
 }
-else if(this->waarde_rechts==1 && rechts.getmiddenwaarde()==1){
+if(this->waarde_rechts==1 && rechts.getmiddenwaarde()==1){
   error=-1;
 }
-else if(this->waarde_links==1){
-  error=-3;
-}
-else if(this->waarde_midden==1){
-  error=-4;
-}
-else if(this->waarde_rechts==1){
-  error=-5;
-}
-else if(rechts.getrechterwaarde()==1){
-  error=3;
-}
-else if(rechts.getmiddenwaarde()==1){
-  error=4;
-}
-else if(rechts.getlinkerwaarde()==1){
-  error=5;
-}
+*/
 
   this->overtimeerror+=error;
-  int pidvalue=Kp*error+Ki*this->overtimeerror+Kd*(error-this->lasterror);
+  int pidvalue=Kp*error+Ki*overtimeerror+Kd*(error-lasterror);
   this->lasterror=error;
 
   return pidvalue;
