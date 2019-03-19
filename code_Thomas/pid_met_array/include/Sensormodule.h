@@ -6,17 +6,13 @@
 class Sensormodule{
   public:
     Sensormodule();
-    Sensormodule(int pinlinks, int pinmidden, int pinrechts);
+    Sensormodule(int pinL1,int pinL2, int pinL3, int pinR1, int pinR2, int pinR3);
     void update();
     void print_waarden();
-    void digitaliseerwaarden();
-    int getlinkerwaarde();
-    int getmiddenwaarde();
-    int getrechterwaarde();
-    int calculatepid(Sensormodule rechts);
+    int calculatepid();
   private:
-    int pinlinks,pinmidden,pinrechts;
-    int waarde_links, waarde_midden,waarde_rechts;
+    int pinL1,pinL2,pinL3,pinR1,pinR2,pinR3;
+    uint8_t waarden;
     int lasterror;
     int overtimeerror;
 

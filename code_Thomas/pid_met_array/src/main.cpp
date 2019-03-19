@@ -17,13 +17,14 @@
 
 
 //objecten declareren
-Sensormodule links,rechts;
+Sensormodule module;
 int pidvalue;
 Motorcontrol motors;
 
 void setup(){
-motors=Motorcontrol();
-Wire.begin();
+
+  motors=Motorcontrol();
+  Wire.begin();
 
  // Setup Configuration IO expander (Motor Directions)
  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_CONFIG, 0x00);
@@ -32,28 +33,17 @@ Wire.begin();
  motors.i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_CONFIG, 0x00);
 
  //sensormodules
-  links= Sensormodule(0,1,2);
-  rechts= Sensormodule(3,6,7);
+  module=Sensormodule(0,1,2,3,6,7);
 
   Serial.begin(9600);
 }
 
 void loop(){
-    //update en digitaliseer
-    //delay(2000);
-    links.update();
-    links.digitaliseerwaarden();
-    rechts.update();
-    rechts.digitaliseerwaarden();
-    /* om te testen:
-    Serial.println("linker sensor: ");
-    links.print_waarden();
-    Serial.println("rechter sensor: ");
-    rechts.print_waarden();
-    */
-//sturing
+  //update
+    module.update();
+  //sturing
 
-      pidvalue=links.calculatepid(rechts);
+      pidvalue=module.calculatepid();
       Serial.println("pid: ");
       Serial.println(pidvalue);
       if(pidvalue<0){
@@ -93,7 +83,7 @@ void loop(){
       }
 
       //RFID loop
-      
+
     }
 
 
