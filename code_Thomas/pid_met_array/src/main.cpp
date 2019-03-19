@@ -14,12 +14,16 @@
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
 
+//aantal tijd tussen update sensoren in milliseconden
+#define updatetijd 50
 
 
 //objecten declareren
 Sensormodule module;
 int pidvalue;
 Motorcontrol motors;
+unsigned long lastmillis;
+unsigned long currentmillis;
 
 void setup(){
 
@@ -39,6 +43,10 @@ void setup(){
 }
 
 void loop(){
+  currentmillis=millis();
+  if(currentmillis>(lastmillis+updatetijd)){
+    lastmillis=currentmillis;
+
   //update
     module.update();
   //sturing
@@ -81,10 +89,11 @@ void loop(){
         motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
         motors.set_motor_speed(100, 100, 100, 100);
       }
-
+    }
       //RFID loop
 
-    }
+
+  }
 
 
 

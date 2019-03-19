@@ -1,6 +1,6 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 20
+#define Kp 33
 #define Kd 0
 #define Ki 0
 /* sensor module:
@@ -86,7 +86,46 @@ void Sensormodule::print_waarden(){
 
 int Sensormodule::calculatepid(){
   int error=0;
+//basic sturing:
+  switch (waarden) {
+    //rechtdoorrijden:
+    case B10000100:
+      error=0;
+      break;
+    case B01001000:
+      error=0;
+      break;
+    case B00110000:
+      error=0;
+      break;
+    //rechts draaien:
+    case B10000000:
+      error=-1;
+      break;
+    case B01000000:
+      error=-2;
+      break;
+    case B00100000:
+      error=-3;
+      break;
+    //links draaien:
+    case B00000100:
+      error=1;
+      break;
+    case B00001000:
+      error=2;
+      break;
+    case B00010000:
+      error=3;
+      break;
+    default:
+      error=0;
+      break;
+  }
 
+
+/*
+uitbereiding:
   switch (waarden) {
     case B10000100:
       error=0;
@@ -137,7 +176,7 @@ int Sensormodule::calculatepid(){
       error=0;
       break;
   }
-
+*/
   this->overtimeerror+=error;
   int pidvalue=Kp*error+Ki*overtimeerror+Kd*(error-lasterror);
   this->lasterror=error;
