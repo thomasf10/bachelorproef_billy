@@ -22,6 +22,7 @@ class Sensormodule{
     int waarde_links, waarde_midden,waarde_rechts;
     bool actief; // in main kieslijn oproepen om true of false te zetten
     int lasterror;
+    int overtimeerror;
 
 };
 #endif

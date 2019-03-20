@@ -15,7 +15,7 @@
 #define CMD_REG_CONFIG  0x03
 
 #define updatetijd 150
-#define motorsnelheid 150
+#define motorsnelheid 200
 
 
 //objecten declareren
@@ -146,10 +146,11 @@ if(currentmillis>(lastmillis+updatetijd)){
           motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
           motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
         }
+        else{
       motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
       motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid-pidvalue, motorsnelheid-pidvalue);
           }
-
+        }
       else{
         //rij rechtdoor
         motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);

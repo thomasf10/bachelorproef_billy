@@ -1,7 +1,9 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 40
-#define Kd 0
+#define Kp 35
+#define Kd 5
+#define Ki 15
+
 /* sensor module:
   layout:
     module1(links):
@@ -28,6 +30,7 @@ Sensormodule::Sensormodule(int pinlinks,int pinmidden,int pinrechts){
   this->pinmidden=pinmidden;
   this->pinrechts=pinrechts;
   this->actief=true;
+  this->overtimeerror=0;
   }
 
 void Sensormodule::update(){
@@ -77,18 +80,14 @@ void Sensormodule::kieslijn(Sensormodule module){
   momenteel: simpel, mischien uitbereiden nodig!
   */
 
-  if(this->waarde_rechts==1&&module.getmiddenwaarde()==1){
-    /*als de rechter sensor van de linker module aan de rand zit
-      en de middenste sensor van de rechtor module op de rand zit
-      schakel dan over van links naar rechts
+  if(this->waarde_rechts==0 && this->waarde_midden==0 && this->waarde_links==0){
+    /*als alle linker sensoren van de lijn zijn
     */
     this->actief=false; // zet links op niet actief
     module.setactief(true); // zet rechts op actief
   }
-  if(module.getlinkerwaarde()==1 && this->waarde_midden==1){
-    /*als de linker sensor van de rechter module aan de rand zit
-      en de minddenste sensor van de linker module aan de rand zit
-      schakel dan over van rechts naar links
+  if(module.getlinkerwaarde()==0 && module.getmiddenwaarde()==0 && module.getrechterwaarde()==0){
+    /*als alle rechter sensoren van de lijn zijn
     */
     this->actief=true; //zet links op actief
     module.setactief(false); //zet rechts op niet actief
@@ -114,6 +113,7 @@ int Sensormodule::getmiddenwaarde(){
 void Sensormodule::setactief(bool a){
   this->actief=a;
 }
+
 int Sensormodule::calculatepid(){
   int error=0;
   if(waarde_links==0 && waarde_midden==1 && waarde_rechts==0){
@@ -153,7 +153,9 @@ int Sensormodule::calculatepid(){
       }
     }
   }
-  int pidvalue=Kp*error+Kd*(error-lasterror);
-  this->lasterror=error;
+  this->overtimeerror+=error;
+    int pidvalue=Kp*error+Ki*this->overtimeerror+Kd*(error-this->lasterror);
+    this->lasterror=error;
+
   return pidvalue;
 }

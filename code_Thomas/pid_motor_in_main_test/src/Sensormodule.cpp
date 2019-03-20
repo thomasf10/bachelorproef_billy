@@ -1,10 +1,10 @@
 #include <arduino.h>
 #include "Sensormodule.h"
 //deftig kp:75 kd=0 ki=0
-#define Kp 75
+#define Kp 95
 #define Kd 0
-#define Ki 0
-#define drempel 800
+#define Ki 8
+#define drempel 700
 /* sensor module:
   layout:
     module1(links):
@@ -194,6 +194,7 @@ else if(rechts.getrechterwaarde()==1){
 
 
 // middelijn ontwijken
+
 
   this->overtimeerror+=error;
   int pidvalue=Kp*error+Ki*this->overtimeerror+Kd*(error-this->lasterror);
