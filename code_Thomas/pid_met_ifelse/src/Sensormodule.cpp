@@ -17,12 +17,6 @@
             sensor rechts: analogepin 7
 */
 
-/*mogelijke verbeteringen:
-        -update en digitaliseren in 1 functie
-        -sensorwaarden in array ipv aparte int's
-        -functie kieslijn robuster maken
-*/
-
 Sensormodule::Sensormodule(){
   }
 
@@ -88,116 +82,79 @@ int Sensormodule::getmiddenwaarde(){
 
 int Sensormodule::calculatepid(Sensormodule rechts){
   int error=0;
-  if(this->waarde_links==1 && rechts.getrechterwaarde()==1){
-    /* linker sensor linker module op lijn
-      en rechter sensor van rechter module op lijn
-      => perfect in het midden => error=0
-    */
-    error=0;
-  }
-else if(this->waarde_midden==1 && rechts.getmiddenwaarde()==1){
-    /* midden sensor linker module op lijn
-      en midden sensor van rechter module op lijn
-      => perfect in het midden => error=0
-    */
-    error=0;
-  }
-else if(this->waarde_rechts==1 && rechts.getlinkerwaarde()==1){
-    /* rechter sensor linker module op lijn
-      en linker sensor van rechter module op lijn
-      => perfect in het midden => error=0
-    */
-    error=0;
-  }
+  int errorrechts=0;
+  int errorlinks=0;
 
 
-/*
-TO DO:
-
-errors definieren voor andere situaties!!
-
-*/
-/*
-else if(this->waarde_links==1 && rechts.getmiddenwaarde()==1){
-  error=1;
-}
-else if(this->waarde_links==1 && rechts.getlinkerwaarde()==1){
-  error=2;
-}
-else if(this->waarde_midden==1 && rechts.getrechterwaarde()==1){
-  error=-1;
-}
-else if(this->waarde_midden==1 && rechts.getlinkerwaarde()==1){
-  error=1;
-}
-else if(this->waarde_rechts==1 && rechts.getrechterwaarde()==1){
-  error=-2;
-}
-else if(this->waarde_rechts==1 && rechts.getmiddenwaarde()==1){
-  error=-1;
-}
-else if(this->waarde_links==1){
-  error=-3;
-}
-else if(this->waarde_midden==1){
-  error=-4;
-}
-else if(this->waarde_rechts==1){
-  error=-5;
-}
-else if(rechts.getrechterwaarde()==1){
-  error=3;
-}
-else if(rechts.getmiddenwaarde()==1){
-  error=4;
-}
-else if(rechts.getlinkerwaarde()==1){
-  error=5;
-}
-*/
 //stuur rechts:
 if(this->waarde_links==1 && this->waarde_midden==1 && this->waarde_rechts==1){
-  error=-5;
+  errorrechts=-5;
 }
 else if(this->waarde_links==1 && this->waarde_midden==1){
-  error=-4;
+  errorrechts=-4;
 }
-if(this->waarde_links==1){
-  error=-1;
+else if(this->waarde_links==1){
+  errorrechts=-1;
 }
 else if(this->waarde_midden==1){
-  error=-2;
+  errorrechts=-2;
 }
 else if(this->waarde_rechts==1){
-  error=-3;
+  errorrechts=-3;
 }
-
-
 
 
 //stuur links:
 if(rechts.getlinkerwaarde()==1 && rechts.getmiddenwaarde()==1 && rechts.getrechterwaarde()==1){
-  error=5;
+  errorlinks=5;
 }
 else if(rechts.getrechterwaarde()==1 && rechts.getmiddenwaarde()==1){
-  error=4;
+  errorlinks=4;
 }
 else if(rechts.getlinkerwaarde()==1){
-  error=3;
+  errorlinks=3;
 }
 else if(rechts.getmiddenwaarde()==1){
-  error=2;
+  errorlinks=2;
 }
 else if(rechts.getrechterwaarde()==1){
-  error=1;
+  errorlinks=1;
 }
 
 
-// middelijn ontwijken
+//rechtdoor
+if(this->waarde_links==1 && rechts.getrechterwaarde()==1){
+  /* linker sensor linker module op lijn
+    en rechter sensor van rechter module op lijn
+    => perfect in het midden => error=0
+  */
+  error=0;
+}
+else if(this->waarde_midden==1 && rechts.getmiddenwaarde()==1){
+  /* midden sensor linker module op lijn
+    en midden sensor van rechter module op lijn
+    => perfect in het midden => error=0
+  */
+  error=0;
+}
+else if(this->waarde_rechts==1 && rechts.getlinkerwaarde()==1){
+  /* rechter sensor linker module op lijn
+    en linker sensor van rechter module op lijn
+    => perfect in het midden => error=0
+  */
+  error=0;
+}
+else if(errorrechts>=errorlinks){
+  error=errorrechts;
+}
+else{
+  error=errorlinks;
+}
 
+//bereken pid waarde
 
-  this->overtimeerror+=error;
   int pidvalue=Kp*error+Ki*this->overtimeerror+Kd*(error-this->lasterror);
+  this->overtimeerror+=error;
   this->lasterror=error;
 
   return pidvalue;

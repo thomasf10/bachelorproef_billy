@@ -15,7 +15,7 @@
 #define CMD_REG_CONFIG  0x03
 
 //aantal tijd tussen update sensoren in milliseconden
-#define updatetijd 1000
+#define updatetijd 150
 #define motorsnelheid 100
 
 //objecten declareren

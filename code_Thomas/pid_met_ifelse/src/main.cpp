@@ -14,9 +14,10 @@
 #define CMD_REG_POL_INV 0x02
 #define CMD_REG_CONFIG  0x03
 
+// constanten voor de sturing
 #define updatetijd 150
 #define motorsnelheid 200
-
+#define minimumsnelheid 20
 
 //objecten declareren
 Sensormodule links,rechts;
@@ -25,26 +26,32 @@ Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
 
+
 void setup(){
+//controle leds
   pinMode(11,OUTPUT);
   pinMode(12,OUTPUT);
   pinMode(13,OUTPUT);
   pinMode(8,OUTPUT);
   pinMode(7,OUTPUT);
   pinMode(2,OUTPUT);
-motors=Motorcontrol();
-Wire.begin();
+//motorsturing
+  motors=Motorcontrol();
+//i2c
+  Wire.begin();
 
- // Setup Configuration IO expander (Motor Directions)
- motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_CONFIG, 0x00);
+// Setup Configuration IO expander (Motor Directions)
+  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_CONFIG, 0x00);
 
- // Setup Configuration IO expander (Additional Pins)
+// Setup Configuration IO expander (Additional Pins)
  motors.i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_CONFIG, 0x00);
 
- //sensormodules
+//wielen vooruit laten rijden
+  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+//sensormodules
   links= Sensormodule(0,1,2);
   rechts= Sensormodule(3,6,7);
-
+// seriele monitor
   Serial.begin(9600);
 }
 
@@ -52,68 +59,59 @@ void loop(){
   currentmillis=millis();
 if(currentmillis>(lastmillis+updatetijd)){
   lastmillis=currentmillis;
-    //update en digitaliseer
-    //delay(motorsnelheid0);
+  //update en digitaliseer
     links.update();
-    links.print_waarden();
+    links.print_waarden();//analoge waarden
     links.digitaliseerwaarden();
     rechts.update();
-    rechts.print_waarden();
+    rechts.print_waarden();//analoge waarden
     rechts.digitaliseerwaarden();
+  //LED die aangevenwat sensoren lezen
+  // TO DO: leds via io-expander aansturen met motors.i2C_write_reg
   if(links.getlinkerwaarde()==1){
       digitalWrite(2,HIGH);
-
     } else {
       digitalWrite(2,LOW);
-
     }
-
   if(links.getmiddenwaarde()==1){
       digitalWrite(7,HIGH);
-
     }
     else {
       digitalWrite(7,LOW);
-
     }
   if(links.getrechterwaarde()==1){
       digitalWrite(8,HIGH);
-
     }
     else {
       digitalWrite(8,LOW);
-
     }
   if(rechts.getlinkerwaarde()==1){
       digitalWrite(11,HIGH);
-
     }
     else {
       digitalWrite(11,LOW);
-
     }
     if(rechts.getmiddenwaarde()==1){
       digitalWrite(12,HIGH);
-
     }
     else {
       digitalWrite(12,LOW);
-
     }
   if(rechts.getrechterwaarde()==1){
       digitalWrite(13,HIGH);
-
     }
     else {
       digitalWrite(13,LOW);
-
     }
+
     /* om te testen:
+    //digitale waarden
     Serial.println("linker sensor: ");
     links.print_waarden();
     Serial.println("rechter sensor: ");
     rechts.print_waarden();
     */
+
 //sturing
 
       pidvalue=links.calculatepid(rechts);
@@ -123,44 +121,47 @@ if(currentmillis>(lastmillis+updatetijd)){
         //stuur naar rechts
         if(motorsnelheid+pidvalue<0){
           /*indien stuursignaal onder nul
-          wielen in tegengestelde richting laten draaien
-          voor scherpere bocht
+            linker wielen ook versnellen, ipv enkel
+            rechter wielen te vertragen
           */
-          motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010);
-          motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
+          //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+          motors.set_motor_speed(minimumsnelheid, minimumsnelheid, -pidvalue, -pidvalue);
         }
         else{
-      motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+          //rechter wielen vertragen
+      //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
       motors.set_motor_speed(motorsnelheid+pidvalue, motorsnelheid+pidvalue, motorsnelheid, motorsnelheid);
           }
         }
-        else{
-
-      if(pidvalue>0){
+        else if(pidvalue>0){
         //stuur naar links
         if(motorsnelheid-pidvalue<0){
           /*indien stuursignaal onder nul
-          wielen in tegengestelde richting laten draaien
-          voor scherpere bocht
+          rechter wielen ook versnellen, ipv enkel
+          linker wielen te vertragen
           */
-          motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
-          motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
+        //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+          motors.set_motor_speed(pidvalue, pidvalue, minimumsnelheid , minimumsnelheid);
         }
         else{
-      motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+      //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
       motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid-pidvalue, motorsnelheid-pidvalue);
           }
         }
       else{
         //rij rechtdoor
-        motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+      //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
         motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
       }
 
       //RFID loop
-}
     }
 }
+
+
+
+
+
 
 
 

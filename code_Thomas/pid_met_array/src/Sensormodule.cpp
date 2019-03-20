@@ -160,7 +160,7 @@ int Sensormodule::calculatepid(){
     case B01011100:
       error=5;
       break;
-    
+
     default:
       error=0;
       break;
@@ -220,8 +220,9 @@ uitbereiding:
       break;
   }
 */
-  this->overtimeerror+=error;
+
   int pidvalue=Kp*error+Ki*overtimeerror+Kd*(error-lasterror);
+  this->overtimeerror+=error;
   this->lasterror=error;
 
   return pidvalue;
