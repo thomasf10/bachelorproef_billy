@@ -1,8 +1,10 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 20
+//deftig kp:75 kd=0 ki=0
+#define Kp 75
 #define Kd 0
 #define Ki 0
+#define drempel 800
 /* sensor module:
   layout:
     module1(links):
@@ -50,21 +52,21 @@ void Sensormodule:: digitaliseerwaarden(){
   // op lijn(wit) = 1
   // niet op lijn (zwart)=0
   // likse waarde digitaliseren
-  if(waarde_links>=500){
+  if(waarde_links>=drempel){
     waarde_links=0;
   }
   else{
     waarde_links=1;
   }
   // rechtse waarde digitaliseren
-  if(waarde_rechts>=500){
+  if(waarde_rechts>=drempel){
     waarde_rechts=0;
   }
   else{
     waarde_rechts=1;
   }
   // midden waarde digitaliseren
-  if(waarde_midden>=500){
+  if(waarde_midden>=drempel){
     waarde_midden=0;
   }
   else{
@@ -115,6 +117,7 @@ TO DO:
 errors definieren voor andere situaties!!
 
 */
+/*
 else if(this->waarde_links==1 && rechts.getmiddenwaarde()==1){
   error=1;
 }
@@ -151,6 +154,46 @@ else if(rechts.getmiddenwaarde()==1){
 else if(rechts.getlinkerwaarde()==1){
   error=5;
 }
+*/
+//stuur rechts:
+if(this->waarde_links==1 && this->waarde_midden==1 && this->waarde_rechts==1){
+  error=-5;
+}
+else if(this->waarde_links==1 && this->waarde_midden==1){
+  error=-4;
+}
+if(this->waarde_links==1){
+  error=-1;
+}
+else if(this->waarde_midden==1){
+  error=-2;
+}
+else if(this->waarde_rechts==1){
+  error=-3;
+}
+
+
+
+
+//stuur links:
+if(rechts.getlinkerwaarde()==1 && rechts.getmiddenwaarde()==1 && rechts.getrechterwaarde()==1){
+  error=5;
+}
+else if(rechts.getrechterwaarde()==1 && rechts.getmiddenwaarde()==1){
+  error=4;
+}
+else if(rechts.getlinkerwaarde()==1){
+  error=3;
+}
+else if(rechts.getmiddenwaarde()==1){
+  error=2;
+}
+else if(rechts.getrechterwaarde()==1){
+  error=1;
+}
+
+
+// middelijn ontwijken
 
   this->overtimeerror+=error;
   int pidvalue=Kp*error+Ki*this->overtimeerror+Kd*(error-this->lasterror);

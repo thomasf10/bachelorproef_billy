@@ -15,8 +15,8 @@
 #define CMD_REG_CONFIG  0x03
 
 //aantal tijd tussen update sensoren in milliseconden
-#define updatetijd 50
-
+#define updatetijd 1000
+#define motorsnelheid 100
 
 //objecten declareren
 Sensormodule module;
@@ -50,45 +50,47 @@ void loop(){
   //update
     module.update();
   //sturing
-
+  Serial.println("sensorwaarden: ");
+  module.print_waarden();
       pidvalue=module.calculatepid();
       Serial.println("pid: ");
       Serial.println(pidvalue);
       if(pidvalue<0){
         //stuur naar rechts
-        if(200+pidvalue<0){
+        if(motorsnelheid+pidvalue<0){
           /*indien stuursignaal onder nul
           wielen in tegengestelde richting laten draaien
           voor scherpere bocht
           */
           motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010);
-          motors.set_motor_speed(200, 200, 200, 200);
+          motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
         }
         else{
       motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
-      motors.set_motor_speed(200+pidvalue, 200+pidvalue, 200, 200);
+      motors.set_motor_speed(motorsnelheid+pidvalue, motorsnelheid+pidvalue, motorsnelheid, motorsnelheid);
           }
         }
-
+      else{
       if(pidvalue>0){
         //stuur naar links
-        if(200-pidvalue<0){
+        if(motorsnelheid-pidvalue<0){
           /*indien stuursignaal onder nul
           wielen in tegengestelde richting laten draaien
           voor scherpere bocht
           */
           motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
-          motors.set_motor_speed(200, 200, 200, 200);
+          motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
         }
       motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
-      motors.set_motor_speed(200, 200, 200-pidvalue, 200-pidvalue);
+      motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid-pidvalue, motorsnelheid-pidvalue);
           }
 
       else{
         //rij rechtdoor
         motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
-        motors.set_motor_speed(100, 100, 100, 100);
+        motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
       }
+    }
     }
       //RFID loop
 
@@ -103,7 +105,7 @@ code voor motoren:
 
 void loop(){
   //set motor speed
-  motors.set_motor_speed(200, 200, 200, 200);
+  motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
   /*
  *  Determining DC motor rotation direction
  *  Instruction Byte

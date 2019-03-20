@@ -1,6 +1,6 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 33
+#define Kp 50
 #define Kd 0
 #define Ki 0
 /* sensor module:
@@ -80,13 +80,16 @@ void Sensormodule::update(){
 
 }
 void Sensormodule::print_waarden(){
+  int printVal = 0b0000000100000000;
+printVal += (int) waarden;
   Serial.print("sensorwaarden: ");
-  Serial.println(waarden);
+  Serial.println(printVal, BIN);
 }
 
 int Sensormodule::calculatepid(){
   int error=0;
 //basic sturing:
+
   switch (waarden) {
     //rechtdoorrijden:
     case B10000100:
@@ -108,6 +111,27 @@ int Sensormodule::calculatepid(){
     case B00100000:
       error=-3;
       break;
+    case B11000000:
+      error=-4;
+      break;
+    case B01100000:
+      error=-4;
+      break;
+    case B11100000:
+      error=-5;
+      break;
+    case B11010000:
+      error=-4;
+      break;
+    case B11001000:
+      error-3;
+      break;
+    case B11101000:
+      error=-5;
+      break;
+
+
+
     //links draaien:
     case B00000100:
       error=1;
@@ -118,6 +142,25 @@ int Sensormodule::calculatepid(){
     case B00010000:
       error=3;
       break;
+    case B00001100:
+      error=4;
+      break;
+    case B00011000:
+      error=4;
+      break;
+    case B00011100:
+      error=5;
+      break;
+    case B00101100:
+      error=4;
+      break;
+    case B01001100:
+      error=3;
+      break;
+    case B01011100:
+      error=5;
+      break;
+    
     default:
       error=0;
       break;
