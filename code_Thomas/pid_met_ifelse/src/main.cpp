@@ -119,7 +119,9 @@ if(currentmillis>(lastmillis+updatetijd)){
       Serial.println(pidvalue);
       if(pidvalue<0){
         //stuur naar rechts
-        if(motorsnelheid+pidvalue<0){
+        if(motorsnelheid+pidvalue<minimumsnelheid){
+          //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>met 255 rijden
+
           /*indien stuursignaal onder nul
             linker wielen ook versnellen, ipv enkel
             rechter wielen te vertragen
@@ -135,7 +137,7 @@ if(currentmillis>(lastmillis+updatetijd)){
         }
         else if(pidvalue>0){
         //stuur naar links
-        if(motorsnelheid-pidvalue<0){
+        if(motorsnelheid-pidvalue<minimumsnelheid){
           /*indien stuursignaal onder nul
           rechter wielen ook versnellen, ipv enkel
           linker wielen te vertragen
