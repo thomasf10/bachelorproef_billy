@@ -45,7 +45,7 @@ void Sensormodule::print_waarden(){
 void Sensormodule:: digitaliseerwaarden(){
   // op lijn(wit) = 1
   // niet op lijn (zwart)=0
-  // likse waarde digitaliseren
+  // linkse waarde digitaliseren
   if(waarde_links>=drempel){
     waarde_links=0;
   }
