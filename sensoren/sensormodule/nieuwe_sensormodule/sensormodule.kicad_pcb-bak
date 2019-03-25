@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 15)
+    (drawings 16)
     (tracks 109)
     (zones 0)
     (modules 12)
@@ -562,6 +562,9 @@
     (pad Hole np_thru_hole circle (at 0 -1.9 90) (size 2.5 2.5) (drill 2.5) (layers *.Cu *.Mask F.SilkS))
   )
 
+  (gr_text 3 (at 134.67 66.92) (layer F.Cu)
+    (effects (font (size 1 1) (thickness 0.25)))
+  )
   (gr_text 2 (at 120.06 47.68) (layer F.Cu)
     (effects (font (size 0.8 0.8) (thickness 0.2)) (justify mirror))
   )

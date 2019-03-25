@@ -50,6 +50,43 @@ void loop(){
 
   //update
     module.update();
+  //LED's:
+  if(bitRead(module.getwaarden(), 7)==1){
+      digitalWrite(2,HIGH);
+    } else {
+      digitalWrite(2,LOW);
+    }
+  if(bitRead(module.getwaarden(), 6)==1){
+      digitalWrite(7,HIGH);
+    }
+    else {
+      digitalWrite(7,LOW);
+    }
+  if(bitRead(module.getwaarden(), 5)==1){
+      digitalWrite(8,HIGH);
+    }
+    else {
+      digitalWrite(8,LOW);
+    }
+  if(bitRead(module.getwaarden(), 4)==1){
+      digitalWrite(11,HIGH);
+    }
+    else {
+      digitalWrite(11,LOW);
+    }
+    if(bitRead(module.getwaarden(), 3)==1){
+      digitalWrite(12,HIGH);
+    }
+    else {
+      digitalWrite(12,LOW);
+    }
+  if(bitRead(module.getwaarden(), 2)==1){
+      digitalWrite(13,HIGH);
+    }
+    else {
+      digitalWrite(13,LOW);
+    }
+
   //sturing
   Serial.println("sensorwaarden: ");
   module.print_waarden();
@@ -58,10 +95,12 @@ void loop(){
       Serial.println(pidvalue);
       if(pidvalue<0){
               //stuur naar rechts
-              if(motorsnelheid+pidvalue<minimumsnelheid){
-                //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>met 255 rijden
-
-                /*indien stuursignaal onder nul
+              if(-pidvalue>255){
+                    //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
+                  motors.set_motor_speed(minimumsnelheid, minimumsnelheid, 255, 255);
+              }
+              else if(motorsnelheid+pidvalue<minimumsnelheid){
+                /*indien stuursignaal onder minimumsnelheid
                   linker wielen ook versnellen, ipv enkel
                   rechter wielen te vertragen
                 */
@@ -74,10 +113,14 @@ void loop(){
             motors.set_motor_speed(motorsnelheid+pidvalue, motorsnelheid+pidvalue, motorsnelheid, motorsnelheid);
                 }
               }
-              else if(pidvalue>0){
+        else if(pidvalue>0){
               //stuur naar links
-              if(motorsnelheid-pidvalue<minimumsnelheid){
-                /*indien stuursignaal onder nul
+              if(pidvalue>255){
+                    //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
+                  motors.set_motor_speed(255, 255, minimumsnelheid,minimumsnelheid);
+              }
+              else if(motorsnelheid-pidvalue<minimumsnelheid){
+                /*indien stuursignaal onder minimumsnelheid
                 rechter wielen ook versnellen, ipv enkel
                 linker wielen te vertragen
                 */
@@ -88,8 +131,9 @@ void loop(){
             //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
             motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid-pidvalue, motorsnelheid-pidvalue);
                 }
-              }
-            else{
+            }
+
+        else{
               //rij rechtdoor
             //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
               motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);

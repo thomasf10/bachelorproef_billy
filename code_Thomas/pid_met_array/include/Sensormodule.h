@@ -10,6 +10,7 @@ class Sensormodule{
     void update();
     void print_waarden();
     int calculatepid();
+    uint8_t getwaarden();
   private:
     int pinL1,pinL2,pinL3,pinR1,pinR2,pinR3;
     uint8_t waarden;

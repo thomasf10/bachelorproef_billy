@@ -287,3 +287,7 @@ uitbereiding:
 
   return pidvalue;
 }
+
+uint8_t Sensormodule::getwaarden(){
+  return this->waarden;
+}
