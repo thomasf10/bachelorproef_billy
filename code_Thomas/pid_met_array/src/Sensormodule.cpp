@@ -92,7 +92,7 @@ int Sensormodule::calculatepid(){
   int errorrechts=0;
 //linker sensoren controleren => stuur naar rechts
   uint8_t linkersensoren=this->waarden&B11100000;
-
+//TO DO: 11000000,01100000 en eventueel 11100000 toevoegen
   switch (linkersensoren) {
     case B10000000:
       errorlinks=1;
@@ -103,25 +103,14 @@ int Sensormodule::calculatepid(){
     case B00100000:
       errorlinks=3;
       break;
-    case B11000000:
-      errorlinks=4;
-      break;
     default:
       errorlinks=0;
       break;
-      /*
-    case B01100000:
-      errorlinks= ?;
-      break;
-    case B11100000:
-      errorlinks=?;
-      break;
-      */
   }
 
 //rechter sensoren controleren => stuur naar links
 uint8_t rechtersensoren=this->waarden&B00011100;
-
+//TO DO: 00001100,00011000 en eventueel 00011100 toevoegen
 switch (rechtersensoren) {
   case B00000100:
     errorrechts=-1;
@@ -132,21 +121,11 @@ switch (rechtersensoren) {
   case B00010000:
     errorrechts=-3;
     break;
-  case B00001100:
-    errorrechts=-4;
-    break;
   default:
     errorrechts=0;
     break;
-    /*
-    case B00001100:
-      errorlinks= ?;
-      break;
-    case B0011100:
-      errorlinks=?;
-      break;
-      */
 }
+
 error=errorlinks+errorrechts;
 
 //basic sturing:
