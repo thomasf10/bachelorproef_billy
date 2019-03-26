@@ -3,6 +3,7 @@
 #define Kp 50
 #define Kd 0
 #define Ki 0
+#define drempel 500
 /* sensor module:
   layout:
 
@@ -33,44 +34,44 @@ Sensormodule::Sensormodule(int pinL1,int pinL2, int pinL3, int pinR1, int pinR2,
   }
 
 void Sensormodule::update(){
-  //waarde>=500 => niet op lijn => digitale waarde=0
-  //waarde<500 => op lijn => digitale waarde=1
-  if(analogRead(pinL1)>=500){
+  //waarde>=drempel => niet op lijn => digitale waarde=0
+  //waarde<drempel => op lijn => digitale waarde=1
+  if(analogRead(pinL1)>=drempel){
     waarden=waarden&B01111111;
   }
   else{
     waarden=waarden|B10000000;
   };
 
-  if(analogRead(pinL2)>=500){
+  if(analogRead(pinL2)>=drempel){
     waarden=waarden&B10111111;
   }
   else{
     waarden=waarden|B01000000;
   };
 
-  if(analogRead(pinL3)>=500){
+  if(analogRead(pinL3)>=drempel){
     waarden=waarden&B11011111;
   }
   else{
     waarden=waarden|B00100000;
   };
 
-  if(analogRead(pinR1)>=500){
+  if(analogRead(pinR1)>=drempel){
     waarden=waarden&B11101111;
   }
   else{
     waarden=waarden|B00010000;
   };
 
-  if(analogRead(pinR2)>=500){
+  if(analogRead(pinR2)>=drempel){
     waarden=waarden&B11110111;
   }
   else{
     waarden=waarden|B00001000;
   };
 
-  if(analogRead(pinR3)>=500){
+  if(analogRead(pinR3)>=drempel){
     waarden=waarden&B11111011;
   }
   else{

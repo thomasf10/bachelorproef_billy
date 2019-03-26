@@ -27,8 +27,18 @@ unsigned long lastmillis;
 unsigned long currentmillis;
 
 void setup(){
+  //controle leds
+    pinMode(11,OUTPUT);
+    pinMode(12,OUTPUT);
+    pinMode(13,OUTPUT);
+    pinMode(8,OUTPUT);
+    pinMode(7,OUTPUT);
+    pinMode(2,OUTPUT);
 
+  //motorsturing
   motors=Motorcontrol();
+
+  //i2c
   Wire.begin();
 
  // Setup Configuration IO expander (Motor Directions)
@@ -40,8 +50,10 @@ void setup(){
  //sensormodules
   module=Sensormodule(0,1,2,3,6,7);
 
+// seriele monitor
   Serial.begin(9600);
 }
+
 
 void loop(){
   currentmillis=millis();
