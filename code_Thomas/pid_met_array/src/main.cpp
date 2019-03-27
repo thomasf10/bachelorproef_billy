@@ -16,8 +16,9 @@
 
 //aantal tijd tussen update sensoren in milliseconden
 #define updatetijd 150
-#define motorsnelheid 100
+#define motorsnelheid 255 // 200
 #define minimumsnelheid 20
+#define draaisnelheid 150
 
 //objecten declareren
 Sensormodule module;
@@ -25,7 +26,7 @@ int pidvalue;
 Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
-
+bool rechtdoor;
 void setup(){
   //controle leds
     pinMode(11,OUTPUT);
@@ -47,11 +48,16 @@ void setup(){
  // Setup Configuration IO expander (Additional Pins)
  motors.i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_CONFIG, 0x00);
 
+ //wielen vooruit laten rijden
+   motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+   rechtdoor=true;
+
  //sensormodules
   module=Sensormodule(0,1,2,3,6,7);
 
 // seriele monitor
   Serial.begin(9600);
+
 }
 
 
@@ -109,7 +115,9 @@ void loop(){
               //stuur naar rechts
               if(-pidvalue>255){
                     //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
-                  motors.set_motor_speed(minimumsnelheid, minimumsnelheid, 255, 255);
+                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
+                  rechtdoor=false;
+                  motors.set_motor_speed(draaisnelheid, draaisnelheid, draaisnelheid, draaisnelheid);
               }
               else if(motorsnelheid+pidvalue<minimumsnelheid){
                 /*indien stuursignaal onder minimumsnelheid
@@ -117,11 +125,19 @@ void loop(){
                   rechter wielen te vertragen
                 */
                 //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                if(rechtdoor==false){
+                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                  rechtdoor=true;
+                }
                 motors.set_motor_speed(minimumsnelheid, minimumsnelheid, -pidvalue, -pidvalue);
               }
               else{
                 //rechter wielen vertragen
             //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+            if(rechtdoor==false){
+              motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              rechtdoor=true;
+            }
             motors.set_motor_speed(motorsnelheid+pidvalue, motorsnelheid+pidvalue, motorsnelheid, motorsnelheid);
                 }
               }
@@ -129,7 +145,9 @@ void loop(){
               //stuur naar links
               if(pidvalue>255){
                     //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
-                  motors.set_motor_speed(255, 255, minimumsnelheid,minimumsnelheid);
+                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010);
+                  rechtdoor=false;
+                  motors.set_motor_speed(draaisnelheid, draaisnelheid, draaisnelheid, draaisnelheid);
               }
               else if(motorsnelheid-pidvalue<minimumsnelheid){
                 /*indien stuursignaal onder minimumsnelheid
@@ -137,10 +155,20 @@ void loop(){
                 linker wielen te vertragen
                 */
               //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              if(rechtdoor==false){
+                motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                rechtdoor=true;
+              }
+
                 motors.set_motor_speed(pidvalue, pidvalue, minimumsnelheid , minimumsnelheid);
               }
               else{
             //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+            if(rechtdoor==false){
+              motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              rechtdoor=true;
+            }
+
             motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid-pidvalue, motorsnelheid-pidvalue);
                 }
             }
@@ -148,6 +176,10 @@ void loop(){
         else{
               //rij rechtdoor
             //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+            if(rechtdoor==false){
+              motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              rechtdoor=true;
+            }
               motors.set_motor_speed(motorsnelheid, motorsnelheid, motorsnelheid, motorsnelheid);
             }
 

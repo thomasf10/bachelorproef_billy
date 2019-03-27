@@ -1,8 +1,8 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 50
-#define Kd 0
-#define Ki 0
+#define Kp 37 //60
+#define Ki 30 //32
+#define Kd 27 //40
 #define drempel 500
 /* sensor module:
   layout:
@@ -96,13 +96,18 @@ int Sensormodule::calculatepid(){
 //TO DO: 11000000,01100000 en eventueel 11100000 toevoegen
   switch (linkersensoren) {
     case B10000000:
-      errorlinks=1;
+      errorlinks=-1;
       break;
+    case B11000000:
+      errorlinks=-2;
     case B01000000:
-      errorlinks=2;
+      errorlinks=-3;
+      break;
+    case B01100000:
+      errorlinks=-4;
       break;
     case B00100000:
-      errorlinks=3;
+      errorlinks=-5;
       break;
     default:
       errorlinks=0;
@@ -114,20 +119,25 @@ uint8_t rechtersensoren=this->waarden&B00011100;
 //TO DO: 00001100,00011000 en eventueel 00011100 toevoegen
 switch (rechtersensoren) {
   case B00000100:
-    errorrechts=-1;
+    errorrechts=1;
     break;
+  case B00001100:
+    errorrechts=2;
   case B00001000:
-    errorrechts=-2;
+    errorrechts=3;
+    break;
+  case B00011000:
+    errorrechts=4;
     break;
   case B00010000:
-    errorrechts=-3;
+    errorrechts=5;
     break;
   default:
     errorrechts=0;
     break;
 }
-
 error=errorlinks+errorrechts;
+
 
 //basic sturing:
 /*
