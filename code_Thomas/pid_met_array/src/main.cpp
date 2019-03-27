@@ -27,6 +27,7 @@ Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
+
 void setup(){
   //controle leds
     pinMode(11,OUTPUT);
