@@ -156,19 +156,19 @@ else if(rechts.getlinkerwaarde()==1){
 }
 */
 //stuur rechts:
-if(this->waarde_links==1 && this->waarde_midden==1 && this->waarde_rechts==1){
+if(links.getlinkerwaarde()==1 && links.getmiddenwaarde()==1 && links.getrechterwaarde() == 1){
   error=-5;
 }
-else if(this->waarde_links==1 && this->waarde_midden==1){
+else if(links.getlinkerwaarde()==1 && links.getmiddenwaarde()==1){
   error=-4;
 }
-if(this->waarde_links==1){
+if(links.getlinkerwaarde()==1){
   error=-1;
 }
-else if(this->waarde_midden==1){
+else if(links.getmiddenwaarde()==1){
   error=-2;
 }
-else if(this->waarde_rechts==1){
+else if(links.getrechterwaarde()==1){
   error=-3;
 }
 
