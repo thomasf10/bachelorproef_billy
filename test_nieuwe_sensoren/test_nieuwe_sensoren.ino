@@ -6,9 +6,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
- int a1= analogRead(0);
- int a2= analogRead(1);
- int a3= analogRead(2);
+ int a1= analogRead(3);
+ int a2= analogRead(6);
+ int a3= analogRead(7);
  Serial.print(a1 );
  Serial.print(" ");
  Serial.print(a2);
