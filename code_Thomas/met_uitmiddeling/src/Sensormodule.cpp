@@ -1,10 +1,10 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 70 //60
-#define Ki 38 //32
-#define Kd 45 //40
+#define Kp 60 //60
+#define Ki 32 //32
+#define Kd 40 //40
 #define drempel 500
-#define deeltal 10
+//#define deeltal 10
 /* sensor module:
   layout:
 
@@ -32,50 +32,68 @@ Sensormodule::Sensormodule(int pinL1,int pinL2, int pinL3, int pinR1, int pinR2,
   this->waarden=B00000000;
   this->lasterror=0;
   this->overtimeerror=0;
+  this->somL1=0;
+  this->somL2=0;
+  this->somL3=0;
+  this->somR1=0;
+  this->somR2=0;
+  this->somR3=0;
   }
-int* Sensormodule:: getanalogewaarden(){
-int r[6]={analogRead(0),analogRead(1),analogRead(2),analogRead(3),analogRead(6),analogRead(7)};
-return r;
+void Sensormodule:: updatesom(){
+somL1+=analogRead(0);
+somL2+=analogRead(1);
+somL3+=analogRead(2);
+somR1+=analogRead(3);
+somR2+=analogRead(6);
+somR3+=analogRead(7);
 }
-void Sensormodule::update(int*som){
+void Sensormodule:: clearsom(){
+  somL1=0;
+  somL2=0;
+  somL3=0;
+  somR1=0;
+  somR2=0;
+  somR3=0;
+}
+void Sensormodule::update(int deeltal){
   //waarde>=drempel => niet op lijn => digitale waarde=0
   //waarde<drempel => op lijn => digitale waarde=1
-  if((som[0]/deeltal)>=drempel){
+  if((somL1/deeltal)>=drempel){
     waarden=waarden&B01111111;
   }
   else{
     waarden=waarden|B10000000;
   };
 
-  if((som[1]/deeltal)>=drempel){
+  if((somL2/deeltal)>=drempel){
     waarden=waarden&B10111111;
   }
   else{
     waarden=waarden|B01000000;
   };
 
-  if((som[2]/deeltal)>=drempel){
+  if((somL3/deeltal)>=drempel){
     waarden=waarden&B11011111;
   }
   else{
     waarden=waarden|B00100000;
   };
 
-  if((som[3]/deeltal)>=drempel){
+  if((somR1/deeltal)>=drempel){
     waarden=waarden&B11101111;
   }
   else{
     waarden=waarden|B00010000;
   };
 
-  if((som[4]/deeltal)>=drempel){
+  if((somR2/deeltal)>=drempel){
     waarden=waarden&B11110111;
   }
   else{
     waarden=waarden|B00001000;
   };
 
-  if((som[5]/deeltal)>=drempel){
+  if((somR3/deeltal)>=drempel){
     waarden=waarden&B11111011;
   }
   else{

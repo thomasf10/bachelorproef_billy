@@ -19,7 +19,7 @@
 #define motorsnelheid 255 // 200
 #define minimumsnelheid 20
 #define draaisnelheid 150
-#define maxcounter 10
+#define maxcounter 5
 
 //objecten declareren
 Sensormodule module;
@@ -30,7 +30,7 @@ unsigned long currentmillis;
 bool rechtdoor;
 int som[6];
 int counter;
-
+bool toggle;
 void setup(){
   //controle leds
     pinMode(11,OUTPUT);
@@ -39,6 +39,7 @@ void setup(){
     pinMode(8,OUTPUT);
     pinMode(7,OUTPUT);
     pinMode(2,OUTPUT);
+    pinMode(1,OUTPUT);
 
   //motorsturing
   motors=Motorcontrol();
@@ -64,33 +65,28 @@ void setup(){
 
   counter=0;
 
+  toggle=false;
+
 }
 
 
 void loop(){
 
-int temp[6]=module.getanalogewaarden();
-
-for(int i=0;i<6;i++){
-  som[i]+=temp[i];
-}
-
-counter++;
 if(counter<maxcounter){
-  Serial.println("RETURNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
+  counter++;
+//  Serial.println("RETURNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
+  module.updatesom();
   return;
 }
+
 else{
+  currentmillis=millis();
+if(currentmillis>(lastmillis+updatetijd)){
+  lastmillis=currentmillis;
+
   counter=0;
-  for(int j=0;j<6;j++){
-    Serial.print(j);
-    Serial.print(" : ");
-    Serial.println(som[j]);
-  }
-  module.update(som);
-  for(int i=0;i<6;i++){
-    som[i]=0;
-  }
+  module.update(maxcounter);
+  module.clearsom();
 
   //LED's:
   if(bitRead(module.getwaarden(), 7)==1){
@@ -135,6 +131,7 @@ else{
       pidvalue=module.calculatepid();
       Serial.println("pid: ");
       Serial.println(pidvalue);
+
       if(pidvalue<0){
               //stuur naar rechts
               if(-pidvalue>255){
@@ -208,9 +205,18 @@ else{
             }
 
             //RFID loop
-
+            //toggle for timing test
+            if(toggle==false){
+              digitalWrite(1,HIGH);
+              toggle=true;
+            }
+            else{
+              digitalWrite(1,LOW);
+              toggle=false;
+            }
         }
       }
+    }
 
 
 
