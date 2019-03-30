@@ -15,7 +15,7 @@
 #define CMD_REG_CONFIG  0x03
 
 //aantal tijd tussen update sensoren in milliseconden
-#define updatetijd 150
+#define updatetijd 100
 #define motorsnelheid 255 // 200
 #define minimumsnelheid 20
 #define draaisnelheid 150
@@ -28,7 +28,6 @@ Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
-int som[6];
 int counter;
 bool toggle;
 void setup(){
@@ -67,12 +66,16 @@ void setup(){
 
   toggle=false;
 
+  lastmillis=0;
+  currentmillis=0;
+
 }
 
 
 void loop(){
+currentmillis=millis();
 
-if(counter<maxcounter){
+if(currentmillis-lastmillis<updatetijd){
   counter++;
 //  Serial.println("RETURNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
   module.updatesom();
@@ -80,50 +83,15 @@ if(counter<maxcounter){
 }
 
 else{
-  currentmillis=millis();
-if(currentmillis>(lastmillis+updatetijd)){
+  Serial.print("counter:  ");
+  Serial.print(counter);
   lastmillis=currentmillis;
-
+  module.update(counter);
   counter=0;
-  module.update(maxcounter);
   module.clearsom();
 
   //LED's:
-  if(bitRead(module.getwaarden(), 7)==1){
-      digitalWrite(2,HIGH);
-    } else {
-      digitalWrite(2,LOW);
-    }
-  if(bitRead(module.getwaarden(), 6)==1){
-      digitalWrite(7,HIGH);
-    }
-    else {
-      digitalWrite(7,LOW);
-    }
-  if(bitRead(module.getwaarden(), 5)==1){
-      digitalWrite(8,HIGH);
-    }
-    else {
-      digitalWrite(8,LOW);
-    }
-  if(bitRead(module.getwaarden(), 4)==1){
-      digitalWrite(11,HIGH);
-    }
-    else {
-      digitalWrite(11,LOW);
-    }
-    if(bitRead(module.getwaarden(), 3)==1){
-      digitalWrite(12,HIGH);
-    }
-    else {
-      digitalWrite(12,LOW);
-    }
-  if(bitRead(module.getwaarden(), 2)==1){
-      digitalWrite(13,HIGH);
-    }
-    else {
-      digitalWrite(13,LOW);
-    }
+  module.updateleds();
 
   //sturing
   Serial.println("sensorwaarden: ");
@@ -216,7 +184,7 @@ if(currentmillis>(lastmillis+updatetijd)){
             }
         }
       }
-    }
+
 
 
 

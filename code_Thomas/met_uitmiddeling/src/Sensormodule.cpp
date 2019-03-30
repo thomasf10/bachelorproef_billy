@@ -160,139 +160,6 @@ switch (rechtersensoren) {
 }
 error=errorlinks+errorrechts;
 
-
-//basic sturing:
-/*
-  switch (waarden) {
-    //rechtdoorrijden:
-    case B10000100:
-      error=0;
-      break;
-    case B01001000:
-      error=0;
-      break;
-    case B00110000:
-      error=0;
-      break;
-    //rechts draaien:
-    case B10000000:
-      error=-1;
-      break;
-    case B01000000:
-      error=-2;
-      break;
-    case B00100000:
-      error=-3;
-      break;
-    case B11000000:
-      error=-4;
-      break;
-    case B01100000:
-      error=-4;
-      break;
-    case B11100000:
-      error=-5;
-      break;
-    case B11010000:
-      error=-4;
-      break;
-    case B11001000:
-      error-3;
-      break;
-    case B11101000:
-      error=-5;
-      break;
-
-
-
-    //links draaien:
-    case B00000100:
-      error=1;
-      break;
-    case B00001000:
-      error=2;
-      break;
-    case B00010000:
-      error=3;
-      break;
-    case B00001100:
-      error=4;
-      break;
-    case B00011000:
-      error=4;
-      break;
-    case B00011100:
-      error=5;
-      break;
-    case B00101100:
-      error=4;
-      break;
-    case B01001100:
-      error=3;
-      break;
-    case B01011100:
-      error=5;
-      break;
-
-    default:
-      error=0;
-      break;
-  }
-
-
-/*
-uitbereiding:
-  switch (waarden) {
-    case B10000100:
-      error=0;
-      break;
-    case B01001000:
-      error=0;
-      break;
-    case B00110000:
-      error=0;
-      break;
-    case B10001000:
-      error=1;
-      break;
-    case B10010000:
-      error=2;
-      break;
-    case B10000000:
-      error=-3;
-      break;
-    case B01000100:
-      error=-1;
-      break;
-    case B01010000:
-      error=2;
-      break;
-    case B01000000:
-      error=-4;
-      break;
-    case B00100100:
-      error=-2;
-      break;
-    case B00101000:
-      error=-1;
-      break;
-    case B00100000:
-      error=-5;
-      break;
-    case B00010000:
-      error=5;
-      break;
-    case B00001000:
-      error=4;
-      break;
-    case B00000100:
-      error=3;
-      break;
-    default:
-      error=0;
-      break;
-  }
-*/
   int pidvalue=Kp*error+Ki*overtimeerror+Kd*(error-lasterror);
   this->overtimeerror+=error;
   this->lasterror=error;
@@ -302,4 +169,42 @@ uitbereiding:
 
 uint8_t Sensormodule::getwaarden(){
   return this->waarden;
+}
+
+void Sensormodule::updateleds(){
+  if(bitRead(this->waarden, 7)==1){
+      digitalWrite(2,HIGH);
+    } else {
+      digitalWrite(2,LOW);
+    }
+  if(bitRead(this->waarden, 6)==1){
+      digitalWrite(7,HIGH);
+    }
+    else {
+      digitalWrite(7,LOW);
+    }
+  if(bitRead(this->waarden, 5)==1){
+      digitalWrite(8,HIGH);
+    }
+    else {
+      digitalWrite(8,LOW);
+    }
+  if(bitRead(this->waarden, 4)==1){
+      digitalWrite(11,HIGH);
+    }
+    else {
+      digitalWrite(11,LOW);
+    }
+    if(bitRead(this->waarden, 3)==1){
+      digitalWrite(12,HIGH);
+    }
+    else {
+      digitalWrite(12,LOW);
+    }
+  if(bitRead(this->waarden, 2)==1){
+      digitalWrite(13,HIGH);
+    }
+    else {
+      digitalWrite(13,LOW);
+    }
 }

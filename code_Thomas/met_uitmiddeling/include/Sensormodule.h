@@ -13,9 +13,10 @@ class Sensormodule{
     uint8_t getwaarden();
     void updatesom();
     void clearsom();
+    void updateleds();
   private:
     int pinL1,pinL2,pinL3,pinR1,pinR2,pinR3;
-    int somL1,somL2,somL3,somR1,somR2,somR3;
+    long somL1,somL2,somL3,somR1,somR2,somR3;
     uint8_t waarden;
     int lasterror;
     int overtimeerror;
