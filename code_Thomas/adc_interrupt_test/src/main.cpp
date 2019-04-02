@@ -2,7 +2,8 @@
 
 // Initialization
 bool readFlag;
-int analogVal [3];
+//int analogVal [3];
+int a1,a2,a3,a4,a5,a6;
 int counter;
 int index;
 bool completeupdate;
@@ -10,58 +11,31 @@ bool completeupdate;
 
 void setup(){
   completeupdate=0;
-  counter=0;
-  index=0;
 
   Serial.begin(9600);
+// Set up ADC:
+
   // clear ADLAR in ADMUX (0x7C) to right-adjust the result
   // ADCL will contain lower 8 bits, ADCH upper 2 (in last two bits)
   ADMUX &= B11011111;
-
   // Set REFS1..0 in ADMUX (0x7C) to change reference voltage to the
   // proper source (01)
-  ADMUX |= B01000000;
-
+  ADMUX |=1<<REFS0;
   // Clear MUX3..0 in ADMUX (0x7C) in preparation for setting the analog
   // input
   ADMUX &= B11110000;
-
-  // Set MUX3..0 in ADMUX (0x7C) to read from AD8 (Internal temp)
-  // Do not set above 15! You will overrun other parts of ADMUX. A full
-  // list of possible inputs is available in Table 24-4 of the ATMega328
-  // datasheet
+  // Set MUX3..0 in ADMUX (0x7C) to read from AD0
   ADMUX |= 0;
-  // ADMUX |= B00001000; // Binary equivalent
-
-  // Set ADEN in ADCSRA (0x7A) to enable the ADC.
-  // Note, this instruction takes 12 ADC clocks to execute
-  ADCSRA |= B10000000;
-
-  // Set ADATE in ADCSRA (0x7A) to enable auto-triggering.
-  ADCSRA |= B00100000;
-
-  // Clear ADTS2..0 in ADCSRB (0x7B) to set trigger mode to free running.
-  // This means that as soon as an ADC has finished, the next will be
-  // immediately started.
-  ADCSRB &= B11111000;
-
+  // Set ADEN in ADCSRA to enable the ADC.
+  ADCSRA |= 1<<ADEN;
   // Set the Prescaler to 128 (16000KHz/128 = 125KHz)
-  // Above 200KHz 10-bit results are not reliable.
   ADCSRA |= B00000111;
-
   // Set ADIE in ADCSRA (0x7A) to enable the ADC interrupt.
-  // Without this, the internal interrupt will not trigger.
-  ADCSRA |= B00001000;
-
+  ADCSRA |= 1<<ADIE;
   // Enable global interrupts
-  // AVR macro included in <avr/interrupts.h>, which the Arduino IDE
-  // supplies by default.
   sei();
-
-  // Kick off the first ADC
-  readFlag = 0;
   // Set ADSC in ADCSRA (0x7A) to start the ADC conversion
-  ADCSRA |=B01000000;
+  ADCSRA |=1<<ADSC;
 }
 
 
@@ -72,14 +46,9 @@ void loop(){
   if (completeupdate == 1){
 
     // module.update();
-    for(int i=0;i<3;i++){
-      Serial.print(analogVal[i]);
-      Serial.print("   ");
-    }
-    Serial.println(" ");
-    completeupdate = 0;
-    ADCSRA |=B10000000;
 
+    Serial.println(micros());
+    completeupdate = 0;
   }
 
   // Whatever else you would normally have running in loop().
@@ -91,17 +60,39 @@ void loop(){
 ISR(ADC_vect){
 
   // Must read low first
-  analogVal[counter] = ADCL | (ADCH << 8);
+  int analogVal = ADCL | (ADCH << 8);
 
-  if(counter==2){
-    // want volgorde analoge pinnen: 0,1,2,3,6,7
-    counter=0;
-    completeupdate=1;
-    ADCSRA &=B01111111;
+  switch (ADMUX) {
+    case 0x40:
+      a1=analogVal;
+      ADMUX=0x41;
+      break;
+    case 0x41:
+      a2=analogVal;
+      ADMUX=0x42;
+      break;
+    case 0x42:
+      a3=analogVal;
+      ADMUX=0x43;
+      break;
+    case 0x43:
+      a4=analogVal;
+      ADMUX=0x46;
+      break;
+    case 0x46:
+      a5=analogVal;
+      ADMUX=0x47;
+      break;
+    case 0x47:
+      a6=analogVal;
+      ADMUX=0x40;
+      completeupdate=1;
+      break;
+    default:
+      break;
   }
-else{
-  counter++;
-}
 
-  ADMUX |= counter;
+  //start conversion
+  ADCSRA |=1<<ADSC;
+
 }
