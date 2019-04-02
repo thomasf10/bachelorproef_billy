@@ -12,7 +12,7 @@ pinnen:
 9: D5:pwm| GEBRUIKT VOOR MOTORSHIELD
 10: D6: pwm| GEBRUIKT VOOR MOTORSHIELD
 11: D7 :WERKT OP PRINT
-12: B0 (digitale i/o 8) | GEBRUIKT VOOR RFID RESET  :WERKT OP PRINT 
+12: B0 (digitale i/o 8) | GEBRUIKT VOOR RFID RESET  :WERKT OP PRINT : moet misschien pwm pin zijn voor rfid!!!!!
 13: B1:pwm (digitale i/o 9)| GEBRUIKT VOOR MOTORSHIELD
 14: B2 (digitale i/o 10) | GEBRUIKT VOOR RFID SDA :WERKT OP PRINT
 15: B3: pwm: mosi  (digitale i/o 11) | GEBRUIKT VOOR RFID MOSI :WERKT OP PRINT

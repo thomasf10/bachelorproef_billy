@@ -1,6 +1,6 @@
 #include <SPI.h>
 #include <MFRC522.h>
-/*aansluiting:
+/*aansluiting RFID:
 	SDA:D10
 	SCK:D13
 	MOSI:D11
@@ -36,9 +36,6 @@ void loop()
     return;
   }
 
-
-
-	Serial.println("na returns");
   //Show UID on serial monitor
   Serial.print("UID tag :");
   String content= "";
@@ -60,10 +57,7 @@ void loop()
 		  schrijf naar lcd
 		*/
     Serial.println();
-		if(on==false){
-  	digitalWrite(7,HIGH);
-		on=true;
-		delay(1000);
+
 	}
 	/*to do:
 	if(content.substring(1)=="......."){
@@ -71,15 +65,11 @@ void loop()
 	schrijf tijd naar lcd
 }
 	*/
-	else{
-		digitalWrite(7,LOW);
-		on=false;
-		delay(1000);
-	}
+
   }
 
  else   {
     Serial.println(" Access denied");
-    delay(1000);
+
   }
 }

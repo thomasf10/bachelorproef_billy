@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
+#include <SPI.h>
+#include <MFRC522.h>
 #include "Motorcontrol.h"
 #include "Sensormodule.h"
 //  Two IO EXPANDERS I2C addresses
@@ -19,6 +21,18 @@
 #define turnspeed 150
 #define maxcounter 5 //=> ongeveer om de 90 milliseconden wordt het gemiddelde berekend
 
+/*aansluiting RFID:
+	SDA:D10
+	SCK:D13
+	MOSI:D11
+	MISO:D12
+	IRQ:unconnected
+	GND:GND
+	3.3V=3.3V
+	RST=D8
+*/
+#define SS_PIN 10
+#define RST_PIN 8
 
 // Declare objects:
 Sensormodule module;
@@ -26,9 +40,15 @@ int pidvalue;
 Motorcontrol motors;
 bool forward,calculateaverage,completeupdate;
 int counter;
+MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
 
 void setup() {
+//  SPI.begin();      // Initiate  SPI bus
+//  mfrc522.PCD_Init();   // Initiate MFRC522 
+
   //control leds
+
+  //leds kunnen niet teglijk werken met rfid
   pinMode(11,OUTPUT);
   pinMode(12,OUTPUT);
   pinMode(13,OUTPUT);
@@ -201,8 +221,55 @@ if(calculateaverage==1){
 }
 else{
     //ADC is still reading inputs:
-    //TO DO: check rfid
-    //TO DO: naar lcd schrijven incien nodig; via io expander
+    //RFID code
+/*
+    Serial.println("looking for tag");
+
+// Look for new cards
+if ( ! mfrc522.PICC_IsNewCardPresent())
+{
+  return;
+}
+// Select one of the cards
+if ( ! mfrc522.PICC_ReadCardSerial())
+{
+  return;
+}
+
+//Show UID on serial monitor
+Serial.print("UID tag :");
+String content= "";
+byte letter;
+for (byte i = 0; i < mfrc522.uid.size; i++)
+{
+   Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+   Serial.print(mfrc522.uid.uidByte[i], HEX);
+   content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+   content.concat(String(mfrc522.uid.uidByte[i], HEX));
+}
+Serial.println();
+Serial.print("Message : ");
+content.toUpperCase();
+if (content.substring(1) == "83 37 ED A4") //change here the UID of the card/cards that you want to give access
+{
+  Serial.println("checkpoint 1");
+  //to do
+  //schrijf naar lcd via io expander
+
+  Serial.println();
+
+}
+//to do:
+//if(content.substring(1)=="......."){
+//Serial.println("checkpoint 2");
+//schrijf tijd naar lcd
+//}
+
+else{
+  Serial.println(" Access denied");
+
+}
+*/
 }
 
 
