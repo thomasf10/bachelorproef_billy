@@ -1,4 +1,7 @@
 #include <Arduino.h>
+#include <Wire.h>
+#include "Motorcontrol.h"
+#include "Sensormodule.h"
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
 #define I2C_ADDRESS_ADD_PINS      0x39
@@ -11,21 +14,34 @@
 
 // constants
 #define updatetijd 100
-#define motorsnelheid 255 // 200
-#define minimumsnelheid 20
-#define draaisnelheid 150
-#define maxcounter 5
+#define motorspeed 255 // 200
+#define minspeed 20
+#define turnspeed 150
+#define maxcounter 5 //=> ongeveer om de 90 milliseconden wordt het gemiddelde berekend
+
 
 // Declare objects:
-bool completeupdate;
 Sensormodule module;
 int pidvalue;
 Motorcontrol motors;
-bool forward;
+bool forward,calculateaverage,completeupdate;
+int counter;
 
 void setup() {
+  //control leds
+  pinMode(11,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(13,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(2,OUTPUT);
+  pinMode(1,OUTPUT);
+
   //initialize objects:
   completeupdate=0;
+  counter=0;
+  calculateaverage=0;
+
   //Motorcontrol
   motors=Motorcontrol();
 
@@ -92,7 +108,104 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+if(calculateaverage==1){
+  //ADC read all inputs 5 times:
+
+  calculateaverage=0;
+  module.update(maxcounter);
+  module.clearsum();
+
+  //start next conversion
+  ADCSRA |=1<<ADSC;
+
+  module.print_values();
+  Serial.print("huidige tijd: ");
+  Serial.println(micros());
+  module.updateleds();
+  module.calculatepid();
+
+ // control motor with calculated pid value:
+
+  if(pidvalue<0){
+            //turn right
+            if(-pidvalue>255){
+                  //if pidvalue>255 wheels spin in opposite directions
+                motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
+                forward=false;
+                motors.set_motor_speed(turnspeed, turnspeed, turnspeed, turnspeed);
+            }
+            else if(motorspeed+pidvalue<minspeed){
+              /*indien stuursignaal onder minspeed
+                linker wielen ook versnellen, ipv enkel
+                rechter wielen te vertragen
+              */
+              //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                if(forward==false){
+                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                  forward=true;
+                }
+              motors.set_motor_speed(minspeed, minspeed, -pidvalue, -pidvalue);
+            }
+            else{
+              //rechter wielen vertragen
+          //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              if(forward==false){
+                motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                forward=true;
+              }
+          motors.set_motor_speed(motorspeed+pidvalue, motorspeed+pidvalue, motorspeed, motorspeed);
+            }
+  }
+  else if(pidvalue>0){
+            //stuur naar links
+            if(pidvalue>255){
+              //if pidvalue<255 wheels spin in opposite directions
+                motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010);
+                forward=false;
+                motors.set_motor_speed(turnspeed, turnspeed, turnspeed, turnspeed);
+            }
+            else if(motorspeed-pidvalue<minspeed){
+              /*indien stuursignaal onder minspeed
+              rechter wielen ook versnellen, ipv enkel
+              linker wielen te vertragen
+              */
+            //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              if(forward==false){
+                motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                forward=true;
+              }
+
+              motors.set_motor_speed(pidvalue, pidvalue, minspeed , minspeed);
+            }
+            else{
+          //motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+              if(forward==false){
+                motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+                forward=true;
+              }
+
+          motors.set_motor_speed(motorspeed, motorspeed, motorspeed-pidvalue, motorspeed-pidvalue);
+            }
+    }
+    else{
+            //rij forward
+          //  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+          if(forward==false){
+            motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10101010);
+            forward=true;
+          }
+            motors.set_motor_speed(motorspeed, motorspeed, motorspeed, motorspeed);
+          }
+
+
+}
+else{
+    //ADC is still reading inputs:
+    //TO DO: check rfid
+    //TO DO: naar lcd schrijven incien nodig; via io expander
+}
+
+
 }
 
 //ISR if adc conversion is finnished:
@@ -104,28 +217,49 @@ ISR(ADC_vect){
 
   switch (ADMUX) {
     case 0x40:
-    //pin A0
+    // pin A0
       module.updatesumL1(analogVal);
+      // set next pin A1
       ADMUX=0x41;
+      //start next conversion
+      ADCSRA |=1<<ADSC;
       break;
     case 0x41:
-      a2=analogVal;
+    // pin A1
+      module.updatesumL2(analogVal);
+      // set next pin A2
       ADMUX=0x42;
+      //start next conversion
+      ADCSRA |=1<<ADSC;
       break;
     case 0x42:
-      a3=analogVal;
+    // pin A2
+      module.updatesumL3(analogVal);
+      // set next pin A3
       ADMUX=0x43;
+      //start next conversion
+      ADCSRA |=1<<ADSC;
       break;
     case 0x43:
-      a4=analogVal;
+    // pin A3
+      module.updatesumR1(analogVal);
+      // set next pin A6
       ADMUX=0x46;
+      //start next conversion
+      ADCSRA |=1<<ADSC;
       break;
     case 0x46:
-      a5=analogVal;
+    // pin A6
+      module.updatesumR2(analogVal);
+      // set next pin A7
       ADMUX=0x47;
+      //start next conversion
+      ADCSRA |=1<<ADSC;
       break;
     case 0x47:
-      a6=analogVal;
+    // pin A7
+      module.updatesumR3(analogVal);
+      // set next pin A0
       ADMUX=0x40;
       completeupdate=1;
       break;
@@ -133,13 +267,27 @@ ISR(ADC_vect){
       break;
   }
 
-  //start conversion
-  ADCSRA |=1<<ADSC;
+
 
 }
 
 // ISR for timer:
 
 ISR(TIMER1_COMPA_vect){
-  counter=1;
+  if(completeupdate==1){
+  if(counter<maxcounter){
+    completeupdate=0;
+    counter++;
+    //start next conversion
+    ADCSRA |=1<<ADSC;
+    }
+  else{
+    calculateaverage=1;
+    counter=0;
+    completeupdate=0;
+    }
+  }
+  else{
+    Serial.println("timingerror");
+  }
 }
