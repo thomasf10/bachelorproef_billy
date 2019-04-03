@@ -10,7 +10,6 @@ class Sensormodule{
     void update(int deeltal);
     void print_values();
     int calculatepid();
-    uint8_t getvalues();
     void updatesumL1(int waarde);
     void updatesumL2(int waarde);
     void updatesumL3(int waarde);

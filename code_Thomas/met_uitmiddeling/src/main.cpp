@@ -16,10 +16,10 @@
 
 //aantal tijd tussen update sensoren in milliseconden
 #define updatetijd 100
-#define motorsnelheid 255 // 200
+#define motorsnelheid 200 // 200
 #define minimumsnelheid 20
 #define draaisnelheid 150
-#define maxcounter 5
+#define maxcounter 2
 
 //objecten declareren
 Sensormodule module;

@@ -4,7 +4,7 @@
 #define Ki 32 //32
 #define Kd 40 //40
 #define drempel 500
-//#define deeltal 10
+
 /* sensor module:
   layout:
 
@@ -175,10 +175,6 @@ error=errorlinks+errorrechts;
   this->lasterror=error;
 
   return pidvalue;
-}
-
-uint8_t Sensormodule::getvalues(){
-  return this->values;
 }
 
 void Sensormodule::updateleds(){

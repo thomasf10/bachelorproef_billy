@@ -1,8 +1,8 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 70 //60
-#define Ki 38 //32
-#define Kd 45 //40
+#define Kp 60 //60
+#define Ki 32 //32
+#define Kd 40 //40
 #define drempel 500
 /* sensor module:
   layout:

@@ -16,10 +16,10 @@
 
 // constants
 #define updatetijd 100
-#define motorspeed 255 // 200
+#define motorspeed 200// 200
 #define minspeed 20
 #define turnspeed 150
-#define maxcounter 5 //=> ongeveer om de 90 milliseconden wordt het gemiddelde berekend
+#define maxcounter 200 //=> ongeveer om de 90 milliseconden wordt het gemiddelde berekend
 
 /*aansluiting RFID:
 	SDA:D10
@@ -44,7 +44,7 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
 
 void setup() {
 //  SPI.begin();      // Initiate  SPI bus
-//  mfrc522.PCD_Init();   // Initiate MFRC522 
+//  mfrc522.PCD_Init();   // Initiate MFRC522
 
   //control leds
 
@@ -86,7 +86,7 @@ void setup() {
     Serial.begin(9600);
 
   // Set up timer interrupt:
-
+/*
     // disable interrupts
     cli();
     //set timer1 interrupt at 66.67 Hz => T=15ms
@@ -101,7 +101,7 @@ void setup() {
     TCCR1B |= (1 << CS11);
     // enable timer compare interrupt
     TIMSK1 |= (1 << OCIE1A);
-
+*/
   // Set up ADC:
 
     // clear ADLAR in ADMUX (0x7C) to right-adjust the result
@@ -129,8 +129,10 @@ void setup() {
 
 void loop() {
 if(calculateaverage==1){
-  //ADC read all inputs 5 times:
-
+  //ADC read all inputs maxcounter times:
+  Serial.print("tijd: ");
+  Serial.println(micros());
+  counter=0;
   calculateaverage=0;
   module.update(maxcounter);
   module.clearsum();
@@ -139,11 +141,9 @@ if(calculateaverage==1){
   ADCSRA |=1<<ADSC;
 
   module.print_values();
-  Serial.print("huidige tijd: ");
-  Serial.println(micros());
   module.updateleds();
-  module.calculatepid();
-
+  pidvalue=module.calculatepid();
+  Serial.println(pidvalue);
  // control motor with calculated pid value:
 
   if(pidvalue<0){
@@ -219,7 +219,7 @@ if(calculateaverage==1){
 
 
 }
-else{
+
     //ADC is still reading inputs:
     //RFID code
 /*
@@ -270,7 +270,6 @@ else{
 
 }
 */
-}
 
 
 }
@@ -328,7 +327,14 @@ ISR(ADC_vect){
       module.updatesumR3(analogVal);
       // set next pin A0
       ADMUX=0x40;
-      completeupdate=1;
+      if(counter<maxcounter){
+      //start next conversion
+      ADCSRA |=1<<ADSC;
+      counter++;
+    }
+    else{
+      calculateaverage=1;
+    }
       break;
     default:
       break;
@@ -340,7 +346,7 @@ ISR(ADC_vect){
 
 // ISR for timer:
 
-ISR(TIMER1_COMPA_vect){
+/*ISR(TIMER1_COMPA_vect){
   if(completeupdate==1){
   if(counter<maxcounter){
     completeupdate=0;
@@ -355,6 +361,6 @@ ISR(TIMER1_COMPA_vect){
     }
   }
   else{
-    Serial.println("timingerror");
+    Serial.println("timing error");
   }
-}
+}*/

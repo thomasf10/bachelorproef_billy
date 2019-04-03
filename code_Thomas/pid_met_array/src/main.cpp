@@ -3,6 +3,20 @@
 #include "Sensormodule.h"
 #include <Wire.h>
 #include "Motorcontrol.h"
+#include <SPI.h>
+#include <MFRC522.h>
+/*aansluiting RFID:
+	SDA:D10
+	SCK:D13
+	MOSI:D11
+	MISO:D12
+	IRQ:unconnected
+	GND:GND
+	3.3V=3.3V
+	RST=D8
+*/
+#define SS_PIN 10
+#define RST_PIN 8
 
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
@@ -16,27 +30,35 @@
 
 //aantal tijd tussen update sensoren in milliseconden
 #define updatetijd 150
-#define motorsnelheid 255 // 200
+#define motorsnelheid 200 // 200
 #define minimumsnelheid 20
 #define draaisnelheid 150
 
 //objecten declareren
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
+
 Sensormodule module;
 int pidvalue;
 Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
+bool ledon;
 
 void setup(){
+  ledon=false;
   //controle leds
-    pinMode(11,OUTPUT);
-    pinMode(12,OUTPUT);
-    pinMode(13,OUTPUT);
-    pinMode(8,OUTPUT);
-    pinMode(7,OUTPUT);
-    pinMode(2,OUTPUT);
-
+    pinMode(11,OUTPUT); //R1
+    pinMode(12,OUTPUT); //R2
+    pinMode(13,OUTPUT); //R3
+    pinMode(8,OUTPUT); //L3
+    pinMode(7,OUTPUT); //L2
+    pinMode(2,OUTPUT); //L1
+  // Initiate  SPI bus
+    SPI.begin();
+  // Initiate MFRC522
+      mfrc522.PCD_Init();
   //motorsturing
   motors=Motorcontrol();
 
@@ -72,7 +94,7 @@ void loop(){
     module.update();
 
    //LED's:
-   module.updateleds();
+  // module.updateleds();
 
   //sturing
   Serial.println("sensorwaarden: ");
@@ -154,6 +176,62 @@ void loop(){
 
             //RFID loop
           }
+          Serial.println("looking for tag");
+
+// Look for new cards
+if ( ! mfrc522.PICC_IsNewCardPresent())
+{
+  return;
+}
+// Select one of the cards
+if ( ! mfrc522.PICC_ReadCardSerial())
+{
+  return;
+}
+
+//Show UID on serial monitor
+Serial.print("UID tag :");
+String content= "";
+byte letter;
+for (byte i = 0; i < mfrc522.uid.size; i++)
+{
+   Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+   Serial.print(mfrc522.uid.uidByte[i], HEX);
+   content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+   content.concat(String(mfrc522.uid.uidByte[i], HEX));
+}
+Serial.println();
+Serial.print("Message : ");
+content.toUpperCase();
+if (content.substring(1) == "E4 11 F9 1F") //change here the UID of the card/cards that you want to give access
+{
+  Serial.println("checkpoint 1");
+  /*to do
+    schrijf naar lcd
+  */
+  if(ledon==false){
+  digitalWrite(2,HIGH);
+  ledon=true;
+}
+else{
+  digitalWrite(2,LOW);
+  ledon=false;
+}
+
+}
+/*to do:
+if(content.substring(1)=="......."){
+Serial.println("checkpoint 2");
+schrijf tijd naar lcd
+}
+*/
+
+
+
+else {
+  Serial.println(" Access denied");
+
+}
       }
 
 
