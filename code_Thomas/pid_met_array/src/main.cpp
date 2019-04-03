@@ -34,6 +34,7 @@
 #define minimumsnelheid 20
 #define draaisnelheid 150
 
+
 //objecten declareren
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
@@ -44,10 +45,10 @@ Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
-bool ledon;
+//bool ledon;
 
 void setup(){
-  ledon=false;
+  //ledon=false;
   //controle leds
     pinMode(11,OUTPUT); //R1
     pinMode(12,OUTPUT); //R2
@@ -95,6 +96,7 @@ void loop(){
 
    //LED's:
   // module.updateleds();
+  motors.i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_OUTPUT, module.getwaarden());
 
   //sturing
   Serial.println("sensorwaarden: ");
@@ -106,7 +108,7 @@ void loop(){
               //stuur naar rechts
               if(-pidvalue>255){
                     //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
-                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
+                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010);
                   rechtdoor=false;
                   motors.set_motor_speed(draaisnelheid, draaisnelheid, draaisnelheid, draaisnelheid);
               }
@@ -136,7 +138,7 @@ void loop(){
               //stuur naar links
               if(pidvalue>255){
                     //TO DO: indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
-                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B01011010);
+                  motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
                   rechtdoor=false;
                   motors.set_motor_speed(draaisnelheid, draaisnelheid, draaisnelheid, draaisnelheid);
               }
@@ -209,14 +211,8 @@ if (content.substring(1) == "E4 11 F9 1F") //change here the UID of the card/car
   /*to do
     schrijf naar lcd
   */
-  if(ledon==false){
-  digitalWrite(2,HIGH);
-  ledon=true;
-}
-else{
-  digitalWrite(2,LOW);
-  ledon=false;
-}
+Serial.println("rfid gevonden");
+
 
 }
 /*to do:

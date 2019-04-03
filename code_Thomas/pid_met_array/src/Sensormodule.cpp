@@ -4,6 +4,7 @@
 #define Ki 32 //32
 #define Kd 40 //40
 #define drempel 500
+bool rechts,links;
 /* sensor module:
   layout:
 
@@ -97,20 +98,28 @@ int Sensormodule::calculatepid(){
   switch (linkersensoren) {
     case B10000000:
       errorlinks=-1;
+      links=true;
       break;
     case B11000000:
       errorlinks=-2;
+      links=true;
     case B01000000:
       errorlinks=-3;
+      links=true;
       break;
     case B01100000:
+    if(links==1){
       errorlinks=-4;
+    }
       break;
     case B00100000:
+    if(links==1){
       errorlinks=-5;
+    }
       break;
     default:
       errorlinks=0;
+      links=false;
       break;
   }
 
@@ -120,20 +129,28 @@ uint8_t rechtersensoren=this->waarden&B00011100;
 switch (rechtersensoren) {
   case B00000100:
     errorrechts=1;
+    rechts=true;
     break;
   case B00001100:
     errorrechts=2;
+    rechts=true;
   case B00001000:
     errorrechts=3;
+    rechts=true;
     break;
   case B00011000:
+  if(rechts==1){
     errorrechts=4;
+  }
     break;
   case B00010000:
+  if(rechts==1){
     errorrechts=5;
+  }
     break;
   default:
     errorrechts=0;
+    rechts=0;
     break;
 }
 
