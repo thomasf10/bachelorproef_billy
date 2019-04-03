@@ -48,7 +48,7 @@ U 1 1 55D12923
 P 8000 4600
 F 0 "C6" H 8000 4700 40  0000 L CNN
 F 1 "1uF" H 8006 4515 40  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric" H 8038 4450 30  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 8038 4450 30  0000 C CNN
 F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf" H 8000 4600 60  0001 C CNN
 F 4 "CAP CER 2.2UF 16V X7R 0805" H 8000 4600 60  0001 C CNN "Characteristics"
 F 5 "2.2uF 3V3 LDO Output Cap" H 8000 4600 60  0001 C CNN "Description"
