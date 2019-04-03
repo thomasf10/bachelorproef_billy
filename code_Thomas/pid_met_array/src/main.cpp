@@ -3,6 +3,11 @@
 #include "Sensormodule.h"
 #include <Wire.h>
 #include "Motorcontrol.h"
+#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
+
+//gebruikte pinnen voor lcd
+LiquidCrystal_I2C lcd(0x27,2,1,0,4,5,6,7,3,POSITIVE); //0x27 werkt niet per se, ander adres proberen in dat geval (0x3F)
 
 //  Two IO EXPANDERS I2C addresses
 #define I2C_ADDRESS_DIR_MOTORS    0x38
@@ -24,8 +29,19 @@ int pidvalue;
 Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
+unsigned long currentmillisclock;
+unsigned long elapsedtime;
+unsigned long lastmillisclock;
+int seconds = 0;
+int minutes = 0;
 
 void setup(){
+
+  lcd.begin(16,2);
+  lcd.setBacklightPin(BACKLIGHT_PIN, POSITIVE);
+  lcd.setBacklight(HIGH);
+  lcd.home();
+
 
   motors=Motorcontrol();
   Wire.begin();
@@ -42,7 +58,36 @@ void setup(){
   Serial.begin(9600);
 }
 
+void setClock(){
+  currentmillisclock = millis();
+  elapsedtime += elapsedtime - lastmillisclock;
+
+  if(elapsedtime>999){
+    seconds++;
+    elapsedtime = elapsedtime - 1000;
+  }
+
+  if(seconds == 60){
+    minutes++;
+    seconds = 0;
+  }
+
+  lastmillisclock = currentmillisclock;
+}
+
 void loop(){
+
+  setClock();
+
+  lcd.setCursor(0,1);
+  lcd.print("min sec");
+  lcd.setCursor(0,0);
+  lcd.print(" ");
+  lcd.print(minutes);
+  lcd.print(":");
+  lcd.print(seconds);
+  lcd.print(" ");
+
   currentmillis=millis();
   if(currentmillis>(lastmillis+updatetijd)){
     lastmillis=currentmillis;
@@ -96,6 +141,8 @@ void loop(){
 
 
   }
+
+
 
 
 
