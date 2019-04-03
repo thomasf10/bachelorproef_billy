@@ -86,6 +86,7 @@ void setup(){
 
 
 void loop(){
+
   //timing:
   currentmillis=millis();
   if(currentmillis>(lastmillis+updatetijd)){
@@ -97,7 +98,10 @@ void loop(){
    //LED's:
   // module.updateleds();
   motors.i2C_write_reg(I2C_ADDRESS_ADD_PINS, CMD_REG_OUTPUT, module.getwaarden());
+<<<<<<< HEAD
 
+=======
+>>>>>>> ce17075fb7230543a3786b0d33e678426b781b1b
   //sturing
   Serial.println("sensorwaarden: ");
   module.print_waarden();
