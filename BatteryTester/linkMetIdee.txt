@@ -1,0 +1,4 @@
+met opamp als comparator
+https://www.homemade-circuits.com/simple-low-battery-indicator-circuit/
+met LM555
+https://www.raspberrypi.org/forums/viewtopic.php?t=56129
