@@ -1,0 +1,143 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:LED D1
+U 1 1 5CA49D13
+P 3000 4250
+F 0 "D1" V 3038 4133 50  0000 R CNN
+F 1 "LED" V 2947 4133 50  0000 R CNN
+F 2 "LED_THT:LED_D3.0mm" H 3000 4250 50  0001 C CNN
+F 3 "~" H 3000 4250 50  0001 C CNN
+	1    3000 4250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED D2
+U 1 1 5CA49DED
+P 3650 4250
+F 0 "D2" V 3688 4133 50  0000 R CNN
+F 1 "LED" V 3597 4133 50  0000 R CNN
+F 2 "LED_THT:LED_D3.0mm" H 3650 4250 50  0001 C CNN
+F 3 "~" H 3650 4250 50  0001 C CNN
+	1    3650 4250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED D3
+U 1 1 5CA49E7E
+P 4325 4250
+F 0 "D3" V 4363 4133 50  0000 R CNN
+F 1 "LED" V 4272 4133 50  0000 R CNN
+F 2 "LED_THT:LED_D3.0mm" H 4325 4250 50  0001 C CNN
+F 3 "~" H 4325 4250 50  0001 C CNN
+	1    4325 4250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5CA4A1F1
+P 3000 3675
+F 0 "R1" H 3070 3721 50  0000 L CNN
+F 1 "220" H 3070 3630 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2930 3675 50  0001 C CNN
+F 3 "~" H 3000 3675 50  0001 C CNN
+	1    3000 3675
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5CA4A2A7
+P 3650 3675
+F 0 "R2" H 3720 3721 50  0000 L CNN
+F 1 "220" H 3720 3630 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3580 3675 50  0001 C CNN
+F 3 "~" H 3650 3675 50  0001 C CNN
+	1    3650 3675
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5CA4A363
+P 4325 3675
+F 0 "R3" H 4395 3721 50  0000 L CNN
+F 1 "220" H 4395 3630 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4255 3675 50  0001 C CNN
+F 3 "~" H 4325 3675 50  0001 C CNN
+	1    4325 3675
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5CA4A67E
+P 5125 5100
+F 0 "#PWR01" H 5125 4850 50  0001 C CNN
+F 1 "GND" H 5130 4927 50  0000 C CNN
+F 2 "" H 5125 5100 50  0001 C CNN
+F 3 "" H 5125 5100 50  0001 C CNN
+	1    5125 5100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 3825 3000 4100
+Wire Wire Line
+	3650 3825 3650 4100
+Wire Wire Line
+	3000 4400 3000 4975
+Wire Wire Line
+	3000 4975 3650 4975
+Wire Wire Line
+	5125 4975 5125 5100
+Wire Wire Line
+	3650 4400 3650 4975
+Connection ~ 3650 4975
+Wire Wire Line
+	3650 4975 4325 4975
+Wire Wire Line
+	4325 4400 4325 4975
+Connection ~ 4325 4975
+Wire Wire Line
+	4325 4975 5125 4975
+Wire Wire Line
+	4325 4100 4325 3825
+$Comp
+L Connector:Conn_01x04_Female J1
+U 1 1 5CA4AD8C
+P 3650 2575
+F 0 "J1" V 3590 2287 50  0000 R CNN
+F 1 "Conn_01x04_Female" V 3499 2287 50  0000 R CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 3650 2575 50  0001 C CNN
+F 3 "~" H 3650 2575 50  0001 C CNN
+	1    3650 2575
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3000 3525 3000 2775
+Wire Wire Line
+	3000 2775 3550 2775
+Wire Wire Line
+	3650 3525 3650 2775
+Wire Wire Line
+	4325 3525 4325 2950
+Wire Wire Line
+	4325 2950 3750 2950
+Wire Wire Line
+	3750 2950 3750 2775
+Wire Wire Line
+	3850 2775 5125 2775
+Wire Wire Line
+	5125 2775 5125 4975
+Connection ~ 5125 4975
+$EndSCHEMATC
