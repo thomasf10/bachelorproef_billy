@@ -1,8 +1,8 @@
 #include <arduino.h>
 #include "Sensormodule.h"
-#define Kp 5
-#define Ki 2
-#define Kd 2
+#define Kp 10
+#define Ki 4
+#define Kd 3
 #define drempel 500
 bool rechts,links;
 /* sensor module:

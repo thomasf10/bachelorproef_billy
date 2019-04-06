@@ -114,8 +114,11 @@ D= afstand tussen de twee wielen
   */
   if(pidvalue<0){
     //stuur naar rechts
-    Rg=-100/pidvalue; // bereken draaistraal
+    Rg=-motorsnelheid/pidvalue; // bereken draaistraal
     Vi=motorsnelheid*(Rg-(D/2))/(Rg+(D/2)); // Bereken snelheid binnenste wielen
+    Serial.print("vi: ");
+    Serial.println(Vi);
+    //misschien nog moeten casten naar een byte want komma getallen zijn mogelijk.
     if(Vi>=0){
       // wielen draaien in gelijke richting
       if(rechtdoor==false){
@@ -133,7 +136,7 @@ D= afstand tussen de twee wielen
   }
   else if(pidvalue>0){
     // stuur naar links
-    Rg=100/pidvalue; // bereken draaistraal
+    Rg=motorsnelheid/pidvalue; // bereken draaistraal
     Vi=motorsnelheid*(Rg-(D/2))/(Rg+(D/2)); // Bereken snelheid binnesnste wielen
     if(Vi>=0){
       // wielen draaien in gelijke richting
