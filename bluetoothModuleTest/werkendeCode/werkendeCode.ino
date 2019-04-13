@@ -1,6 +1,5 @@
 //  Arduino, HM-10, App Inventor 2
 // gevonden in volgende link: http://www.martyncurrey.com/arduino-hm-10-and-app-inventor-2/#part1
-//  Example Project Part 1: Turn an LED on and off basic
 // gebruikte app om te testen: Serial Bluetooth Terminal
 // Zend 0 voor led uit , 1 voor led aan
 //
