@@ -5,6 +5,8 @@
 #include "Motorcontrol.h"
 #include <SPI.h>
 #include <MFRC522.h>
+#include <LiquidCrystal_I2C.h>
+
 /*aansluiting RFID:
 	SDA:D10
 	SCK:D13
@@ -39,14 +41,19 @@
 //objecten declareren
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
+LiquidCrystal_I2C lcd(0x27,16,2);   // initialize lcd
 Sensormodule module;
 int pidvalue;
 Motorcontrol motors;
 unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
+unsigned long beginloop;
 
 void setup(){
+  // set up lcd
+  lcd.init();
+  lcd.backlight();
 
   // RFID pin's (misschien niet nodig testen!)
     pinMode(11,OUTPUT); //MOSI
@@ -81,6 +88,9 @@ void setup(){
 
   // seriele monitor
   Serial.begin(9600);
+
+  //begintijd loop
+  beginloop=millis();
 
 }
 
@@ -182,38 +192,26 @@ if ( ! mfrc522.PICC_ReadCardSerial())
 {
   return;
 }
-/*
-//Show UID on serial monitor
-Serial.print("UID tag :");
-String content= "";
-byte letter;
-for (byte i = 0; i < mfrc522.uid.size; i++)
-{
-   Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
-   Serial.print(mfrc522.uid.uidByte[i], HEX);
-   content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
-   content.concat(String(mfrc522.uid.uidByte[i], HEX));
-}
-Serial.println();
-Serial.print("Message : ");
-content.toUpperCase();
-if (content.substring(1) == "E4 11 F9 1F") //change here the UID of the card/cards that you want to give access
-{
-  Serial.println("checkpoint 1");
-  /*to do
-    schrijf naar lcd
-  */
+
 Serial.println("rfid gevonden");
-
+unsigned long allesec=(millis()-beginloop)/1000;
+int min= allesec/60;
+int overigesec=allesec%60;
+lcd.clear();// duurt 2 ms
+lcd.setCursor(0,0);
+lcd.print("tijd:");
+lcd.setCursor(0,1);
+lcd.print(min);
+lcd.setCursor(2,1);
+lcd.print("min");
+lcd.setCursor(6,1);
+lcd.print(overigesec);
+lcd.setCursor(9,1);
+lcd.print("sec");
 
 }
-/*to do:
-if(content.substring(1)=="......."){
-Serial.println("checkpoint 2");
-schrijf tijd naar lcd
-}
-*/
-      
+
+
 
 
 
