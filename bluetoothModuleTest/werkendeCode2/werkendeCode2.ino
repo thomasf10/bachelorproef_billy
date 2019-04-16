@@ -4,9 +4,9 @@
 // om data te sturen type tussen [ en ]
 // [start] --> starten met rijden
 // [stop] --> stoppen met rijden
-// [P] --> verander P waarde --> geef waarde erna in tussen vierkante haken
+// [P200] --> verander P waarde naar 200 of welk getal er achter komt
 // idem voor I en D
-// P I en D worden weggeschrevn in EPROM
+// P I en D worden weggeschrevn in EEPROM
 
 //  BT VCC --> Arduino 5V out.
 //  BT GND --> GND
@@ -16,6 +16,7 @@
 
 #include <AltSoftSerial.h>
 #include <EEPROM.h>
+#include "writeAnything.h"
 
 AltSoftSerial Bluetooth;
 
@@ -26,10 +27,13 @@ boolean newCommand = false;
  
 // general variables
 bool rijden=true;
-int P;
-int I;
-int D;
 
+struct param_t
+{
+  int P;
+  int I;
+  int D;
+} params;
 
 void setup()  
 {
@@ -38,18 +42,20 @@ void setup()
  
     Bluetooth.begin(9600); 
     Serial.println("AltSoftSerial started at 9600"); 
+    Serial.println("Connectie gemaakt via Bluetooth");
     Serial.println(" ");
 
-    P=EEPROM.read(0); 
-    I=EEPROM.read(5);
-    D=EEPROM.read(10);
-    Serial.println(P);
-    Serial.println(I);
-    Serial.println(D);
+    EEPROM_readAnything(0,params); //parameters in EEPROM uitlezen
+    Serial.print("P = ");
+    Serial.println(params.P);
+    Serial.print("I = ");
+    Serial.println(params.I);
+    Serial.print("D = ");
+    Serial.println(params.D);
     Bluetooth.println("\n");
-    Bluetooth.println(P);
-    Bluetooth.println(I);
-    Bluetooth.println(D);
+    Bluetooth.println(params.P);
+    Bluetooth.println(params.I);
+    Bluetooth.println(params.D);
 }
  
  
@@ -79,37 +85,34 @@ void processCommand()
 
     else if (strcmp("P",atoi(&receivedChars[0])) == 0)
     {
-        P= atoi(&receivedChars[1]); //char array omzetten na P123415.. naar integer
-        EEPROM.write(0,P);
+        params.P= atoi(&receivedChars[1]); //char array omzetten na P123415.. naar integer
         Serial.print("P = ");
-        Serial.println(P);
+        Serial.println(params.P);
         Bluetooth.print("P = ");
-        Bluetooth.println(P);
+        Bluetooth.println(params.P);
         
     }
    
    else if (strcmp("I",atoi(&receivedChars[0])) == 0)
     {
-        I= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
-        EEPROM.write(5,I);
+        params.I= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
         Serial.print("I = ");
-        Serial.println(I);
+        Serial.println(params.I);
         Bluetooth.print("I = ");
-        Bluetooth.println(I);
+        Bluetooth.println(params.I);
         
     }
     
    else if (strcmp("D",atoi(&receivedChars[0])) == 0)
     {
-        D= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
-        EEPROM.write(10,D);
+        params.D= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
         Serial.print("D = ");
-        Serial.println(D);
+        Serial.println(params.D);
         Bluetooth.print("D = ");
-        Bluetooth.println(D);
+        Bluetooth.println(params.D);
         
     }
-
+    EEPROM_writeAnything(0, params); //waardes opslaan in EEPROM
     receivedChars[0] = '\0';
     newCommand = false;
  
