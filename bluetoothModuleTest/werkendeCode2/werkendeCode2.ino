@@ -7,6 +7,7 @@
 // [stop] --> stoppen met rijden
 // [P] --> verander P waarde --> geef waarde erna in tussen vierkante haken
 // idem voor I en D
+// P I en D worden weggeschrevn in EPROM
 
 //  BT VCC --> Arduino 5V out.
 //  BT GND --> GND
@@ -74,7 +75,7 @@ void processCommand()
    else if (strcmp('I',receivedChars[0]) == 0)
     {
         I= atoi(&receivedChars[1]); //char array omzetten na I123415.. naar integer
-        Serial.print("I is veranderd = ");
+        Serial.print("I = ");
         Serial.println(I);
         Bluetooth.print("I = ");
         Bluetooth.println(I);
