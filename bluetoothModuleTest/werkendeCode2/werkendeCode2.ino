@@ -1,4 +1,3 @@
-
 //  Arduino, HM-10, App Inventor 2
 // gevonden in volgende link: http://www.martyncurrey.com/arduino-hm-10-and-app-inventor-2/#part1
 // gebruikte app om te testen: Serial Bluetooth Terminal
@@ -16,6 +15,8 @@
 //  Arduino D2 - Resistor + LED
 
 #include <AltSoftSerial.h>
+#include <EEPROM.h>
+
 AltSoftSerial Bluetooth;
 
 // Variables gebruikt voor binnenkomende data
@@ -29,6 +30,7 @@ int P;
 int I;
 int D;
 
+
 void setup()  
 {
     Serial.begin(9600);
@@ -36,7 +38,18 @@ void setup()
  
     Bluetooth.begin(9600); 
     Serial.println("AltSoftSerial started at 9600"); 
-    Serial.println(" "); 
+    Serial.println(" ");
+
+    P=EEPROM.read(0); 
+    I=EEPROM.read(5);
+    D=EEPROM.read(10);
+    Serial.println(P);
+    Serial.println(I);
+    Serial.println(D);
+    Bluetooth.println("\n");
+    Bluetooth.println(P);
+    Bluetooth.println(I);
+    Bluetooth.println(D);
 }
  
  
@@ -48,6 +61,8 @@ void loop()
  
 void processCommand()
 {
+  Serial.print("Ingave via App: ");
+  Serial.println(receivedChars);
     if (strcmp ("stop",receivedChars) == 0) 
     {
         rijden = false;
@@ -62,19 +77,21 @@ void processCommand()
         Serial.println(rijden);
     }
 
-    else if (strcmp('P',receivedChars[0]) == 0)
+    else if (strcmp("P",atoi(&receivedChars[0])) == 0)
     {
         P= atoi(&receivedChars[1]); //char array omzetten na P123415.. naar integer
+        EEPROM.write(0,P);
         Serial.print("P = ");
         Serial.println(P);
         Bluetooth.print("P = ");
         Bluetooth.println(P);
         
     }
-    
-   else if (strcmp('I',receivedChars[0]) == 0)
+   
+   else if (strcmp("I",atoi(&receivedChars[0])) == 0)
     {
-        I= atoi(&receivedChars[1]); //char array omzetten na I123415.. naar integer
+        I= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
+        EEPROM.write(5,I);
         Serial.print("I = ");
         Serial.println(I);
         Bluetooth.print("I = ");
@@ -82,15 +99,17 @@ void processCommand()
         
     }
     
-   else if (strcmp('D',receivedChars[0]) == 0)
+   else if (strcmp("D",atoi(&receivedChars[0])) == 0)
     {
         D= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
+        EEPROM.write(10,D);
         Serial.print("D = ");
         Serial.println(D);
         Bluetooth.print("D = ");
         Bluetooth.println(D);
         
     }
+
     receivedChars[0] = '\0';
     newCommand = false;
  
