@@ -1,4 +1,3 @@
-
 //  Arduino, HM-10, App Inventor 2
 // gevonden in volgende link: http://www.martyncurrey.com/arduino-hm-10-and-app-inventor-2/#part1
 // gebruikte app om te testen: Serial Bluetooth Terminal
@@ -14,19 +13,20 @@
 //  Arduino D9 (ASS TX) - BT RX through a voltage divider
 //  Arduino D2 - Resistor + LED
 
-#include <AltSoftSerial.h>
-AltSoftSerial Bluetooth;
+#include <SoftwareSerial.h>
+SoftwareSerial Bluetooth;
 
 // Variables gebruikt voor binnenkomende data
-const byte maxDataLength = 7;
-char receivedChars[7] ;
+const byte maxDataLength = 20;
+char receivedChars[21] ;
 boolean newCommand = false;
  
 // general variables
 bool rijden=true;
-int P;
-int I;
-int D;
+int getal;
+int P=100;
+int I=100;
+int D=100;
 
 void setup()  
 {
@@ -61,35 +61,25 @@ void processCommand()
         Serial.println(rijden);
     }
 
-    else if (strcmp('P',receivedChars[0]) == 0)
+    else if(receivedChars){
+      getal = receivedChars;
+      Serial.print("Getal = ");
+      Serial.println(getal);
+      Bluetooth.print("Getal = ");
+      Bluetooth.println(getal);
+    }
+
+    else if (strcmp("P",receivedChars) == 0)
     {
-        P= atoi(&receivedChars[1]); //char array omzetten na P123415.. naar integer
+        P=getal;
         Serial.print("P = ");
         Serial.println(P);
         Bluetooth.print("P = ");
         Bluetooth.println(P);
         
     }
-    
-   else if (strcmp('I',receivedChars[0]) == 0)
-    {
-        I= atoi(&receivedChars[1]); //char array omzetten na I123415.. naar integer
-        Serial.print("I is veranderd = ");
-        Serial.println(I);
-        Bluetooth.print("I = ");
-        Bluetooth.println(I);
-        
-    }
-    
-   else if (strcmp('D',receivedChars[0]) == 0)
-    {
-        D= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
-        Serial.print("D = ");
-        Serial.println(D);
-        Bluetooth.print("D = ");
-        Bluetooth.println(D);
-        
-    }
+ 
+ 
     receivedChars[0] = '\0';
     newCommand = false;
  
