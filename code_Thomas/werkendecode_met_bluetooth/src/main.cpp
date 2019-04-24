@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include "Led.h"
 #include "Sensormodule.h"
 #include <Wire.h>
 #include "Motorcontrol.h"
@@ -35,7 +34,7 @@
 #define CMD_REG_CONFIG  0x03
 
 // aantal gebruikte parameters
-#define updatetijd 130
+#define updatetijd 120
 #define defaultmotorsnelheid 200 // 200
 #define minimumsnelheid 20
 //#define draaisnelheid 150
@@ -44,8 +43,9 @@
 // [start] --> starten met rijden
 // [stop] --> stoppen met rijden
 // [P200] --> verander P waarde naar 200 of welk getal er achter komt
-// idem voor I en D
+// idem voor I en D en S voor snelheid
 SoftwareSerial Bluetooth(2,4);
+
 // Variables gebruikt voor binnenkomende data
 const byte maxDataLength = 7;
 char receivedChars[7] ;
@@ -71,15 +71,13 @@ void processCommand()
   int Kp=0;
   int Ki=0;
   int Kd=0;
-  Serial.print("Ingave via App: ");
+  Serial.println("Ingave via App: ");
   Serial.println(receivedChars);
     if (strcmp ("stop",receivedChars) == 0)
     {
         actief = false;
         Serial.println("Gestopt met rijden: ");
         motors.set_motor_speed(0, 0, 0, 0);
-
-
     }
 
     else if (strcmp ("start",receivedChars) == 0)
@@ -88,10 +86,6 @@ void processCommand()
         Serial.println("Start rijden: ");
         module.resetlasterror();
         module.resetovertimeerror();
-
-
-
-
     }
 
     else if (strcmp("P",atoi(&receivedChars[0])) == 0)
@@ -101,7 +95,6 @@ void processCommand()
         Serial.println(Kp);
         Bluetooth.print("P = ");
         Bluetooth.println(Kp);
-
     }
 
    else if (strcmp("I",atoi(&receivedChars[0])) == 0)
@@ -111,7 +104,6 @@ void processCommand()
         Serial.println(Ki);
         Bluetooth.print("I = ");
         Bluetooth.println(Ki);
-
     }
 
    else if (strcmp("D",atoi(&receivedChars[0])) == 0)
@@ -121,7 +113,6 @@ void processCommand()
         Serial.println(Kd);
         Bluetooth.print("D = ");
         Bluetooth.println(Kd);
-
     }
   else if(strcmp("S",atoi(&receivedChars[0]))==0){
     motorsnelheid=atoi(&receivedChars[1]);
@@ -129,7 +120,6 @@ void processCommand()
     Serial.println(motorsnelheid);
     Bluetooth.print("D = ");
     Bluetooth.print(motorsnelheid);
-
   }
     module.set_pid_waarden(Kp, Ki, Kd);
 
@@ -188,10 +178,13 @@ void recvWithStartEndMarkers()
 void setup(){
   // set snelheid
   motorsnelheid=defaultmotorsnelheid;
+
   //bluetooth
   Bluetooth.begin(9600);
+
   // actief
   actief=false;
+
   // set up lcd
   lcd.init();
   lcd.backlight();
@@ -253,17 +246,17 @@ void setup(){
 void loop(){
 Serial.println("toestand:  ");
 Serial.println(actief);
+
 if(actief==false){
-  recvWithStartEndMarkers();                //checken of er nieuwe commando's worden ontvangen
-  if(newCommand){processCommand();}    //als er een nieuw commando is doe iets
+  // aan het comuniceren via bluetooth
+  recvWithStartEndMarkers();  //checken of er nieuwe commando's worden ontvangen
+  if(newCommand){processCommand();}   //als er een nieuw commando is doe iets
   Serial.println("in bluetooth loop");
 }
 
 
 else{
-  // stopknop checken
-  recvWithStartEndMarkers();                //checken of er nieuwe commando's worden ontvangen
-  if(newCommand){processCommand();}    //als er een nieuw commando is doe iets
+
   //debug
   module.print_constanten();
 
@@ -367,7 +360,12 @@ else{
 }
 // RFID loop:
 //Serial.println("looking for tag");
-
+// stopknop checken
+recvWithStartEndMarkers();  //checken of er nieuwe commando's worden ontvangen
+if(newCommand){
+  processCommand(); //als er een nieuw commando is doe iets
+  return;
+}
 // Look for new cards
 if ( ! mfrc522.PICC_IsNewCardPresent())
 {
