@@ -6,6 +6,8 @@
 #include <SPI.h>
 #include <MFRC522.h>
 #include <LiquidCrystal_I2C.h>
+#include <SoftwareSerial.h>
+
 
 /*aansluiting RFID:
 	SDA:D10
@@ -40,7 +42,7 @@
 
 
 //objecten declareren
-
+const byte interruptPin = 2; //interruptPin voor bluetooth
 MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
 LiquidCrystal_I2C lcd(0x27,16,2);   // initialize lcd
 Sensormodule module;
@@ -50,8 +52,10 @@ unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
 unsigned long beginloop;
-
+Bool actief;
 void setup(){
+  // actief
+  actief=true;
   // set up lcd
   lcd.init();
   lcd.backlight();
@@ -93,11 +97,20 @@ void setup(){
   // begintijd loop
   beginloop=millis();
 
+  //set up interrupts
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), StartBluetooth, CHANGE);
 }
 
 
 void loop(){
 
+if(actief==false){
+
+}
+
+
+else{
   // timing:
   currentmillis=millis();
   if(currentmillis>(lastmillis+updatetijd)){
@@ -228,7 +241,12 @@ lcd.print("sec");
 
 }
 
+}
 
+void StartBluetooth(){
+  actief=false;
+  detachInterrupt(digitalPinToInterrupt(interruptPin));
+}
 
 
 

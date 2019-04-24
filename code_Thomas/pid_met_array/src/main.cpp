@@ -209,7 +209,7 @@ lcd.setCursor(6,1);
 lcd.print(overigesec);
 lcd.setCursor(9,1);
 lcd.print("sec");
-
+Serial.println(" tijd uitgelezen naar lcd!!!###################################################");
 }
 
 
