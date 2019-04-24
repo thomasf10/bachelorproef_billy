@@ -13,11 +13,11 @@
 //  Arduino D2 (ASS RX) - BT TX no need voltage divider
 //  Arduino D4 (ASS TX) - BT RX through a voltage divider
 
-#include <AltSoftSerial.h>
+#include <SoftwareSerial.h>
 #include <EEPROM.h>
 #include "writeAnything.h"
 
-AltSoftSerial Bluetooth;
+SoftwareSerial Bluetooth(2, 4);
 
 // Variables gebruikt voor binnenkomende data
 const byte maxDataLength = 7;
