@@ -35,10 +35,21 @@
 #define CMD_REG_CONFIG  0x03
 
 // aantal gebruikte parameters
-#define updatetijd 120
-#define motorsnelheid 200 // 200
+#define updatetijd 130
+#define defaultmotorsnelheid 200 // 200
 #define minimumsnelheid 20
 //#define draaisnelheid 150
+
+//bluetooth
+// [start] --> starten met rijden
+// [stop] --> stoppen met rijden
+// [P200] --> verander P waarde naar 200 of welk getal er achter komt
+// idem voor I en D
+SoftwareSerial Bluetooth(2,4);
+// Variables gebruikt voor binnenkomende data
+const byte maxDataLength = 7;
+char receivedChars[7] ;
+boolean newCommand = false;
 
 
 //objecten declareren
@@ -52,10 +63,135 @@ unsigned long lastmillis;
 unsigned long currentmillis;
 bool rechtdoor;
 unsigned long beginloop;
-Bool actief;
+bool actief;
+int motorsnelheid;
+
+void processCommand()
+{
+  int Kp=0;
+  int Ki=0;
+  int Kd=0;
+  Serial.print("Ingave via App: ");
+  Serial.println(receivedChars);
+    if (strcmp ("stop",receivedChars) == 0)
+    {
+        actief = false;
+        Serial.println("Gestopt met rijden: ");
+        motors.set_motor_speed(0, 0, 0, 0);
+
+
+    }
+
+    else if (strcmp ("start",receivedChars) == 0)
+    {
+        actief = true;
+        Serial.println("Start rijden: ");
+        module.resetlasterror();
+        module.resetovertimeerror();
+
+
+
+
+    }
+
+    else if (strcmp("P",atoi(&receivedChars[0])) == 0)
+    {
+        Kp= atoi(&receivedChars[1]); //char array omzetten na P123415.. naar integer
+        Serial.print("P = ");
+        Serial.println(Kp);
+        Bluetooth.print("P = ");
+        Bluetooth.println(Kp);
+
+    }
+
+   else if (strcmp("I",atoi(&receivedChars[0])) == 0)
+    {
+        Ki= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
+        Serial.print("I = ");
+        Serial.println(Ki);
+        Bluetooth.print("I = ");
+        Bluetooth.println(Ki);
+
+    }
+
+   else if (strcmp("D",atoi(&receivedChars[0])) == 0)
+    {
+        Kd= atoi(&receivedChars[1]); //char array omzetten na D123415.. naar integer
+        Serial.print("D = ");
+        Serial.println(Kd);
+        Bluetooth.print("D = ");
+        Bluetooth.println(Kd);
+
+    }
+  else if(strcmp("S",atoi(&receivedChars[0]))==0){
+    motorsnelheid=atoi(&receivedChars[1]);
+    Serial.print("snelheid: ");
+    Serial.println(motorsnelheid);
+    Bluetooth.print("D = ");
+    Bluetooth.print(motorsnelheid);
+
+  }
+    module.set_pid_waarden(Kp, Ki, Kd);
+
+    //print waarden naar lcd
+    lcd.setCursor(0,0);
+    lcd.print("P");
+    lcd.setCursor(2,0);
+    lcd.print(module.getKp());
+    lcd.setCursor(5,0);
+    lcd.print("I");
+    lcd.setCursor(7,0);
+    lcd.print(module.getKi());
+    lcd.setCursor(11,0);
+    lcd.print("D");
+    lcd.setCursor(13,0);
+    lcd.print(module.getKd());
+
+    receivedChars[0] = '\0';
+    newCommand = false;
+
+}
+
+
+// functie recvWithStartEndMarkers
+// zie http://forum.arduino.cc/index.php?topic=288234.0
+
+void recvWithStartEndMarkers()
+{
+
+     static boolean recvInProgress=false;
+     static byte ndx=0;
+     char startMarker='[';
+     char endMarker=']';
+     char rc;
+
+     if(Bluetooth.available()>0){
+          rc=Bluetooth.read();
+          if(recvInProgress == true){
+               if(rc!=endMarker){
+                    receivedChars[ndx]=rc;
+                    ndx++;
+                    if(ndx>maxDataLength){ ndx=maxDataLength; }
+               }
+               else
+               {
+                     receivedChars[ndx]='\0'; // terminate the string
+                     recvInProgress=false;
+                     ndx=0;
+                     newCommand=true;
+               }
+          }
+          else if(rc == startMarker) { recvInProgress=true; }
+     }
+}
+
 void setup(){
+  // set snelheid
+  motorsnelheid=defaultmotorsnelheid;
+  //bluetooth
+  Bluetooth.begin(9600);
   // actief
-  actief=true;
+  actief=false;
   // set up lcd
   lcd.init();
   lcd.backlight();
@@ -97,20 +233,40 @@ void setup(){
   // begintijd loop
   beginloop=millis();
 
-  //set up interrupts
-  pinMode(interruptPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(interruptPin), StartBluetooth, CHANGE);
+  //print waarden naar lcd
+  lcd.setCursor(0,0);
+  lcd.print("P");
+  lcd.setCursor(2,0);
+  lcd.print(module.getKp());
+  lcd.setCursor(5,0);
+  lcd.print("I");
+  lcd.setCursor(7,0);
+  lcd.print(module.getKi());
+  lcd.setCursor(11,0);
+  lcd.print("D");
+  lcd.setCursor(13,0);
+  lcd.print(module.getKd());
+
 }
 
 
 void loop(){
-
+Serial.println("toestand:  ");
+Serial.println(actief);
 if(actief==false){
-
+  recvWithStartEndMarkers();                //checken of er nieuwe commando's worden ontvangen
+  if(newCommand){processCommand();}    //als er een nieuw commando is doe iets
+  Serial.println("in bluetooth loop");
 }
 
 
 else{
+  // stopknop checken
+  recvWithStartEndMarkers();                //checken of er nieuwe commando's worden ontvangen
+  if(newCommand){processCommand();}    //als er een nieuw commando is doe iets
+  //debug
+  module.print_constanten();
+
   // timing:
   currentmillis=millis();
   if(currentmillis>(lastmillis+updatetijd)){
@@ -227,26 +383,23 @@ Serial.println("rfid gevonden");
 unsigned long allesec=(millis()-beginloop)/1000;
 int min= allesec/60;
 int overigesec=allesec%60;
-lcd.clear();// duurt 2 ms
-lcd.setCursor(0,0);
-lcd.print("tijd:");
+
 lcd.setCursor(0,1);
+lcd.print("tijd:");
+lcd.setCursor(5,1);
 lcd.print(min);
-lcd.setCursor(2,1);
+lcd.setCursor(7,1);
 lcd.print("min");
-lcd.setCursor(6,1);
+lcd.setCursor(11,1);
 lcd.print(overigesec);
-lcd.setCursor(9,1);
+lcd.setCursor(13,1);
 lcd.print("sec");
 
-}
 
 }
-
-void StartBluetooth(){
-  actief=false;
-  detachInterrupt(digitalPinToInterrupt(interruptPin));
 }
+
+
 
 
 

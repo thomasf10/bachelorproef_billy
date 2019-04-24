@@ -1,9 +1,9 @@
 #include <arduino.h>
 #include "Sensormodule.h"
               // met snelheid 200:
-#define Kp 65 //60
-#define Ki 25 //32
-#define Kd 32 //40
+#define defaultKp 65
+#define defaultKi 25
+#define defaultKd 32
 #define drempel 500
 bool rechts,links;
 /* sensor module:
@@ -33,6 +33,9 @@ Sensormodule::Sensormodule(int pinL1,int pinL2, int pinL3, int pinR1, int pinR2,
   this->waarden=B00000000;
   this->lasterror=0;
   this->overtimeerror=0;
+  this->Kd=defaultKd;
+  this->Ki=defaultKi;
+  this->Kp=defaultKp;
   }
 
 void Sensormodule::update(){
@@ -157,7 +160,7 @@ switch (rechtersensoren) {
 
 error=errorlinks+errorrechts;
 
-  int pidvalue=Kp*error+Ki*overtimeerror+Kd*(error-lasterror);
+  int pidvalue=this->Kp*error+this->Ki*overtimeerror+this->Kd*(error-lasterror);
   this->overtimeerror+=error;
   this->lasterror=error;
 
@@ -204,4 +207,38 @@ uint8_t Sensormodule::getwaarden(){
      else {
        digitalWrite(13,LOW);
      }
+ }
+ void Sensormodule::set_pid_waarden(int Kp,int Ki,int Kd){
+   if(Kp!=0){
+       this->Kp=Kp;
+   }
+   if(Ki!=0){
+     this->Ki=Ki;
+   }
+   if(Kd!=0){
+   this->Kd=Kd;
+ }
+ }
+ void Sensormodule::print_constanten(){
+   Serial.println("Kp: ");
+   Serial.println(this->Kp);
+   Serial.println("Ki: ");
+   Serial.println(this->Ki);
+   Serial.println("Kd: ");
+   Serial.println(this->Kd);
+ }
+ int Sensormodule::getKd(){
+   return this->Kd;
+ }
+ int Sensormodule::getKi(){
+   return this->Ki;
+ }
+ int Sensormodule::getKp(){
+   return this->Kp;
+ }
+ void Sensormodule::resetlasterror(){
+   this->lasterror=0;
+ }
+ void Sensormodule::resetovertimeerror(){
+   this->overtimeerror=0;
  }
