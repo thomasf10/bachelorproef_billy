@@ -17,7 +17,7 @@
 #include <EEPROM.h>
 #include "writeAnything.h"
 
-AltSoftSerial Bluetooth;
+AltSoftSerial Bluetooth(2, 4);
 
 // Variables gebruikt voor binnenkomende data
 const byte maxDataLength = 7;
