@@ -34,9 +34,9 @@
 #define CMD_REG_CONFIG  0x03
 
 // aantal gebruikte parameters
-#define updatetijd 120
-#define defaultmotorsnelheid 200 // 200
-#define minimumsnelheid 20
+#define updatetijd 100 //130
+#define defaultmotorsnelheid 255 // 200
+#define minimumsnelheid 20 //20
 //#define draaisnelheid 150
 
 //bluetooth
@@ -86,6 +86,7 @@ void processCommand()
         Serial.println("Start rijden: ");
         module.resetlasterror();
         module.resetovertimeerror();
+        beginloop=millis();
     }
 
     else if (strcmp("P",atoi(&receivedChars[0])) == 0)
@@ -244,8 +245,8 @@ void setup(){
 
 
 void loop(){
-Serial.println("toestand:  ");
-Serial.println(actief);
+//Serial.println("toestand:  ");
+//Serial.println(actief);
 
 if(actief==false){
   // aan het comuniceren via bluetooth
@@ -256,10 +257,6 @@ if(actief==false){
 
 
 else{
-
-  //debug
-  module.print_constanten();
-
   // timing:
   currentmillis=millis();
   if(currentmillis>(lastmillis+updatetijd)){
@@ -277,7 +274,7 @@ else{
   pidvalue=module.calculatepid();
   Serial.println("pid: ");
   Serial.println(pidvalue);
-    if(pidvalue<minimumsnelheid){
+    if(pidvalue<0){
       //stuur naar rechts
       if(-pidvalue>255){
         //indien -pidavalue>255 dan max snelheid bereikt=>wielen in tegengestelde richting laten draaien
@@ -313,6 +310,8 @@ else{
           motors.set_motor_speed(motorsnelheid+pidvalue, motorsnelheid+pidvalue, motorsnelheid, motorsnelheid);
       }
     }
+
+
     else if(pidvalue>0){
         //stuur naar links
         if(pidvalue>255){
@@ -324,11 +323,11 @@ else{
           else{
             motors.i2C_write_reg(I2C_ADDRESS_DIR_MOTORS, CMD_REG_OUTPUT, B10100101);
             rechtdoor=false;
-            motors.set_motor_speed(255, 255, pidvalue-510, pidvalue-510);
+            motors.set_motor_speed(255, 255, pidvalue-255, pidvalue-255);
           }
 
         }
-        else if(motorsnelheid-pidvalue<0){
+        else if(motorsnelheid-pidvalue<minimumsnelheid){
           /*indien stuursignaal onder minimumsnelheid
           rechter wielen ook versnellen, ipv enkel
           linker wielen te vertragen
@@ -361,7 +360,8 @@ else{
 // RFID loop:
 //Serial.println("looking for tag");
 // stopknop checken
-recvWithStartEndMarkers();  //checken of er nieuwe commando's worden ontvangen
+recvWithStartEndMarkers();
+//Serial.println("looking for bluetoothhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");  //checken of er nieuwe commando's worden ontvangen
 if(newCommand){
   processCommand(); //als er een nieuw commando is doe iets
   return;

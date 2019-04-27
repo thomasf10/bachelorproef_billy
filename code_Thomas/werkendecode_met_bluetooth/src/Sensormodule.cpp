@@ -1,9 +1,9 @@
 #include <arduino.h>
 #include "Sensormodule.h"
               // met snelheid 200:
-#define defaultKp 65
-#define defaultKi 25
-#define defaultKd 32
+#define defaultKp 89 //60
+#define defaultKi 25 //32
+#define defaultKd 52 //40
 #define drempel 500
 bool rechts,links;
 /* sensor module:
@@ -161,7 +161,12 @@ switch (rechtersensoren) {
 error=errorlinks+errorrechts;
 
   int pidvalue=this->Kp*error+this->Ki*overtimeerror+this->Kd*(error-lasterror);
-  this->overtimeerror+=error;
+  Serial.println("fout: ");
+  Serial.println(error);
+  //overtime error begrenzen
+  if((this->overtimeerror<12 && error>0 )|| (this->overtimeerror>-12 && error<0)){
+    this->overtimeerror+=error;
+    }
   this->lasterror=error;
 
   return pidvalue;
