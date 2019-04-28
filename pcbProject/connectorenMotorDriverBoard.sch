@@ -166,39 +166,39 @@ Wire Wire Line
 Wire Wire Line
 	4925 2225 4925 2125
 Connection ~ 4925 2125
-Text HLabel 3825 2950 0    50   Input ~ 0
+Text HLabel 5250 2950 0    50   Input ~ 0
 A01
-Text HLabel 3825 3175 0    50   Input ~ 0
+Text HLabel 5250 3175 0    50   Input ~ 0
 A02
 $Comp
 L power:GND #PWR0125
 U 1 1 5C773A99
-P 4350 5350
-F 0 "#PWR0125" H 4350 5100 50  0001 C CNN
-F 1 "GND" H 4355 5177 50  0000 C CNN
-F 2 "" H 4350 5350 50  0001 C CNN
-F 3 "" H 4350 5350 50  0001 C CNN
-	1    4350 5350
+P 4975 5350
+F 0 "#PWR0125" H 4975 5100 50  0001 C CNN
+F 1 "GND" H 4980 5177 50  0000 C CNN
+F 2 "" H 4975 5350 50  0001 C CNN
+F 3 "" H 4975 5350 50  0001 C CNN
+	1    4975 5350
 	1    0    0    -1  
 $EndComp
-Text HLabel 4725 5575 0    50   Input ~ 0
+Text HLabel 5350 5575 0    50   Input ~ 0
 VM
-Text HLabel 3825 4650 0    50   Input ~ 0
+Text HLabel 5250 4650 0    50   Input ~ 0
 D01
-Text HLabel 3825 4875 0    50   Input ~ 0
+Text HLabel 5250 4875 0    50   Input ~ 0
 D02
-Text HLabel 3825 3550 0    50   Input ~ 0
+Text HLabel 5250 3550 0    50   Input ~ 0
 B01
-Text HLabel 3825 3775 0    50   Input ~ 0
+Text HLabel 5250 3775 0    50   Input ~ 0
 B02
-Text HLabel 3825 4125 0    50   Input ~ 0
+Text HLabel 5250 4125 0    50   Input ~ 0
 C01
-Text HLabel 3825 4350 0    50   Input ~ 0
+Text HLabel 5250 4350 0    50   Input ~ 0
 C02
 Wire Wire Line
-	4725 5575 4875 5575
+	5350 5575 5500 5575
 Wire Wire Line
-	4350 5250 4350 5350
+	4975 5250 4975 5350
 $Comp
 L Connector:Conn_01x03_Female J1
 U 1 1 5C9E617B
@@ -255,11 +255,7 @@ $EndComp
 Wire Wire Line
 	5550 5250 5550 5275
 Wire Wire Line
-	4350 5250 5550 5250
-Wire Wire Line
-	4875 5575 4875 5375
-Wire Wire Line
-	4875 5375 5550 5375
+	5500 5575 5500 5375
 $Comp
 L Connector:Conn_01x02_Female MD-1A1
 U 1 1 5C9FD7D9
@@ -304,38 +300,6 @@ F 3 "~" H 5625 2950 50  0001 C CNN
 	1    5625 2950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3825 2950 5425 2950
-Wire Wire Line
-	4975 3175 4975 3050
-Wire Wire Line
-	4975 3050 5425 3050
-Wire Wire Line
-	3825 3175 4975 3175
-Wire Wire Line
-	3825 3550 5425 3550
-Wire Wire Line
-	5000 3775 5000 3650
-Wire Wire Line
-	5000 3650 5425 3650
-Wire Wire Line
-	3825 3775 5000 3775
-Wire Wire Line
-	3825 4125 5425 4125
-Wire Wire Line
-	4950 4350 4950 4225
-Wire Wire Line
-	4950 4225 5425 4225
-Wire Wire Line
-	3825 4350 4950 4350
-Wire Wire Line
-	3825 4650 5425 4650
-Wire Wire Line
-	5025 4875 5025 4750
-Wire Wire Line
-	5025 4750 5425 4750
-Wire Wire Line
-	3825 4875 5025 4875
 $Comp
 L Connector:Conn_01x03_Female J2
 U 1 1 5CA0FE0A
@@ -359,4 +323,40 @@ Wire Wire Line
 	1450 1925 1450 2200
 Wire Wire Line
 	1450 2200 1925 2200
+Wire Wire Line
+	5250 4875 5350 4875
+Wire Wire Line
+	5350 4875 5350 4750
+Wire Wire Line
+	5350 4750 5425 4750
+Wire Wire Line
+	5250 4650 5425 4650
+Wire Wire Line
+	5250 4350 5350 4350
+Wire Wire Line
+	5350 4350 5350 4225
+Wire Wire Line
+	5350 4225 5425 4225
+Wire Wire Line
+	5250 4125 5425 4125
+Wire Wire Line
+	5250 3775 5325 3775
+Wire Wire Line
+	5325 3775 5325 3650
+Wire Wire Line
+	5325 3650 5425 3650
+Wire Wire Line
+	5425 3550 5250 3550
+Wire Wire Line
+	5250 2950 5425 2950
+Wire Wire Line
+	5250 3175 5325 3175
+Wire Wire Line
+	5325 3175 5325 3050
+Wire Wire Line
+	5325 3050 5425 3050
+Wire Wire Line
+	5550 5250 4975 5250
+Wire Wire Line
+	5500 5375 5550 5375
 $EndSCHEMATC
