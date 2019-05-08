@@ -1,0 +1,34 @@
+- P4 helemaal onderaan laatste zin: microprocessor vervangen door microcontroller? 
+of is dit exact hetzelfde? is hetzelfde hahaha
+
+- P7 laatste zin 1e paragraaf: DE IC vervangen door HET IC ? --> misschien best gewoon die zin weglaten, 
+want zelfde zin wordt vermeld in stuk eronder
+tis de ic, en ontkoppelen is belangrijk dus veel vermelden ahaha!
+
+- P9: De LED moduels worden aangesloten op een IO-expander 
+die met I2C aangesproken WORDEN. ( ipv wordt)
+IO-expander is enkelvoud dus wordt
+
+- P9: 2de blokje tekst: laatste zin: WORDEN deze pinnen niet gebruikt (ipv zijn) 
+ofwel: zijn deze pinnen overbodig
+worden na werden klinkt nogal vreemd nie?
+
+- P11: eerste blokje: spatie voor (zie figuur 15 rechts)
+yez
+
+- P11: Bij led modules, laatste lijn: 
+Dit probleem werd later verholpen met behulp van een softwarematige oplossing.
+klinkt vreemd
+
+- p11: bluetooth deel: als we zeggen welke pinenn we gebruiken misschien 
+ook meegeven dat dit de pinnen zijn op de arduino , niet die van de bluetooth module
+we zeggen digitale pin 2 en pin 4 dus da kan nie anders dan op de arduino zijn
+
+- P11: Deze module wordt gebruikt in samenwerking met ene Android app die gebruik maakt van bluetooth.
+(de app ondersteund geen bluetooth, de gsm wel, app maakt er gebruik van) 
+--> en eventueel weglaten wat de app doet, hebben we al enkele keren vermeld
+
+
+-P12/ RFID: eerste zin de 'we' weglaten omdat dit niet mag in een wetenschappelijk rapport
+Om de checkpoints te registreren wordt gebruik gemaakt van een RFID module ....
+yess
