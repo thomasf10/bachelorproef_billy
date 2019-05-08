@@ -1,0 +1,26 @@
+- Algemeen: enters achter titel zodat het overeenstemt met rest van rapport 
+ok
+- Algemeen ook bij hardeware, soms staat er I2C en soms I²C , laatste is beter
+ok
+
+-P13 eerste zin: 'een waarde van 0' --> van weglaten: een waarde 0
+een waarde van 0 is beter denk ik
+
+-P13: na verwijzing van figuur staat een ';' weet niet of dit correct is
+(ik zou nieuwe zin maken en punt zetten)
+le vriendin zei dat dit beter was hahaha
+
+- P13: laatste zin: met EEN tegengesteld teken ipv met HET tegengestelDE teken
+
+- P14: moet er naar links of naar rechts gedraait worden, misschien zeggen 
+dat de auto naar links of naar rechts draait zodat het niet slaat op de 
+draairichting van de wielen
+draairichting wielen is voor of achterui nooit links of rechts he
+
+- P14 BELANGRIJKE FOUT: Er staat in paragraaf 3.3.3:
+
+Als er errors optreden waardoor de PID-waarde groter dan nul wordt, 
+dan worden de linker wielen vertraagd waardoor de auto naar rechts 
+begint te draaien.
+--> als linkerwielen vertragen zal de auto naar links gaan niet naar rechts
+yez goed gezien
